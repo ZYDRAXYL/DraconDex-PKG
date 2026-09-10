@@ -65,6 +65,12 @@ for (const id of ids) {
   catch (e) { bad(id, `payload.json does not parse: ${e.message}`); continue; }
 
   if (meta.id !== id) bad(id, `pkg.json id is "${meta.id}" but the directory is "${id}"`);
+  // Must match DraconDex-EXE's validateEntry() in electron/src/db/pkg.js.
+  // These two rules disagreeing is worse than either being wrong: the
+  // package builds and publishes here, then the app silently drops it from
+  // the catalog. Caught exactly that way — theme-clearAurora built fine and
+  // would not install.
+  if (!/^[A-Za-z0-9][A-Za-z0-9-]{0,63}$/.test(id)) bad(id, `id "${id}" is not [A-Za-z0-9-], max 64`);
   if (!KINDS.has(meta.kind)) bad(id, `kind "${meta.kind}" is not one of ${[...KINDS].join(', ')}`);
   if (!semver.test(meta.version || '')) bad(id, `version "${meta.version}" is not x.y.z`);
   if (!Array.isArray(meta.targets) || !meta.targets.length) bad(id, 'targets must be a non-empty array');

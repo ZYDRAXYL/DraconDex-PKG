@@ -1,0 +1,16 @@
+{
+  "vars": {
+    "--bg": "#fdf3fb",
+    "--surface": "#ffffff",
+    "--raised": "#fbecf7",
+    "--hover": "#f6e0f2",
+    "--border": "#ecd2e9",
+    "--t1": "#3a2b46",
+    "--t2": "#6d5b7c",
+    "--t3": "#a493b3",
+    "--accent": "#d6249f",
+    "--accentH": "#7c3aed",
+    "--danger": "#fb7185",
+    "--success": "#22c55e"
+  }
+}

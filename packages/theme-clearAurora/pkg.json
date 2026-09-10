@@ -1,0 +1,15 @@
+{
+  "id": "theme-clearAurora",
+  "kind": "theme",
+  "name": "clearAurora",
+  "displayName": {
+    "en": "clearAurora",
+    "th": "clearAurora"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

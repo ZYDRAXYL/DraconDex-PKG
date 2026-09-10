@@ -1,0 +1,98 @@
+name: Release packages
+
+# Publishes the package catalog and every package payload as assets on a
+# `pkg-vX.Y.Z` release. The app fetches them over plain HTTPS from the release
+# download URL — never through api.github.com, which caps anonymous requests at
+# 60/hour PER IP. That limit is fine for one visitor and not fine for a shared
+# office or campus NAT, and this is a path every install hits.
+#
+# `pkg-v*` is a fourth tag namespace alongside `v*` (DraconDex-EXE),
+# `flutter-v*` (DraconDex-APK) and `sdb-v*` (DraconDex-SDB). Both apps' update
+# checkers filter the shared release list by prefix, so they ignore these by
+# construction.
+
+on:
+  push:
+    tags: ['pkg-v*']
+  pull_request:
+    paths: ['packages/**', 'tools/**', 'dist/**', '.github/workflows/release-packages.yml']
+  workflow_dispatch:
+    inputs:
+      draft:
+        description: 'Publish as a draft release'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-packages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # dist/ is committed, so a PR that edits a package without rebuilding
+      # would publish a catalog that disagrees with its own payloads. This is
+      # what stops that reaching a release.
+      - name: Packages are valid and dist/ is current
+        run: npm run check
+
+      - name: Resolve tag
+        id: meta
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          tag="${GITHUB_REF#refs/tags/}"
+          [ "${tag#refs/}" = "$tag" ] || tag="pkg-v$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          # A tag whose version disagrees with package.json publishes a catalog
+          # announcing a release name that does not match its own tag, and every
+          # installed package then records a provenance that cannot be resolved.
+          if [ "$tag" != "pkg-v$version" ]; then
+            echo "::error::tag $tag does not match package.json version $version (expected pkg-v$version)"
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages-${{ steps.meta.outputs.version }}
+          path: dist/
+          retention-days: 30
+
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm run build
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          tag="pkg-v$version"
+          notes="$(node -p "
+            const d=require('./dist/index.json');
+            const by={};for(const p of d.packages)(by[p.kind]??=[]).push(p.id);
+            Object.entries(by).map(([k,v])=>'**'+k+'** — '+v.join(', ')).join('\n\n')
+          ")"
+          gh release create "$tag" dist/* \
+            --title "Packages $version" \
+            --notes "$notes" \
+            ${{ github.event.inputs.draft == 'false' && ' ' || '--draft' }} \
+            || gh release upload "$tag" dist/* --clobber

@@ -1,0 +1,129 @@
+{
+  "catalogVersion": 1,
+  "repo": "ZYDRAXYL/DraconDex-PKG",
+  "release": "pkg-v1.0.0",
+  "packages": [
+    {
+      "id": "lang-ja",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "JP - 日本語",
+        "th": "JP - 日本語"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-ja-1.0.0.json",
+      "sha256": "9c19f61336257a5a620d2567bbab8c314269cf135627627910a9e8382bce9560",
+      "bytes": 55807
+    },
+    {
+      "id": "lang-ko",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "KR - 한국어",
+        "th": "KR - 한국어"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-ko-1.0.0.json",
+      "sha256": "a2e02149ef5ece7807f24cd3c1b94312c1b84b0bdf7eff9082d0a594234340fe",
+      "bytes": 50646
+    },
+    {
+      "id": "theme-atDusk",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atDusk",
+        "th": "atDusk"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atDusk-1.0.0.json",
+      "sha256": "64ea3f7829593a45031efd1c72e95f2cee39e8ce036c756398e0a66197a71bf7",
+      "bytes": 722
+    },
+    {
+      "id": "theme-clearAurora",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearAurora",
+        "th": "clearAurora"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearAurora-1.0.0.json",
+      "sha256": "dcc70a70d9293f84fdb303f16e390593d56b777862be71cb865639fe88176e35",
+      "bytes": 793
+    },
+    {
+      "id": "theme-midnight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "midnight",
+        "th": "midnight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-midnight-1.0.0.json",
+      "sha256": "c335c90d3456d02272d7431ff2a2568af754aef333a37303969742a33ccb8350",
+      "bytes": 701
+    },
+    {
+      "id": "theme-rainbow",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "rainbow",
+        "th": "rainbow"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-rainbow-1.0.0.json",
+      "sha256": "8499fae63f419fd40049f8f3628f95b340f5c924d145a7c0bae936f83ef05fa9",
+      "bytes": 697
+    },
+    {
+      "id": "view-compact",
+      "kind": "view",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Compact",
+        "th": "กะทัดรัด"
+      },
+      "description": {
+        "en": "A denser workspace: smaller UI scale, tighter type, fast animations, and the Drake layout with labels always shown.",
+        "th": "พื้นที่ทำงานแบบแน่นขึ้น — ย่อ UI, ตัวอักษรเล็กลง, อนิเมชันเร็ว, เลย์เอาต์ Drake พร้อมป้ายกำกับตลอด"
+      },
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "view-compact-1.0.0.json",
+      "sha256": "004f472f0d7e8498ac58e5b8fed2992193ef4f4ef649d5af58c77e0e5ca86290",
+      "bytes": 1339
+    }
+  ]
+}

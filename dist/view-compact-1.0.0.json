@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "id": "view-compact",
+    "kind": "view",
+    "name": "compact",
+    "displayName": {
+      "en": "Compact",
+      "th": "กะทัดรัด"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "description": {
+      "en": "A denser workspace: smaller UI scale, tighter type, fast animations, and the Drake layout with labels always shown.",
+      "th": "พื้นที่ทำงานแบบแน่นขึ้น — ย่อ UI, ตัวอักษรเล็กลง, อนิเมชันเร็ว, เลย์เอาต์ Drake พร้อมป้ายกำกับตลอด"
+    },
+    "source": "authored — a preset over the app's existing UI settings, no new behaviour"
+  },
+  "payload": {
+    "_comment": "A view package is a preset over settings the app already has. Every key here must be one applyUiSettings()/setUiSetting() already validates, so a package can never introduce a setting the app does not understand — the installer rejects unknown keys rather than storing them.",
+    "settings": {
+      "size": 90,
+      "fontScale": 92,
+      "animationsEnabled": true,
+      "animationSpeed": "fast",
+      "workspaceStyle": "drake",
+      "navVerticalAlwaysLabel": true,
+      "nestShowItems": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "theme-atDusk",
+    "kind": "theme",
+    "name": "atDusk",
+    "displayName": {
+      "en": "atDusk",
+      "th": "atDusk"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#1a0f2e",
+      "--surface": "#241640",
+      "--raised": "#2f1d52",
+      "--hover": "#3a2563",
+      "--border": "#46296e",
+      "--t1": "#f3e8ff",
+      "--t2": "#c4a8dd",
+      "--t3": "#8870a8",
+      "--accent": "#b24bf3",
+      "--accentH": "#c9748a",
+      "--button": "#d6473c",
+      "--danger": "#fb7185",
+      "--success": "#22c55e"
+    }
+  }
+}

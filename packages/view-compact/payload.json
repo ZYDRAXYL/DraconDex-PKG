@@ -1,0 +1,12 @@
+{
+  "_comment": "A view package is a preset over settings the app already has. Every key here must be one applyUiSettings()/setUiSetting() already validates, so a package can never introduce a setting the app does not understand — the installer rejects unknown keys rather than storing them.",
+  "settings": {
+    "size": 90,
+    "fontScale": 92,
+    "animationsEnabled": true,
+    "animationSpeed": "fast",
+    "workspaceStyle": "drake",
+    "navVerticalAlwaysLabel": true,
+    "nestShowItems": true
+  }
+}

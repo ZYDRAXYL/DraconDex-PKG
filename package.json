@@ -1,0 +1,15 @@
+{
+  "name": "@zydraxyl/dracondex-pkg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Downloadable theme, language and view packages for DraconDex",
+  "license": "MIT",
+  "type": "module",
+  "repository": { "type": "git", "url": "https://github.com/ZYDRAXYL/DraconDex-PKG.git" },
+  "scripts": {
+    "build": "node tools/build-packages.mjs",
+    "check": "node tools/build-packages.mjs --check",
+    "chain:survey": "node tools/chain-survey.mjs",
+    "chain:propagate": "node tools/chain-propagate.mjs"
+  }
+}

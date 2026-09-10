@@ -1,0 +1,15 @@
+{
+  "id": "lang-ja",
+  "kind": "lang",
+  "name": "ja",
+  "displayName": {
+    "en": "JP - 日本語",
+    "th": "JP - 日本語"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/src/renderer/i18n.js"
+}

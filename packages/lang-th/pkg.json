@@ -1,0 +1,15 @@
+{
+  "id": "lang-th",
+  "kind": "lang",
+  "name": "th",
+  "displayName": {
+    "en": "TH - ไทย",
+    "th": "TH - ไทย"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/src/renderer/i18n.js"
+}

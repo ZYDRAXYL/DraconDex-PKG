@@ -1,8 +1,110 @@
 {
   "catalogVersion": 1,
   "repo": "ZYDRAXYL/DraconDex-PKG",
-  "release": "pkg-v1.0.0",
+  "release": "pkg-v1.1.0",
   "packages": [
+    {
+      "id": "lang-de",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "DE - Deutsch",
+        "th": "DE - Deutsch"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-de-1.0.0.json",
+      "sha256": "4b3d48f4cf9c85f39bbc8c1499f20db634c38a6f0bd28b9ecaa51355c488895c",
+      "bytes": 54858
+    },
+    {
+      "id": "lang-en",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "ENG - English",
+        "th": "ENG - English"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-en-1.0.0.json",
+      "sha256": "a2613c6c7a2321b890bf81e850634bc97c2e54898d71c0c79366031e1d5467c0",
+      "bytes": 50367
+    },
+    {
+      "id": "lang-es",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "ES - Español",
+        "th": "ES - Español"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-es-1.0.0.json",
+      "sha256": "e936d987d0cee080216538c1714d16e76053c73278451eb5b60a56a55eb29c7a",
+      "bytes": 54819
+    },
+    {
+      "id": "lang-fr",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "FR - Français",
+        "th": "FR - Français"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-fr-1.0.0.json",
+      "sha256": "d437d43b8a9c2e76591b2a7cadcec3b54f1196d1aa947972e7139a9ae8009075",
+      "bytes": 55839
+    },
+    {
+      "id": "lang-id",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "ID - Bahasa Indonesia",
+        "th": "ID - Bahasa Indonesia"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-id-1.0.0.json",
+      "sha256": "b225d92958b10a35313dbf289ff613f26e1d3c8730f5f641f6f4f48dab089704",
+      "bytes": 51554
+    },
+    {
+      "id": "lang-it",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "IT - Italiano",
+        "th": "IT - Italiano"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-it-1.0.0.json",
+      "sha256": "51d7b2f02e89e39f5344ae639e29ea41280383db1a841d62f57862bda7c421b6",
+      "bytes": 54118
+    },
     {
       "id": "lang-ja",
       "kind": "lang",
@@ -38,6 +140,295 @@
       "bytes": 50646
     },
     {
+      "id": "lang-nl",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "NL - Nederlands",
+        "th": "NL - Nederlands"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-nl-1.0.0.json",
+      "sha256": "e586bf43b48aff9be31e97384f04511e57a63a21d47282551dfb7d4ef2b6fe61",
+      "bytes": 53508
+    },
+    {
+      "id": "lang-pl",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "PL - Polski",
+        "th": "PL - Polski"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-pl-1.0.0.json",
+      "sha256": "20347457b25f87dc50ad4ef90fd8fdb77830807ccba3b6a0107c5b9766fc48a0",
+      "bytes": 54116
+    },
+    {
+      "id": "lang-pt",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "PT - Português (Brasil)",
+        "th": "PT - Português (Brasil)"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-pt-1.0.0.json",
+      "sha256": "9595539409d965e6c790c1cf897b60feba525ff3cf835090ef3d9e6b03cb5851",
+      "bytes": 54238
+    },
+    {
+      "id": "lang-qd",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "🐉 Draconic",
+        "th": "🐉 Draconic"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-qd-1.0.0.json",
+      "sha256": "ab8fad4085853d0bfb3f64a4f33d84c003c53a7de98ad03e96ff50799d256b05",
+      "bytes": 51691
+    },
+    {
+      "id": "lang-ru",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "RU - Русский",
+        "th": "RU - Русский"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-ru-1.0.0.json",
+      "sha256": "1488a5a2b8fe6d90908496882f962446168b86f20edc9a9979ad0dcfe8762c73",
+      "bytes": 72388
+    },
+    {
+      "id": "lang-th",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "TH - ไทย",
+        "th": "TH - ไทย"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-th-1.0.0.json",
+      "sha256": "a4d5f5ed0bb46d26d4fd80ab5dbb6f83a3bcb878bfda38e32b75b8e73aed2414",
+      "bytes": 82299
+    },
+    {
+      "id": "lang-tr",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "TR - Türkçe",
+        "th": "TR - Türkçe"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-tr-1.0.0.json",
+      "sha256": "43f0948a556e0cc13fa25ed54279c7e157866a67293f1efab3618c5eeff50f6b",
+      "bytes": 53902
+    },
+    {
+      "id": "lang-uk",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "UA - Українська",
+        "th": "UA - Українська"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-uk-1.0.0.json",
+      "sha256": "6c63425aa100e72fec6b9a9b098eaa4652807f39517ffeb4239c340dff298165",
+      "bytes": 72361
+    },
+    {
+      "id": "lang-vi",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "VI - Tiếng Việt",
+        "th": "VI - Tiếng Việt"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-vi-1.0.0.json",
+      "sha256": "5df8106e207ea09f93461ad28ef7a93c701c8a8a5e5e6c6ca3bdc152bf55a7aa",
+      "bytes": 57303
+    },
+    {
+      "id": "lang-zh",
+      "kind": "lang",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "CN - 中文",
+        "th": "CN - 中文"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "lang-zh-1.0.0.json",
+      "sha256": "a8e8a4791c85af6066d4858a3727b79eaaa106df58ede88c446cb3ec8b2a3bed",
+      "bytes": 49813
+    },
+    {
+      "id": "theme-afterRain",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "afterRain",
+        "th": "afterRain"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-afterRain-1.0.0.json",
+      "sha256": "7183f877c95c5486c04ca26d49fb328ed4d1ed33c0e6e1b37bdec602b517ccfc",
+      "bytes": 785
+    },
+    {
+      "id": "theme-afterSnow",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "afterSnow",
+        "th": "afterSnow"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-afterSnow-1.0.0.json",
+      "sha256": "76683117c5e55aa60175f6c0700b7aaeaee125ca274760651043308cbd6d20c4",
+      "bytes": 705
+    },
+    {
+      "id": "theme-afterStorm",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "afterStorm",
+        "th": "afterStorm"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-afterStorm-1.0.0.json",
+      "sha256": "78d034aba4e5c6a62b921e83f7e5036a0d166afc8af28fabb34e21d80d349d9d",
+      "bytes": 778
+    },
+    {
+      "id": "theme-afterSunset",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "afterSunset",
+        "th": "afterSunset"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-afterSunset-1.0.0.json",
+      "sha256": "5bf3c9b5830176b5599d67f709825686d27bdf41486a498e3ab0fabe1ba5e08e",
+      "bytes": 793
+    },
+    {
+      "id": "theme-atDawn",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atDawn",
+        "th": "atDawn"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atDawn-1.0.0.json",
+      "sha256": "4ff203a02baf77295e549519eed145f2c1b3813131f4d522276990f33e84989b",
+      "bytes": 802
+    },
+    {
+      "id": "theme-atDay",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atDay",
+        "th": "atDay"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atDay-1.0.0.json",
+      "sha256": "b0ee7a3b70e64b2da2142a89ac6d9e6afbd12b323f038db3d2cb6bd38f711a61",
+      "bytes": 798
+    },
+    {
+      "id": "theme-atDaybreak",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atDaybreak",
+        "th": "atDaybreak"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atDaybreak-1.0.0.json",
+      "sha256": "6f40bd4ea1096ed57f49141d30d1b234df0c243e404665604cd68ee660978904",
+      "bytes": 709
+    },
+    {
       "id": "theme-atDusk",
       "kind": "theme",
       "version": "1.0.0",
@@ -53,6 +444,159 @@
       "asset": "theme-atDusk-1.0.0.json",
       "sha256": "64ea3f7829593a45031efd1c72e95f2cee39e8ce036c756398e0a66197a71bf7",
       "bytes": 722
+    },
+    {
+      "id": "theme-atEvening",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atEvening",
+        "th": "atEvening"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atEvening-1.0.0.json",
+      "sha256": "80aada71e0e9ba0331e705f5ccbf6b9188f6790141ced2b2e6dda8b0915b942f",
+      "bytes": 785
+    },
+    {
+      "id": "theme-atMidnight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atMidnight",
+        "th": "atMidnight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atMidnight-1.0.0.json",
+      "sha256": "a5745b426c90808fb7fd9f8bde6885de8746499e856c63920de91ea523569a27",
+      "bytes": 709
+    },
+    {
+      "id": "theme-atMorning",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atMorning",
+        "th": "atMorning"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atMorning-1.0.0.json",
+      "sha256": "e520e75d096ce578b4672deb461b4c060272c49e490beff765752c6d50650fff",
+      "bytes": 774
+    },
+    {
+      "id": "theme-atNight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atNight",
+        "th": "atNight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atNight-1.0.0.json",
+      "sha256": "b73a1a798e726978631cfde011939cc683a20fcb68ee0045744b0896809bfb57",
+      "bytes": 777
+    },
+    {
+      "id": "theme-atNoon",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atNoon",
+        "th": "atNoon"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atNoon-1.0.0.json",
+      "sha256": "85fb27b19072edd843b71fb25ecbaf2a68475ff01ae082251a6308c274530688",
+      "bytes": 722
+    },
+    {
+      "id": "theme-atSunrise",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atSunrise",
+        "th": "atSunrise"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atSunrise-1.0.0.json",
+      "sha256": "35f977cac1825d92a1aa55610db2f1643228024adf301d9c29ba8e916b394f4b",
+      "bytes": 774
+    },
+    {
+      "id": "theme-atSunset",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atSunset",
+        "th": "atSunset"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atSunset-1.0.0.json",
+      "sha256": "9086599e91a1981ea97a38281cb9b2d512dbcea18e59ca0a75d9b514a5640481",
+      "bytes": 810
+    },
+    {
+      "id": "theme-atTwilight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "atTwilight",
+        "th": "atTwilight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-atTwilight-1.0.0.json",
+      "sha256": "4a94b470c64891f284051f0e6297424a52aabc87fd304bb0a1d779661805e65e",
+      "bytes": 709
+    },
+    {
+      "id": "theme-blueEclipse",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "blueEclipse",
+        "th": "blueEclipse"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-blueEclipse-1.0.0.json",
+      "sha256": "17c1fed8840087ba7368ea9d9b66dac62d9d249fcb19eb516f74430a5119771e",
+      "bytes": 782
     },
     {
       "id": "theme-clearAurora",
@@ -72,6 +616,176 @@
       "bytes": 793
     },
     {
+      "id": "theme-clearComet",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearComet",
+        "th": "clearComet"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearComet-1.0.0.json",
+      "sha256": "91bb2d274516205d656d8469db29370a3307584968ffb387572648b908f071f0",
+      "bytes": 789
+    },
+    {
+      "id": "theme-clearDusk",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearDusk",
+        "th": "clearDusk"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearDusk-1.0.0.json",
+      "sha256": "6717ad3ab188f0426f274a8cab54d0366ca6542f83cf201c340b3b05face1d84",
+      "bytes": 705
+    },
+    {
+      "id": "theme-clearGalaxy",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearGalaxy",
+        "th": "clearGalaxy"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearGalaxy-1.0.0.json",
+      "sha256": "fb964e04f0f52ca1375ce901d7adba76109775b335a84e4c59c318a62a6cbd4b",
+      "bytes": 713
+    },
+    {
+      "id": "theme-clearMeteor",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearMeteor",
+        "th": "clearMeteor"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearMeteor-1.0.0.json",
+      "sha256": "3eb8a52b3108723d02e9d4019d78be57302c387a8f9f12ce6e50e8e0028a4694",
+      "bytes": 782
+    },
+    {
+      "id": "theme-clearMoon",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearMoon",
+        "th": "clearMoon"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearMoon-1.0.0.json",
+      "sha256": "eeee180c59c45d2c5820916d4ace2673293fc02ba9c1b20f68e45a9e9e586169",
+      "bytes": 705
+    },
+    {
+      "id": "theme-clearNebula",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearNebula",
+        "th": "clearNebula"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearNebula-1.0.0.json",
+      "sha256": "20ceb9a002dc525455c26ef9588ef30a7091f3f535187b630138a9b6c7c629d6",
+      "bytes": 713
+    },
+    {
+      "id": "theme-clearSky",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearSky",
+        "th": "clearSky"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearSky-1.0.0.json",
+      "sha256": "58d8adf9d3b3e0bbea8ce68101f8369f5963fa511089de5ccb1dcb43ae106ec5",
+      "bytes": 770
+    },
+    {
+      "id": "theme-clearStar",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearStar",
+        "th": "clearStar"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearStar-1.0.0.json",
+      "sha256": "bd049f27bd41d60f80e72371c519e1504bc1afcab3b3a496ede38932a55fd0f2",
+      "bytes": 705
+    },
+    {
+      "id": "theme-clearSun",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "clearSun",
+        "th": "clearSun"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-clearSun-1.0.0.json",
+      "sha256": "261dbe3222374052ea012005156e11fac06240de38e9e098d4f9b45c7e2b1618",
+      "bytes": 770
+    },
+    {
+      "id": "theme-daylight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "daylight",
+        "th": "daylight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-daylight-1.0.0.json",
+      "sha256": "a724e59cfd9e4d85215f5b49912f3dcc3a4d8e16e5829c5f5be750de51849f91",
+      "bytes": 701
+    },
+    {
       "id": "theme-midnight",
       "kind": "theme",
       "version": "1.0.0",
@@ -89,6 +803,23 @@
       "bytes": 701
     },
     {
+      "id": "theme-moonlight",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "moonlight",
+        "th": "moonlight"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-moonlight-1.0.0.json",
+      "sha256": "526c94a6564faadd5eca6d02f80ba2ec583f1a19205f7410a4a79d6302ed3f56",
+      "bytes": 785
+    },
+    {
       "id": "theme-rainbow",
       "kind": "theme",
       "version": "1.0.0",
@@ -104,6 +835,91 @@
       "asset": "theme-rainbow-1.0.0.json",
       "sha256": "8499fae63f419fd40049f8f3628f95b340f5c924d145a7c0bae936f83ef05fa9",
       "bytes": 697
+    },
+    {
+      "id": "theme-redEclipse",
+      "kind": "theme",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "redEclipse",
+        "th": "redEclipse"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "theme-redEclipse-1.0.0.json",
+      "sha256": "44769f7b15c6d8851350b36d242c23b471433d925667f095ee27073081ab442a",
+      "bytes": 709
+    },
+    {
+      "id": "uistyle-cleanMinimal",
+      "kind": "uistyle",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Clean minimal",
+        "th": "Clean minimal"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "uistyle-cleanMinimal-1.0.0.json",
+      "sha256": "558169728cda93e45eeb2db7fcb96b4eb45dedd2c7831631a4e988d99360edea",
+      "bytes": 663
+    },
+    {
+      "id": "uistyle-fluent",
+      "kind": "uistyle",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Fluent style",
+        "th": "Fluent style"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "uistyle-fluent-1.0.0.json",
+      "sha256": "dbc7d1e96543315ffb01fc924c134b611ff068492be171da6c45d5df02de8d83",
+      "bytes": 656
+    },
+    {
+      "id": "uistyle-hardBlock",
+      "kind": "uistyle",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Hard block",
+        "th": "Hard block"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "uistyle-hardBlock-1.0.0.json",
+      "sha256": "950e3e8bffd6b86d358449bbaabbc8e51cc8899577fe44c8303c38353ec6f4e3",
+      "bytes": 648
+    },
+    {
+      "id": "uistyle-roundedMinimal",
+      "kind": "uistyle",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Rounded minimal",
+        "th": "Rounded minimal"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "4.16.0",
+      "asset": "uistyle-roundedMinimal-1.0.0.json",
+      "sha256": "97c746b81790569a61a31e7242473603fd150b59c5b6b859ebbae2d385603435",
+      "bytes": 678
     },
     {
       "id": "view-compact",

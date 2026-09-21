@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const CHECK = process.argv.includes('--check');
-const KINDS = new Set(['theme', 'lang', 'view']);
+const KINDS = new Set(['theme', 'lang', 'view', 'uistyle']);
 const TARGETS = new Set(['exe', 'apk']);
 
 // The 15 palette tokens a theme may set. Not a guess — this is every token that
@@ -47,6 +47,13 @@ const THEME_TOKENS = new Set(['--bg','--surface','--raised','--hover','--border'
 const VIEW_SETTINGS = new Set(['size','fontScale','animationsEnabled','animationSpeed',
   'workspaceStyle','navOrientation','navHorizontalDisplay','navVerticalAlwaysLabel',
   'nameMode','nestShowItems','nestShowMajorIcon','nestShowMinorIcon','nestSignatureMode','dragonView']);
+
+// The 7 shape/elevation tokens a uistyle package may set — every one of the
+// custom properties DraconDex-EXE's electron/css/ui-style.css assigns per
+// body[data-ui-style="<name>"]. Unlike theme's 12-of-15 split there is no
+// optional subset here: all 7 are required, because ui-style.css itself sets
+// all 7 in every one of its preset blocks.
+const UISTYLE_TOKENS = ['--r','--rs','--rl','--shadow-pop','--shadow-float','--shadow-menu','--shadow-modal'];
 
 const problems = [];
 const bad = (id, msg) => problems.push(`${id}: ${msg}`);
@@ -100,6 +107,11 @@ for (const id of ids) {
     const s = payload.settings || {};
     if (!Object.keys(s).length) bad(id, 'a view package has no settings');
     for (const k of Object.keys(s)) if (!VIEW_SETTINGS.has(k)) bad(id, `"${k}" is not a settable UI setting`);
+  } else if (meta.kind === 'uistyle') {
+    const vars = payload.vars || {};
+    const keys = Object.keys(vars);
+    for (const k of keys) if (!UISTYLE_TOKENS.includes(k)) bad(id, `unknown ui-style token "${k}"`);
+    for (const req of UISTYLE_TOKENS) if (!vars[req]) bad(id, `uistyle is missing the required token ${req}`);
   }
 
   const body = JSON.stringify({ meta, payload }, null, 2) + '\n';

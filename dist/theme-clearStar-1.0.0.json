@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "id": "theme-clearStar",
+    "kind": "theme",
+    "name": "clearStar",
+    "displayName": {
+      "en": "clearStar",
+      "th": "clearStar"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#0a1128",
+      "--surface": "#101d42",
+      "--raised": "#16254f",
+      "--hover": "#1d2f61",
+      "--border": "#34285e",
+      "--t1": "#f5f3ff",
+      "--t2": "#b9b6d9",
+      "--t3": "#6f6a94",
+      "--accent": "#7c3aed",
+      "--accentH": "#c4b5fd",
+      "--danger": "#ef4444",
+      "--success": "#22c55e"
+    }
+  }
+}

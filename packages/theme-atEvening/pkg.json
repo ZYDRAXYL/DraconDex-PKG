@@ -1,0 +1,15 @@
+{
+  "id": "theme-atEvening",
+  "kind": "theme",
+  "name": "atEvening",
+  "displayName": {
+    "en": "atEvening",
+    "th": "atEvening"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

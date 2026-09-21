@@ -1,0 +1,18 @@
+{
+  "vars": {
+    "--bg": "#05050f",
+    "--surface": "#0b0b1f",
+    "--raised": "#10102c",
+    "--hover": "#161638",
+    "--border": "#1c1c44",
+    "--t1": "#e8e8f5",
+    "--t2": "#9797b8",
+    "--t3": "#55557a",
+    "--accent": "#191970",
+    "--accentH": "#000080",
+    "--button": "#c9ccd4",
+    "--danger": "#ef4444",
+    "--success": "#22c55e",
+    "--on-button": "var(--ink-dark)"
+  }
+}

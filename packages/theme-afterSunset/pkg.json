@@ -1,0 +1,15 @@
+{
+  "id": "theme-afterSunset",
+  "kind": "theme",
+  "name": "afterSunset",
+  "displayName": {
+    "en": "afterSunset",
+    "th": "afterSunset"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "lang-uk",
+  "kind": "lang",
+  "name": "uk",
+  "displayName": {
+    "en": "UA - Українська",
+    "th": "UA - Українська"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/src/renderer/i18n.js"
+}

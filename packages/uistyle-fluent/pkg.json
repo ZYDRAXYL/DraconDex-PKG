@@ -1,0 +1,15 @@
+{
+  "id": "uistyle-fluent",
+  "kind": "uistyle",
+  "name": "fluent",
+  "displayName": {
+    "en": "Fluent style",
+    "th": "Fluent style"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/ui-style.css"
+}

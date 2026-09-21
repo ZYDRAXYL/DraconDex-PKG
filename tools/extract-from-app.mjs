@@ -3,6 +3,7 @@
 //
 //   node tools/extract-from-app.mjs --exe ../DraconDex-EXE --theme midnight atDusk
 //   node tools/extract-from-app.mjs --exe ../DraconDex-EXE --lang ja ko
+//   node tools/extract-from-app.mjs --exe ../DraconDex-EXE --uistyle fluent hardBlock
 //
 // This exists because the data ALREADY IS data — themes.css says so in its own
 // header ("adding a theme = one block here + one entry in UI_THEME_OPTIONS"),
@@ -40,6 +41,20 @@ function writePackage(id, meta, payload) {
   console.log(`  wrote packages/${id}/`);
 }
 
+// Shared by --theme and --uistyle: turn a `{ --tok: val; ... }` block body
+// into a { '--tok': 'val' } map. Comments are stripped first — ui-style.css's
+// hardBlock block carries one between declarations, and a naive split(';')
+// merges the comment into the following declaration, silently dropping it
+// (caught extracting hardBlock: 6 tokens came out instead of 7).
+function parseCssVarBlock(body) {
+  const vars = {};
+  for (const decl of body.replace(/\/\*[\s\S]*?\*\//g, '').split(';')) {
+    const [k, v] = decl.split(':').map(s => s && s.trim());
+    if (k && v && k.startsWith('--')) vars[k] = v;
+  }
+  return vars;
+}
+
 // ---- themes -----------------------------------------------------------------
 const themes = listAfter('--theme');
 if (themes.length) {
@@ -52,11 +67,7 @@ if (themes.length) {
     const re = new RegExp(`body\\[data-theme="${name}"\\]\\s*\\{([^}]*)\\}`);
     const m = re.exec(css);
     if (!m) { console.error(`::error::no body[data-theme="${name}"] block in themes.css`); process.exit(1); }
-    const vars = {};
-    for (const decl of m[1].split(';')) {
-      const [k, v] = decl.split(':').map(s => s && s.trim());
-      if (k && v && k.startsWith('--')) vars[k] = v;
-    }
+    const vars = parseCssVarBlock(m[1]);
     writePackage(`theme-${name}`, {
       id: `theme-${name}`, kind: 'theme', name,
       displayName: { en: name, th: name },
@@ -95,6 +106,37 @@ if (langs.length) {
   }
 }
 
-if (!themes.length && !langs.length) {
-  console.log('nothing to do — pass --theme <names...> and/or --lang <codes...>');
+// ---- ui styles --------------------------------------------------------------
+// ui-style.css carries no label table the way i18n.js's LANGUAGE_LABELS does
+// for langs, so displayName comes from this small local map instead — matches
+// setting-window.js's UI_STYLE_LABEL_KEY English side. 'oldPlain' is
+// deliberately absent: it IS tokens.css's own defaults, with no
+// body[data-ui-style="oldPlain"] block to extract from.
+const UISTYLE_LABELS = {
+  roundedMinimal: 'Rounded minimal', cleanMinimal: 'Clean minimal',
+  fluent: 'Fluent style', hardBlock: 'Hard block',
+};
+const uistyles = listAfter('--uistyle');
+if (uistyles.length) {
+  const css = need('electron/css/ui-style.css');
+  for (const name of uistyles) {
+    // Same literal-selector match as --theme: one body[data-ui-style="<name>"]
+    // block per preset in ui-style.css.
+    const re = new RegExp(`body\\[data-ui-style="${name}"\\]\\s*\\{([^}]*)\\}`);
+    const m = re.exec(css);
+    if (!m) { console.error(`::error::no body[data-ui-style="${name}"] block in ui-style.css`); process.exit(1); }
+    const vars = parseCssVarBlock(m[1]);
+    const label = UISTYLE_LABELS[name] || name;
+    writePackage(`uistyle-${name}`, {
+      id: `uistyle-${name}`, kind: 'uistyle', name,
+      displayName: { en: label, th: label },
+      version: '1.0.0', targets: ['exe'], minAppVersion: '4.16.0',
+      source: 'extracted from DraconDex-EXE electron/css/ui-style.css',
+    }, { vars });
+    console.log(`    ${name}: ${Object.keys(vars).length} tokens`);
+  }
+}
+
+if (!themes.length && !langs.length && !uistyles.length) {
+  console.log('nothing to do — pass --theme <names...>, --lang <codes...> and/or --uistyle <names...>');
 }

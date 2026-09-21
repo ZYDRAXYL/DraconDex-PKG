@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "theme-clearSun",
+    "kind": "theme",
+    "name": "clearSun",
+    "displayName": {
+      "en": "clearSun",
+      "th": "clearSun"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#eaf6ff",
+      "--surface": "#ffffff",
+      "--raised": "#d8eeff",
+      "--hover": "#c2e3ff",
+      "--border": "#a5d0f0",
+      "--t1": "#173a52",
+      "--t2": "#436078",
+      "--t3": "#8098ab",
+      "--accent": "#f5a623",
+      "--accentH": "#ffc244",
+      "--button": "#d97706",
+      "--danger": "#dc2626",
+      "--success": "#059669",
+      "--on-accent": "var(--ink-dark)"
+    }
+  }
+}

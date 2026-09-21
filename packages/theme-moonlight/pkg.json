@@ -1,0 +1,15 @@
+{
+  "id": "theme-moonlight",
+  "kind": "theme",
+  "name": "moonlight",
+  "displayName": {
+    "en": "moonlight",
+    "th": "moonlight"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

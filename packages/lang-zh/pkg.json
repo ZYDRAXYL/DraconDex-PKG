@@ -1,0 +1,15 @@
+{
+  "id": "lang-zh",
+  "kind": "lang",
+  "name": "zh",
+  "displayName": {
+    "en": "CN - 中文",
+    "th": "CN - 中文"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/src/renderer/i18n.js"
+}

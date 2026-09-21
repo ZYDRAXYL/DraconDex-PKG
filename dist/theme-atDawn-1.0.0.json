@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "theme-atDawn",
+    "kind": "theme",
+    "name": "atDawn",
+    "displayName": {
+      "en": "atDawn",
+      "th": "atDawn"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#fdeee8",
+      "--surface": "#ffffff",
+      "--raised": "#ffe4e1",
+      "--hover": "#ffd6cc",
+      "--border": "#ffc2b8",
+      "--t1": "#5c2a3a",
+      "--t2": "#8a5468",
+      "--t3": "#c191a0",
+      "--accent": "#ff69b4",
+      "--accentH": "#ff6f3c",
+      "--button": "#ffb627",
+      "--danger": "#dc2626",
+      "--success": "#16a34a",
+      "--on-accent": "var(--ink-dark)",
+      "--on-button": "var(--ink-dark)"
+    }
+  }
+}

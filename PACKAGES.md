@@ -10,13 +10,21 @@ packages/<id>/pkg.json       metadata — ใครสร้าง ใช้ก�
 packages/<id>/payload.json   ของจริงที่แอปจะเอาไปใช้
 ```
 
-## 3 ชนิด
+## 4 ชนิด
 
 | kind | payload | แอปเอาไปทำอะไร |
 |---|---|---|
 | `theme` | `{ vars: { "--bg": "#…", … } }` | ใส่เป็น inline CSS variable บน `<body>` |
 | `lang` | `{ locale, label, keys: { … } }` | merge เข้า `L` ของ `i18n.js` ตอน boot |
 | `view` | `{ settings: { … } }` | preset ทับค่าใน `S.settings` |
+| `uistyle` | `{ vars: { "--r": "…", "--shadow-pop": "…", … } }` | ใส่เป็น inline CSS variable บน `<body>` เหมือน `theme` แต่คนละชุด token — ดู 7 ตัวด้านล่าง |
+
+`uistyle` ใช้กลไกเดียวกับ `theme` เป๊ะ (inline CSS var บน `<body>`) เพียงแต่
+เซตของ token เป็นคนละชุด: **7 ตัวจาก `electron/css/ui-style.css`**
+(`--r --rs --rl --shadow-pop --shadow-float --shadow-menu --shadow-modal`)
+ต้องตั้งครบทั้ง 7 ไม่มีชุด optional เหมือน theme ที่แยก 12/15 เพราะ
+`ui-style.css` เองก็ตั้งครบทั้ง 7 ในทุก preset block ของมัน — ไม่มี `oldPlain`
+เป็นแพ็กเกจ เพราะมันคือค่า default ของ `tokens.css` เอง ไม่มี CSS block ให้ดึง
 
 ## `pkg.json`
 
@@ -48,6 +56,8 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
   extract มาไม่ครบ (key ที่หายจะ render เป็นชื่อ key ตรงๆ ไม่ error)
 - **view** ตั้ง setting ที่แอปไม่รู้จัก — ทุก key ต้องเป็นตัวที่ `setUiSetting()`
   validate อยู่แล้ว แพ็กเกจจึงไม่มีทางสร้าง setting ใหม่ที่แอปไม่เข้าใจ
+- **uistyle** ตั้ง token นอก 7 ตัวที่มีจริง หรือขาดตัวใดตัวหนึ่งใน 7 — ไม่มี
+  ชุด optional เหมือน theme, ครบทั้ง 7 เท่านั้น
 - `id` ไม่ตรงชื่อโฟลเดอร์, `version` ไม่ใช่ `x.y.z`, `targets` ว่าง,
   `displayName` ขาด `en` หรือ `th`
 
@@ -101,4 +111,5 @@ tag `pkg-vX.Y.Z` ต้องตรงกับ `package.json`'s `version` (work
 ```bash
 node tools/extract-from-app.mjs --exe ../DraconDex-EXE --theme atNight clearMoon
 node tools/extract-from-app.mjs --exe ../DraconDex-EXE --lang de fr
+node tools/extract-from-app.mjs --exe ../DraconDex-EXE --uistyle fluent hardBlock
 ```

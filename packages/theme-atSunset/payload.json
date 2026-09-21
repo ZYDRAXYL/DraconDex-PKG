@@ -1,0 +1,19 @@
+{
+  "vars": {
+    "--bg": "#1f1013",
+    "--surface": "#2c161b",
+    "--raised": "#3a1e24",
+    "--hover": "#48262e",
+    "--border": "#5a2f38",
+    "--t1": "#ffe9e3",
+    "--t2": "#d5a396",
+    "--t3": "#996a60",
+    "--accent": "#fb7185",
+    "--accentH": "#f59e0b",
+    "--button": "#f97316",
+    "--danger": "#ef4444",
+    "--success": "#22c55e",
+    "--on-accent": "var(--ink-dark)",
+    "--on-button": "var(--ink-dark)"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "theme-clearMoon",
+  "kind": "theme",
+  "name": "clearMoon",
+  "displayName": {
+    "en": "clearMoon",
+    "th": "clearMoon"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

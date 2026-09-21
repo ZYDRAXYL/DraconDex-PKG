@@ -1,0 +1,15 @@
+{
+  "id": "theme-atMorning",
+  "kind": "theme",
+  "name": "atMorning",
+  "displayName": {
+    "en": "atMorning",
+    "th": "atMorning"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

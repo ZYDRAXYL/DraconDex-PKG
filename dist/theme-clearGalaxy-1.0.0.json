@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "id": "theme-clearGalaxy",
+    "kind": "theme",
+    "name": "clearGalaxy",
+    "displayName": {
+      "en": "clearGalaxy",
+      "th": "clearGalaxy"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#0d0a1f",
+      "--surface": "#161233",
+      "--raised": "#1f1a45",
+      "--hover": "#292158",
+      "--border": "#342a6b",
+      "--t1": "#f0ebff",
+      "--t2": "#b3a8d9",
+      "--t3": "#726699",
+      "--accent": "#9d5cf6",
+      "--accentH": "#f472b6",
+      "--danger": "#f87171",
+      "--success": "#34d399"
+    }
+  }
+}

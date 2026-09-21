@@ -1,0 +1,11 @@
+{
+  "vars": {
+    "--r": "14px",
+    "--rs": "10px",
+    "--rl": "20px",
+    "--shadow-pop": "0 4px 16px rgba(0,0,0,.18)",
+    "--shadow-float": "0 6px 20px rgba(0,0,0,.22)",
+    "--shadow-menu": "0 10px 30px rgba(0,0,0,.24)",
+    "--shadow-modal": "0 16px 48px rgba(0,0,0,.3)"
+  }
+}

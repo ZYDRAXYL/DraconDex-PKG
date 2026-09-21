@@ -1,0 +1,15 @@
+{
+  "id": "theme-atSunset",
+  "kind": "theme",
+  "name": "atSunset",
+  "displayName": {
+    "en": "atSunset",
+    "th": "atSunset"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "4.16.0",
+  "source": "extracted from DraconDex-EXE electron/css/themes.css"
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "id": "theme-daylight",
+    "kind": "theme",
+    "name": "daylight",
+    "displayName": {
+      "en": "daylight",
+      "th": "daylight"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#f4f6fb",
+      "--surface": "#ffffff",
+      "--raised": "#eef1f7",
+      "--hover": "#e2e7f0",
+      "--border": "#ccd3df",
+      "--t1": "#172033",
+      "--t2": "#596274",
+      "--t3": "#8a94a6",
+      "--accent": "#2563eb",
+      "--accentH": "#3b82f6",
+      "--danger": "#dc2626",
+      "--success": "#16a34a"
+    }
+  }
+}

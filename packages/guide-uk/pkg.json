@@ -1,0 +1,15 @@
+{
+  "id": "guide-uk",
+  "kind": "guide",
+  "name": "uk",
+  "displayName": {
+    "en": "Guide · UA - Українська",
+    "th": "คู่มือ · UA - Українська"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

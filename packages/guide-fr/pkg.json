@@ -1,0 +1,15 @@
+{
+  "id": "guide-fr",
+  "kind": "guide",
+  "name": "fr",
+  "displayName": {
+    "en": "Guide · FR - Français",
+    "th": "คู่มือ · FR - Français"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

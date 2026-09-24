@@ -1,0 +1,289 @@
+{
+  "format": "ddx-guide",
+  "version": 1,
+  "locale": "it",
+  "spec": {
+    "name": "Guida",
+    "icon": "info",
+    "manager": true,
+    "modules": [
+      {
+        "ref": "start",
+        "kind": "drafter",
+        "name": "Inizia qui",
+        "description": "# Benvenuto in DraconDex\n\nQuesta cartella è un piccolo mondo che funziona davvero. Tutto ciò che contiene sono dati reali: aprili, modificali, eliminali quando hai finito. L’app non li modifica mai da sola.\n\n**Un modulo = un compito.** Ogni elemento di questa cartella è un modulo di tipo diverso. Aprili uno alla volta per vedere a cosa servono.\n\n- [[Personaggi]] — una categoria con campi. Ogni riga è un oggetto a cui puoi collegarti.\n- [[Chi conosce chi]] — mostra i personaggi e i loro rapporti.\n- [[Mappa del porto]] — una mappa con aree.\n- [[Storia]] — una linea del tempo di eventi datati.\n- [[Viaggi]] — segnaposto sulla mappa legati agli eventi della linea del tempo.\n- [[L’incontro]] — una conversazione a bivi.\n- [[Libro primo]] — capitoli, un editor di scrittura e una bacheca di sughero.\n- [[Note di sessione]] — note in stile chat.\n- [[Voci]] — una tabella casuale: premi Tira.\n- [[Schizzo del porto]] — una pagina di disegno a mano libera.\n- [[Schema della trama]] — un diagramma libero di riquadri e frecce.\n- [[Su Mira]] — una pagina su una sola cosa.\n\n**Collegamenti.** Scrivi `[[` ovunque per collegarti a qualsiasi cosa per nome — come i collegamenti di questa pagina. Ciò che colleghi elenca questa pagina tra i suoi backlink.\n\n**Trova tutto.** Premi Ctrl+P per trovare un modulo, un oggetto, una riga di testo o un comando.\n\n**Inizia il tuo.** Usa + nel Nest, oppure \"Nuovo progetto da modello\" per un progetto intero con un clic."
+      },
+      {
+        "ref": "chars",
+        "kind": "classifier",
+        "catType": "character",
+        "name": "Personaggi",
+        "description": "Un Classifier è una categoria: un elenco di oggetti che condividono gli stessi campi. Fai clic su un oggetto per aprirlo; aggiungi un campo con + sotto i campi. Un campo può essere testo, un numero, una scelta, una casella, un collegamento a un altro oggetto o una formula.",
+        "fields": [
+          {
+            "name": "Ruolo",
+            "type": "select",
+            "options": {
+              "choices": [
+                "Capitana",
+                "Studioso",
+                "Contrabbandiera"
+              ]
+            }
+          },
+          {
+            "name": "Età",
+            "type": "number"
+          },
+          {
+            "name": "Forza",
+            "type": "number"
+          },
+          {
+            "name": "Potenza",
+            "type": "formula",
+            "options": {
+              "expr": "{Forza} * 2 + {Età} / 10"
+            }
+          },
+          {
+            "name": "Amico",
+            "type": "relation",
+            "relTo": "chars"
+          }
+        ],
+        "objects": [
+          {
+            "ref": "mira",
+            "name": "Mira",
+            "note": "Capitana della *Gabbiano*. Deve a [[Tobin]] un favore di cui non ha mai parlato.",
+            "values": {
+              "Ruolo": "Capitana",
+              "Età": 34,
+              "Forza": 7
+            },
+            "links": {
+              "Amico": [
+                "tobin"
+              ]
+            }
+          },
+          {
+            "ref": "tobin",
+            "name": "Tobin",
+            "note": "Uno studioso che sa leggere le vecchie carte nautiche.",
+            "values": {
+              "Ruolo": "Studioso",
+              "Età": 58,
+              "Forza": 3
+            },
+            "links": {
+              "Amico": [
+                "mira"
+              ]
+            }
+          },
+          {
+            "ref": "sela",
+            "name": "Sela",
+            "note": "Conosce ogni porta sul retro del porto.",
+            "values": {
+              "Ruolo": "Contrabbandiera",
+              "Età": 27,
+              "Forza": 5
+            },
+            "links": {
+              "Amico": [
+                "mira"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "kind": "exhibitor",
+        "name": "Chi conosce chi",
+        "selects": [
+          "chars"
+        ],
+        "description": "Un Exhibitor mostra il contenuto di altri moduli — qui, i Personaggi. Non possiede nulla: eliminarlo fa perdere solo la disposizione. Prova le viste Graph, Table e Board, e la disposizione ad albero genealogico sul campo Amico."
+      },
+      {
+        "kind": "locator",
+        "name": "Mappa del porto",
+        "description": "Un Locator è una mappa. Aggiungi aree e punti e collegali a qualsiasi cosa nel Nexus."
+      },
+      {
+        "kind": "chronicler",
+        "name": "Storia",
+        "description": "Un Chronicler è una linea del tempo. Ogni evento ha una data; il calendario può essere quello del tuo mondo.",
+        "events": [
+          {
+            "name": "Viene fondato il porto",
+            "date": [
+              1020,
+              3,
+              1
+            ],
+            "story": "Famiglie di pescatori si stabiliscono nella baia."
+          },
+          {
+            "name": "L’anno della tempesta",
+            "date": [
+              1044,
+              9,
+              12
+            ],
+            "story": "[[Mira]] riporta a casa la *Gabbiano* attraverso la tempesta."
+          },
+          {
+            "name": "Vengono trovate le vecchie carte",
+            "date": [
+              1051,
+              5,
+              2
+            ],
+            "story": "[[Tobin]] trova carte che nessuno sa leggere."
+          }
+        ]
+      },
+      {
+        "kind": "wanderer",
+        "name": "Viaggi",
+        "description": "Un Wanderer mette gli eventi della linea del tempo su una mappa, così vedi dove sono successe le cose e in che ordine."
+      },
+      {
+        "kind": "narrator",
+        "name": "L’incontro",
+        "description": "Un Narrator tiene i dialoghi su una lavagna. Un dialogo può offrire scelte; una scelta può dipendere da una variabile della storia. La vista Reader lo gioca dall’inizio alla fine.",
+        "dialogues": [
+          {
+            "name": "Al molo",
+            "talks": [
+              {
+                "speaker": "Mira",
+                "text": "Sei in ritardo, Tobin."
+              },
+              {
+                "speaker": "Tobin",
+                "text": "Le carte non volevano lasciarmi andare."
+              }
+            ]
+          },
+          {
+            "name": "In coperta",
+            "talks": [
+              {
+                "speaker": "Sela",
+                "text": "Se salpiamo stanotte, nessuno fa domande."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "author",
+        "name": "Libro primo",
+        "description": "Un modulo Author è un libro: capitoli a sinistra, l’editor a destra. La vista Board è una bacheca di sughero con sinossi, stato e punto di vista di ogni capitolo.",
+        "chapters": [
+          {
+            "name": "Il molo",
+            "status": "draft",
+            "synopsis": "Mira aspetta Tobin.",
+            "content": "La marea era già cambiata prima che [[Tobin]] scendesse lungo il molo."
+          },
+          {
+            "name": "Le carte",
+            "status": "idea",
+            "synopsis": "Le carte mostrano una costa che nessuno conosce."
+          }
+        ]
+      },
+      {
+        "kind": "scribe",
+        "name": "Note di sessione",
+        "description": "Uno Scribe sono note in stile chat: righe brevi con l’ora in cui sono state scritte. Utile per una sessione di gioco o per le idee di un giorno.",
+        "sessions": [
+          {
+            "name": "Prima sessione",
+            "messages": [
+              "I giocatori hanno incontrato [[Sela]] al mercato del pesce.",
+              "Hanno deciso di salpare di notte."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "diviner",
+        "name": "Voci",
+        "description": "Un Diviner tira su tabelle casuali. Una tabella può usare dadi (1d6) o pesi, e una riga può tirare su un’altra tabella.",
+        "tables": [
+          {
+            "name": "Voce del porto",
+            "dice": "1d6",
+            "entries": [
+              {
+                "lo": 1,
+                "hi": 2,
+                "text": "È arrivata una nave senza equipaggio."
+              },
+              {
+                "lo": 3,
+                "hi": 4,
+                "text": "Il guardiano del faro ha un ospite."
+              },
+              {
+                "lo": 5,
+                "hi": 5,
+                "text": "Qualcuno sta comprando vecchie carte."
+              },
+              {
+                "lo": 6,
+                "hi": 6,
+                "text": "La tempesta sta tornando."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sketcher",
+        "name": "Schizzo del porto",
+        "pages": [
+          "Pagina 1"
+        ],
+        "description": "Uno Sketcher è una tavola per disegnare a mano libera. Una vignetta a fumetti in un Designer può mostrare una delle sue pagine."
+      },
+      {
+        "kind": "designer",
+        "name": "Schema della trama",
+        "description": "Un Designer è un diagramma libero. Aggiungi forme, collegale e collega una forma a qualsiasi cosa.",
+        "nodes": [
+          {
+            "shape": "box",
+            "text": "Incontro al molo",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "shape": "diamond",
+            "text": "Salpare stanotte?",
+            "x": 520,
+            "y": 300
+          },
+          {
+            "shape": "box",
+            "text": "Le carte",
+            "x": 740,
+            "y": 300
+          }
+        ]
+      },
+      {
+        "kind": "inspector",
+        "name": "Su Mira",
+        "description": "Un Inspector è una pagina su una sola cosa. Questa parla di [[Mira]]: scrivi liberamente, con [[collegamenti]] come ovunque."
+      }
+    ]
+  }
+}

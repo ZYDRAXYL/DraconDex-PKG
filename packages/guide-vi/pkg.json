@@ -1,0 +1,15 @@
+{
+  "id": "guide-vi",
+  "kind": "guide",
+  "name": "vi",
+  "displayName": {
+    "en": "Guide · VI - Tiếng Việt",
+    "th": "คู่มือ · VI - Tiếng Việt"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

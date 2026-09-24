@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "id": "guide-tr",
+    "kind": "guide",
+    "name": "tr",
+    "displayName": {
+      "en": "Guide · TR - Türkçe",
+      "th": "คู่มือ · TR - Türkçe"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "5.0.0",
+    "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+  },
+  "payload": {
+    "format": "ddx-guide",
+    "version": 1,
+    "locale": "tr",
+    "spec": {
+      "name": "Rehber",
+      "icon": "info",
+      "manager": true,
+      "modules": [
+        {
+          "ref": "start",
+          "kind": "drafter",
+          "name": "Buradan başla",
+          "description": "# DraconDex'e hoş geldin\n\nBu klasör gerçekten çalışan küçük bir dünya. İçindeki her şey gerçek veri: aç, değiştir, işin bitince sil. Uygulama burayı asla kendi kendine değiştirmez.\n\n**Bir modül = bir iş.** Bu klasördeki her öğe farklı türde bir modül. Ne işe yaradıklarını görmek için tek tek aç.\n\n- [[Karakterler]] — alanları olan bir kategori. Her satır, bağlantı verebileceğin bir nesne.\n- [[Kim kimi tanıyor]] — karakterleri ve aralarındaki ilişkileri gösterir.\n- [[Liman haritası]] — bölgeleri olan bir harita.\n- [[Tarih]] — tarihli olayların zaman çizelgesi.\n- [[Yolculuklar]] — zaman çizelgesindeki olaylara bağlı harita iğneleri.\n- [[Buluşma]] — dallanan bir konuşma.\n- [[Birinci kitap]] — bölümler, bir yazı düzenleyici ve bir mantar pano.\n- [[Oturum notları]] — sohbet tarzı notlar.\n- [[Söylentiler]] — rastgele bir tablo: At'a bas.\n- [[Liman eskizi]] — serbest çizim sayfası.\n- [[Olay örgüsü planı]] — kutular ve oklardan serbest bir diyagram.\n- [[Mira hakkında]] — tek bir şey hakkında tek bir sayfa.\n\n**Bağlantılar.** Herhangi bir yere `[[` yazarak adıyla her şeye bağlantı ver — bu sayfadaki bağlantılar gibi. Bağlantı verdiğin şey, bu sayfayı geri bağlantılarında listeler.\n\n**Her şeyi bul.** Bir modülü, nesneyi, bir metin satırını ya da bir komutu bulmak için Ctrl+P'ye bas.\n\n**Kendininkini başlat.** Nest'teki +'yı ya da tek tıkla koca bir proje için \"Şablondan yeni proje\"yi kullan."
+        },
+        {
+          "ref": "chars",
+          "kind": "classifier",
+          "catType": "character",
+          "name": "Karakterler",
+          "description": "Classifier bir kategoridir: aynı alanları paylaşan nesnelerin listesi. Açmak için bir nesneye tıkla; alanların altındaki + ile alan ekle. Bir alan metin, sayı, seçim, onay kutusu, başka bir nesneye bağlantı ya da formül olabilir.",
+          "fields": [
+            {
+              "name": "Görev",
+              "type": "select",
+              "options": {
+                "choices": [
+                  "Kaptan",
+                  "Bilgin",
+                  "Kaçakçı"
+                ]
+              }
+            },
+            {
+              "name": "Yaş",
+              "type": "number"
+            },
+            {
+              "name": "Kuvvet",
+              "type": "number"
+            },
+            {
+              "name": "Güç",
+              "type": "formula",
+              "options": {
+                "expr": "{Kuvvet} * 2 + {Yaş} / 10"
+              }
+            },
+            {
+              "name": "Dost",
+              "type": "relation",
+              "relTo": "chars"
+            }
+          ],
+          "objects": [
+            {
+              "ref": "mira",
+              "name": "Mira",
+              "note": "*Martı* gemisinin kaptanı. [[Tobin]]'e hiç söz etmediği bir iyilik borcu var.",
+              "values": {
+                "Görev": "Kaptan",
+                "Yaş": 34,
+                "Kuvvet": 7
+              },
+              "links": {
+                "Dost": [
+                  "tobin"
+                ]
+              }
+            },
+            {
+              "ref": "tobin",
+              "name": "Tobin",
+              "note": "Eski deniz haritalarını okuyabilen bir bilgin.",
+              "values": {
+                "Görev": "Bilgin",
+                "Yaş": 58,
+                "Kuvvet": 3
+              },
+              "links": {
+                "Dost": [
+                  "mira"
+                ]
+              }
+            },
+            {
+              "ref": "sela",
+              "name": "Sela",
+              "note": "Limanın bütün arka kapılarını bilir.",
+              "values": {
+                "Görev": "Kaçakçı",
+                "Yaş": 27,
+                "Kuvvet": 5
+              },
+              "links": {
+                "Dost": [
+                  "mira"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "exhibitor",
+          "name": "Kim kimi tanıyor",
+          "selects": [
+            "chars"
+          ],
+          "description": "Exhibitor başka modüllerin içeriğini gösterir — burada Karakterler. Hiçbir şeye sahip değildir: silersen yalnızca yerleşim kaybolur. Graph, Table ve Board görünümlerini ve Dost alanına göre soy ağacı yerleşimini dene."
+        },
+        {
+          "kind": "locator",
+          "name": "Liman haritası",
+          "description": "Locator bir haritadır. Bölgeler ve noktalar ekle, onları Nexus'taki her şeye bağla."
+        },
+        {
+          "kind": "chronicler",
+          "name": "Tarih",
+          "description": "Chronicler bir zaman çizelgesidir. Her olayın bir tarihi vardır; takvim kendi dünyanınki olabilir.",
+          "events": [
+            {
+              "name": "Liman kuruluyor",
+              "date": [
+                1020,
+                3,
+                1
+              ],
+              "story": "Balıkçı aileleri koya yerleşir."
+            },
+            {
+              "name": "Fırtına yılı",
+              "date": [
+                1044,
+                9,
+                12
+              ],
+              "story": "[[Mira]], *Martı*'ı fırtınanın içinden eve getirir."
+            },
+            {
+              "name": "Eski haritalar bulunuyor",
+              "date": [
+                1051,
+                5,
+                2
+              ],
+              "story": "[[Tobin]], kimsenin okuyamadığı haritalar bulur."
+            }
+          ]
+        },
+        {
+          "kind": "wanderer",
+          "name": "Yolculuklar",
+          "description": "Wanderer zaman çizelgesindeki olayları haritaya koyar; böylece neyin nerede ve hangi sırayla olduğunu görürsün."
+        },
+        {
+          "kind": "narrator",
+          "name": "Buluşma",
+          "description": "Narrator diyalogları bir panoda tutar. Bir diyalog seçenekler sunabilir; bir seçenek bir hikâye değişkenine bağlı olabilir. Reader görünümü onu baştan sona oynatır.",
+          "dialogues": [
+            {
+              "name": "Rıhtımda",
+              "talks": [
+                {
+                  "speaker": "Mira",
+                  "text": "Geç kaldın, Tobin."
+                },
+                {
+                  "speaker": "Tobin",
+                  "text": "Haritalar peşimi bırakmadı."
+                }
+              ]
+            },
+            {
+              "name": "Güvertede",
+              "talks": [
+                {
+                  "speaker": "Sela",
+                  "text": "Bu gece yola çıkarsak kimse soru sormaz."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "author",
+          "name": "Birinci kitap",
+          "description": "Author modülü bir kitaptır: solda bölümler, sağda düzenleyici. Board görünümü, her bölümün özetini, durumunu ve bakış açısını gösteren bir mantar panodur.",
+          "chapters": [
+            {
+              "name": "Rıhtım",
+              "status": "draft",
+              "synopsis": "Mira, Tobin'i bekler.",
+              "content": "[[Tobin]] rıhtıma inmeden önce gelgit dönmüştü."
+            },
+            {
+              "name": "Haritalar",
+              "status": "idea",
+              "synopsis": "Haritalar kimsenin bilmediği bir kıyıyı gösteriyor."
+            }
+          ]
+        },
+        {
+          "kind": "scribe",
+          "name": "Oturum notları",
+          "description": "Scribe sohbet tarzı notlardır: yazıldıkları saatle birlikte kısa satırlar. Bir oyun oturumu ya da bir günün fikirleri için iyidir.",
+          "sessions": [
+            {
+              "name": "İlk oturum",
+              "messages": [
+                "Oyuncular balık pazarında [[Sela]] ile tanıştı.",
+                "Gece yola çıkmakta anlaştılar."
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "diviner",
+          "name": "Söylentiler",
+          "description": "Diviner rastgele tablolarda zar atar. Bir tablo zar (1d6) ya da ağırlık kullanabilir ve bir satır başka bir tabloda zar attırabilir.",
+          "tables": [
+            {
+              "name": "Liman söylentisi",
+              "dice": "1d6",
+              "entries": [
+                {
+                  "lo": 1,
+                  "hi": 2,
+                  "text": "Mürettebatı olmayan bir gemi geldi."
+                },
+                {
+                  "lo": 3,
+                  "hi": 4,
+                  "text": "Deniz feneri bekçisinin bir misafiri var."
+                },
+                {
+                  "lo": 5,
+                  "hi": 5,
+                  "text": "Biri eski haritaları topluyor."
+                },
+                {
+                  "lo": 6,
+                  "hi": 6,
+                  "text": "Fırtına geri geliyor."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sketcher",
+          "name": "Liman eskizi",
+          "pages": [
+            "Sayfa 1"
+          ],
+          "description": "Sketcher serbest çizim panosudur. Designer'daki bir çizgi roman karesi onun sayfalarından birini gösterebilir."
+        },
+        {
+          "kind": "designer",
+          "name": "Olay örgüsü planı",
+          "description": "Designer serbest bir diyagramdır. Şekiller ekle, onları bağla ve bir şekli herhangi bir şeye bağla.",
+          "nodes": [
+            {
+              "shape": "box",
+              "text": "Rıhtımda buluşma",
+              "x": 300,
+              "y": 300
+            },
+            {
+              "shape": "diamond",
+              "text": "Bu gece yola çıkılsın mı?",
+              "x": 520,
+              "y": 300
+            },
+            {
+              "shape": "box",
+              "text": "Haritalar",
+              "x": 740,
+              "y": 300
+            }
+          ]
+        },
+        {
+          "kind": "inspector",
+          "name": "Mira hakkında",
+          "description": "Inspector tek bir şey hakkında tek bir sayfadır. Bu sayfa [[Mira]] hakkında: her yerde olduğu gibi [[bağlantılar]] ile özgürce yaz."
+        }
+      ]
+    }
+  }
+}

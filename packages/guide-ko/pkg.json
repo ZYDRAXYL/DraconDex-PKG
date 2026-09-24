@@ -1,0 +1,15 @@
+{
+  "id": "guide-ko",
+  "kind": "guide",
+  "name": "ko",
+  "displayName": {
+    "en": "Guide · KR - 한국어",
+    "th": "คู่มือ · KR - 한국어"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

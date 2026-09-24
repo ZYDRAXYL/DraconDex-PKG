@@ -10,7 +10,7 @@ packages/<id>/pkg.json       metadata — ใครสร้าง ใช้ก�
 packages/<id>/payload.json   ของจริงที่แอปจะเอาไปใช้
 ```
 
-## 4 ชนิด
+## 5 ชนิด
 
 | kind | payload | แอปเอาไปทำอะไร |
 |---|---|---|
@@ -18,6 +18,7 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
 | `lang` | `{ locale, label, keys: { … } }` | merge เข้า `L` ของ `i18n.js` ตอน boot |
 | `view` | `{ settings: { … } }` | preset ทับค่าใน `S.settings` |
 | `uistyle` | `{ vars: { "--r": "…", "--shadow-pop": "…", … } }` | ใส่เป็น inline CSS variable บน `<body>` เหมือน `theme` แต่คนละชุด token — ดู 7 ตัวด้านล่าง |
+| `guide` | `{ format: "ddx-guide", version, locale, spec: { name, modules: [ … ] } }` | คู่มือในแอปอีกภาษาหนึ่ง — สร้างเป็นโฟลเดอร์ตัวอย่างเมื่อผู้ใช้กดสร้างคู่มือ ไม่ได้ใส่ลง UI |
 
 `uistyle` ใช้กลไกเดียวกับ `theme` เป๊ะ (inline CSS var บน `<body>`) เพียงแต่
 เซตของ token เป็นคนละชุด: **7 ตัวจาก `electron/css/ui-style.css`**
@@ -25,6 +26,23 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
 ต้องตั้งครบทั้ง 7 ไม่มีชุด optional เหมือน theme ที่แยก 12/15 เพราะ
 `ui-style.css` เองก็ตั้งครบทั้ง 7 ในทุก preset block ของมัน — ไม่มี `oldPlain`
 เป็นแพ็กเกจ เพราะมันคือค่า default ของ `tokens.css` เอง ไม่มี CSS block ให้ดึง
+
+`guide` (v5 Part 7, APP `docs/V5.md` §11.8) คือ bundle spec ตัวเดียวกับที่
+แม่แบบใน DraconDex-EXE ใช้ (`electron/src/db/bundle.js` อธิบายรูปของ `spec`)
+แต่มีเนื้อหาจริง — ตัวอย่าง 1 module ต่อ kind และหน้า "เริ่มที่นี่" ที่ `[[ลิงก์]]`
+ไปทุกตัว ภาษาไทยกับอังกฤษฝังมากับแอป (`electron/guide/{th,en}.json`) แพ็กเกจ
+`guide` มีไว้สำหรับอีก 16 ภาษา: ถ้ามีแพ็กเกจของภาษานั้นติดตั้งอยู่ แอปใช้ตัวนั้น
+ไม่งั้นใช้อังกฤษแล้วบอกว่าดาวน์โหลดได้ที่ไหน · `spec.modules` อ้างได้เฉพาะ kind
+ที่แอปมีจริง — ตัว build กับตัวติดตั้งในแอปตรวจกฎเดียวกัน
+
+**แพ็กเกจ `guide-<locale>` ทั้ง 16 ภาษา (Procress 12 part 0) เป็นคำแปลโดยเครื่อง**
+แปลจาก `templates/guide/en.json` ของ DraconDex-SDB (ต้นฉบับไทย/อังกฤษย้ายไปอยู่ที่นั่นแล้ว)
+ด้วยโครงเดียวกันทุกภาษา — ชื่อ field ในสูตร, key ของค่าใน object และ `[[ลิงก์]]` ทุกอัน
+ตรงกับชื่อ module/object ที่แปลแล้วในภาษาเดียวกัน (ตรวจตอนสร้าง และลองสร้างจริงผ่าน
+`createBundle` ของ EXE แล้ว: ลิงก์ 19 อัน ห้อยอยู่อันเดียวคือ `[[ลิงก์]]` ตัวอย่างใน "About Mira"
+เหมือนต้นฉบับ) · ชื่อ kind (Classifier, Exhibitor…) และชื่อ view (Graph, Table, Board, Reader)
+คงเป็นอังกฤษเพราะแอปแสดงแบบนั้นทุกภาษา · ปุ่มที่อ้างถึงใช้คำเดียวกับ i18n ของแอป
+**ผู้พูดภาษานั้นแก้ได้เลย** — แก้ `payload.json` ตรง ๆ แล้วบัมพ์ `version` ใน `pkg.json`
 
 ## `pkg.json`
 
@@ -58,6 +76,9 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
   validate อยู่แล้ว แพ็กเกจจึงไม่มีทางสร้าง setting ใหม่ที่แอปไม่เข้าใจ
 - **uistyle** ตั้ง token นอก 7 ตัวที่มีจริง หรือขาดตัวใดตัวหนึ่งใน 7 — ไม่มี
   ชุด optional เหมือน theme, ครบทั้ง 7 เท่านั้น
+- **guide** ไม่มี `format: "ddx-guide"` หรือ `locale`, `spec` ไม่มีชื่อ, มี module
+  0 หรือเกิน 60 ตัว หรืออ้าง kind ที่แอปไม่มี — แอปจะปฏิเสธทั้งแพ็กเกจตอนติดตั้ง
+  เพราะคู่มือที่สร้าง module ผิดชนิดคือโฟลเดอร์ที่พังทั้งโฟลเดอร์
 - `id` ไม่ตรงชื่อโฟลเดอร์, `version` ไม่ใช่ `x.y.z`, `targets` ว่าง,
   `displayName` ขาด `en` หรือ `th`
 

@@ -1,0 +1,289 @@
+{
+  "format": "ddx-guide",
+  "version": 1,
+  "locale": "de",
+  "spec": {
+    "name": "Leitfaden",
+    "icon": "info",
+    "manager": true,
+    "modules": [
+      {
+        "ref": "start",
+        "kind": "drafter",
+        "name": "Hier anfangen",
+        "description": "# Willkommen bei DraconDex\n\nDieser Ordner ist eine kleine, funktionierende Welt. Alles darin sind echte Daten: öffne sie, ändere sie, lösche sie, wenn du fertig bist. Die App ändert hier nie von selbst etwas.\n\n**Ein Modul = eine Aufgabe.** Jeder Eintrag in diesem Ordner ist ein Modul einer anderen Art. Öffne eins nach dem anderen, um zu sehen, wofür es gut ist.\n\n- [[Figuren]] — eine Kategorie mit Feldern. Jede Zeile ist ein Objekt, auf das du verlinken kannst.\n- [[Wer kennt wen]] — zeigt die Figuren und wie sie zueinander stehen.\n- [[Hafenkarte]] — eine Karte mit Gebieten.\n- [[Geschichte]] — eine Zeitleiste datierter Ereignisse.\n- [[Reisen]] — Kartennadeln, die an Ereignisse der Zeitleiste gebunden sind.\n- [[Die Begegnung]] — ein verzweigtes Gespräch.\n- [[Band eins]] — Kapitel, ein Schreibeditor und eine Pinnwand.\n- [[Sitzungsnotizen]] — Notizen im Chat-Stil.\n- [[Gerüchte]] — eine Zufallstabelle: drück auf Würfeln.\n- [[Hafenskizze]] — eine Seite für freies Zeichnen.\n- [[Handlungsplan]] — ein freies Diagramm aus Kästen und Pfeilen.\n- [[Über Mira]] — eine Seite über eine Sache.\n\n**Links.** Tippe irgendwo `[[`, um per Name auf alles zu verlinken — wie die Links auf dieser Seite. Das verlinkte Ziel führt diese Seite in seinen Backlinks auf.\n\n**Alles finden.** Mit Strg+P findest du ein Modul, ein Objekt, eine Textzeile oder einen Befehl.\n\n**Fang deine eigene an.** Nutze + im Nest oder „Neues Projekt aus Vorlage“ für ein ganzes Projekt mit einem Klick."
+      },
+      {
+        "ref": "chars",
+        "kind": "classifier",
+        "catType": "character",
+        "name": "Figuren",
+        "description": "Ein Classifier ist eine Kategorie: eine Liste von Objekten mit denselben Feldern. Klicke ein Objekt an, um es zu öffnen; füge mit + unter den Feldern ein Feld hinzu. Ein Feld kann Text, eine Zahl, eine Auswahl, ein Kontrollkästchen, ein Link auf ein anderes Objekt oder eine Formel sein.",
+        "fields": [
+          {
+            "name": "Rolle",
+            "type": "select",
+            "options": {
+              "choices": [
+                "Kapitänin",
+                "Gelehrter",
+                "Schmugglerin"
+              ]
+            }
+          },
+          {
+            "name": "Alter",
+            "type": "number"
+          },
+          {
+            "name": "Stärke",
+            "type": "number"
+          },
+          {
+            "name": "Macht",
+            "type": "formula",
+            "options": {
+              "expr": "{Stärke} * 2 + {Alter} / 10"
+            }
+          },
+          {
+            "name": "Freund",
+            "type": "relation",
+            "relTo": "chars"
+          }
+        ],
+        "objects": [
+          {
+            "ref": "mira",
+            "name": "Mira",
+            "note": "Kapitänin der *Möwe*. Schuldet [[Tobin]] einen Gefallen, den sie nie erwähnt hat.",
+            "values": {
+              "Rolle": "Kapitänin",
+              "Alter": 34,
+              "Stärke": 7
+            },
+            "links": {
+              "Freund": [
+                "tobin"
+              ]
+            }
+          },
+          {
+            "ref": "tobin",
+            "name": "Tobin",
+            "note": "Ein Gelehrter, der alte Seekarten lesen kann.",
+            "values": {
+              "Rolle": "Gelehrter",
+              "Alter": 58,
+              "Stärke": 3
+            },
+            "links": {
+              "Freund": [
+                "mira"
+              ]
+            }
+          },
+          {
+            "ref": "sela",
+            "name": "Sela",
+            "note": "Kennt jede Hintertür des Hafens.",
+            "values": {
+              "Rolle": "Schmugglerin",
+              "Alter": 27,
+              "Stärke": 5
+            },
+            "links": {
+              "Freund": [
+                "mira"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "kind": "exhibitor",
+        "name": "Wer kennt wen",
+        "selects": [
+          "chars"
+        ],
+        "description": "Ein Exhibitor zeigt den Inhalt anderer Module — hier die Figuren. Er besitzt nichts: Wer ihn löscht, verliert nur das Layout. Probier die Ansichten Graph, Table und Board aus und das Stammbaum-Layout über das Feld Freund."
+      },
+      {
+        "kind": "locator",
+        "name": "Hafenkarte",
+        "description": "Ein Locator ist eine Karte. Füge Gebiete und Punkte hinzu und verlinke sie mit allem im Nexus."
+      },
+      {
+        "kind": "chronicler",
+        "name": "Geschichte",
+        "description": "Ein Chronicler ist eine Zeitleiste. Jedes Ereignis hat ein Datum; der Kalender kann der deiner eigenen Welt sein.",
+        "events": [
+          {
+            "name": "Der Hafen wird gegründet",
+            "date": [
+              1020,
+              3,
+              1
+            ],
+            "story": "Fischerfamilien lassen sich an der Bucht nieder."
+          },
+          {
+            "name": "Das Sturmjahr",
+            "date": [
+              1044,
+              9,
+              12
+            ],
+            "story": "[[Mira]] bringt die *Möwe* durch den Sturm nach Hause."
+          },
+          {
+            "name": "Die alten Seekarten werden gefunden",
+            "date": [
+              1051,
+              5,
+              2
+            ],
+            "story": "[[Tobin]] findet Karten, die niemand lesen kann."
+          }
+        ]
+      },
+      {
+        "kind": "wanderer",
+        "name": "Reisen",
+        "description": "Ein Wanderer setzt Ereignisse der Zeitleiste auf eine Karte, damit du siehst, wo etwas geschah und in welcher Reihenfolge."
+      },
+      {
+        "kind": "narrator",
+        "name": "Die Begegnung",
+        "description": "Ein Narrator hält Dialoge auf einer Tafel. Ein Dialog kann Entscheidungen anbieten; eine Entscheidung kann von einer Story-Variable abhängen. Die Reader-Ansicht spielt ihn von vorn bis hinten durch.",
+        "dialogues": [
+          {
+            "name": "Am Kai",
+            "talks": [
+              {
+                "speaker": "Mira",
+                "text": "Du bist spät, Tobin."
+              },
+              {
+                "speaker": "Tobin",
+                "text": "Die Karten wollten mich nicht gehen lassen."
+              }
+            ]
+          },
+          {
+            "name": "An Deck",
+            "talks": [
+              {
+                "speaker": "Sela",
+                "text": "Wenn wir heute Nacht auslaufen, stellt niemand Fragen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "author",
+        "name": "Band eins",
+        "description": "Ein Author-Modul ist ein Buch: links die Kapitel, rechts der Editor. Die Board-Ansicht ist eine Pinnwand mit Zusammenfassung, Status und Erzählperspektive jedes Kapitels.",
+        "chapters": [
+          {
+            "name": "Der Kai",
+            "status": "draft",
+            "synopsis": "Mira wartet auf Tobin.",
+            "content": "Die Flut hatte gedreht, bevor [[Tobin]] den Kai herunterkam."
+          },
+          {
+            "name": "Die Karten",
+            "status": "idea",
+            "synopsis": "Die Karten zeigen eine Küste, die niemand kennt."
+          }
+        ]
+      },
+      {
+        "kind": "scribe",
+        "name": "Sitzungsnotizen",
+        "description": "Ein Scribe sind Notizen im Chat-Stil: kurze Zeilen mit der Uhrzeit, zu der sie geschrieben wurden. Gut für eine Spielsitzung oder die Ideen eines Tages.",
+        "sessions": [
+          {
+            "name": "Erste Sitzung",
+            "messages": [
+              "Die Spieler trafen [[Sela]] auf dem Fischmarkt.",
+              "Sie einigten sich darauf, nachts auszulaufen."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "diviner",
+        "name": "Gerüchte",
+        "description": "Ein Diviner würfelt auf Zufallstabellen. Eine Tabelle kann Würfel (1d6) oder Gewichte nutzen, und eine Zeile kann auf einer anderen Tabelle würfeln.",
+        "tables": [
+          {
+            "name": "Hafengerücht",
+            "dice": "1d6",
+            "entries": [
+              {
+                "lo": 1,
+                "hi": 2,
+                "text": "Ein Schiff lief ohne Besatzung ein."
+              },
+              {
+                "lo": 3,
+                "hi": 4,
+                "text": "Der Leuchtturmwärter hat einen Gast."
+              },
+              {
+                "lo": 5,
+                "hi": 5,
+                "text": "Jemand kauft alte Seekarten auf."
+              },
+              {
+                "lo": 6,
+                "hi": 6,
+                "text": "Der Sturm kommt zurück."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sketcher",
+        "name": "Hafenskizze",
+        "pages": [
+          "Seite 1"
+        ],
+        "description": "Ein Sketcher ist ein Brett zum freien Zeichnen. Ein Comic-Panel in einem Designer kann eine seiner Seiten zeigen."
+      },
+      {
+        "kind": "designer",
+        "name": "Handlungsplan",
+        "description": "Ein Designer ist ein freies Diagramm. Füge Formen hinzu, verbinde sie und verlinke eine Form mit allem Möglichen.",
+        "nodes": [
+          {
+            "shape": "box",
+            "text": "Treffen am Kai",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "shape": "diamond",
+            "text": "Heute Nacht auslaufen?",
+            "x": 520,
+            "y": 300
+          },
+          {
+            "shape": "box",
+            "text": "Die Karten",
+            "x": 740,
+            "y": 300
+          }
+        ]
+      },
+      {
+        "kind": "inspector",
+        "name": "Über Mira",
+        "description": "Ein Inspector ist eine Seite über eine Sache. Diese hier handelt von [[Mira]]: Schreib frei, mit [[Links]] wie überall sonst."
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "guide-qd",
+  "kind": "guide",
+  "name": "qd",
+  "displayName": {
+    "en": "Guide · 🐉 Draconic",
+    "th": "คู่มือ · 🐉 Draconic"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

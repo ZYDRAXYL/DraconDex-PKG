@@ -1,0 +1,289 @@
+{
+  "format": "ddx-guide",
+  "version": 1,
+  "locale": "nl",
+  "spec": {
+    "name": "Gids",
+    "icon": "info",
+    "manager": true,
+    "modules": [
+      {
+        "ref": "start",
+        "kind": "drafter",
+        "name": "Begin hier",
+        "description": "# Welkom bij DraconDex\n\nDeze map is een kleine wereld die echt werkt. Alles erin is echte data: open het, pas het aan, verwijder het als je klaar bent. De app past hier nooit zelf iets aan.\n\n**Eén module = één taak.** Elk item in deze map is een module van een ander soort. Open ze een voor een om te zien waarvoor ze dienen.\n\n- [[Personages]] — een categorie met velden. Elke rij is een object waarnaar je kunt linken.\n- [[Wie kent wie]] — toont de personages en hoe ze met elkaar verbonden zijn.\n- [[Havenkaart]] — een kaart met gebieden.\n- [[Geschiedenis]] — een tijdlijn van gebeurtenissen met een datum.\n- [[Reizen]] — kaartspelden gekoppeld aan gebeurtenissen op de tijdlijn.\n- [[De ontmoeting]] — een vertakkend gesprek.\n- [[Boek een]] — hoofdstukken, een schrijfeditor en een prikbord.\n- [[Sessienotities]] — notities in chatvorm.\n- [[Geruchten]] — een willekeurige tabel: druk op Gooien.\n- [[Havenschets]] — een pagina om uit de vrije hand te tekenen.\n- [[Plotplan]] — een vrij diagram van vakken en pijlen.\n- [[Over Mira]] — één pagina over één ding.\n\n**Links.** Typ ergens `[[` om op naam naar alles te linken — zoals de links op deze pagina. Wat je linkt, toont deze pagina bij zijn backlinks.\n\n**Alles vinden.** Druk op Ctrl+P om een module, een object, een regel tekst of een opdracht te vinden.\n\n**Begin je eigen.** Gebruik + in de Nest, of \"Nieuw project uit sjabloon\" voor een heel project in één klik."
+      },
+      {
+        "ref": "chars",
+        "kind": "classifier",
+        "catType": "character",
+        "name": "Personages",
+        "description": "Een Classifier is een categorie: een lijst objecten met dezelfde velden. Klik op een object om het te openen; voeg een veld toe met + onder de velden. Een veld kan tekst zijn, een getal, een keuze, een selectievakje, een link naar een ander object of een formule.",
+        "fields": [
+          {
+            "name": "Rol",
+            "type": "select",
+            "options": {
+              "choices": [
+                "Kapitein",
+                "Geleerde",
+                "Smokkelaar"
+              ]
+            }
+          },
+          {
+            "name": "Leeftijd",
+            "type": "number"
+          },
+          {
+            "name": "Kracht",
+            "type": "number"
+          },
+          {
+            "name": "Macht",
+            "type": "formula",
+            "options": {
+              "expr": "{Kracht} * 2 + {Leeftijd} / 10"
+            }
+          },
+          {
+            "name": "Vriend",
+            "type": "relation",
+            "relTo": "chars"
+          }
+        ],
+        "objects": [
+          {
+            "ref": "mira",
+            "name": "Mira",
+            "note": "Kapitein van de *Meeuw*. Is [[Tobin]] een gunst verschuldigd waar ze nooit over begonnen is.",
+            "values": {
+              "Rol": "Kapitein",
+              "Leeftijd": 34,
+              "Kracht": 7
+            },
+            "links": {
+              "Vriend": [
+                "tobin"
+              ]
+            }
+          },
+          {
+            "ref": "tobin",
+            "name": "Tobin",
+            "note": "Een geleerde die oude zeekaarten kan lezen.",
+            "values": {
+              "Rol": "Geleerde",
+              "Leeftijd": 58,
+              "Kracht": 3
+            },
+            "links": {
+              "Vriend": [
+                "mira"
+              ]
+            }
+          },
+          {
+            "ref": "sela",
+            "name": "Sela",
+            "note": "Kent elke achterdeur van de haven.",
+            "values": {
+              "Rol": "Smokkelaar",
+              "Leeftijd": 27,
+              "Kracht": 5
+            },
+            "links": {
+              "Vriend": [
+                "mira"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "kind": "exhibitor",
+        "name": "Wie kent wie",
+        "selects": [
+          "chars"
+        ],
+        "description": "Een Exhibitor toont de inhoud van andere modules — hier de Personages. Hij bezit zelf niets: wie hem verwijdert, verliest alleen de indeling. Probeer de weergaven Graph, Table en Board, en de stamboomindeling op het veld Vriend."
+      },
+      {
+        "kind": "locator",
+        "name": "Havenkaart",
+        "description": "Een Locator is een kaart. Voeg gebieden en punten toe en link ze aan alles in de Nexus."
+      },
+      {
+        "kind": "chronicler",
+        "name": "Geschiedenis",
+        "description": "Een Chronicler is een tijdlijn. Elke gebeurtenis heeft een datum; de kalender kan die van je eigen wereld zijn.",
+        "events": [
+          {
+            "name": "De haven wordt gesticht",
+            "date": [
+              1020,
+              3,
+              1
+            ],
+            "story": "Vissersfamilies vestigen zich aan de baai."
+          },
+          {
+            "name": "Het stormjaar",
+            "date": [
+              1044,
+              9,
+              12
+            ],
+            "story": "[[Mira]] brengt de *Meeuw* door de storm thuis."
+          },
+          {
+            "name": "De oude kaarten worden gevonden",
+            "date": [
+              1051,
+              5,
+              2
+            ],
+            "story": "[[Tobin]] vindt kaarten die niemand kan lezen."
+          }
+        ]
+      },
+      {
+        "kind": "wanderer",
+        "name": "Reizen",
+        "description": "Een Wanderer zet gebeurtenissen van de tijdlijn op een kaart, zodat je ziet waar dingen gebeurden en in welke volgorde."
+      },
+      {
+        "kind": "narrator",
+        "name": "De ontmoeting",
+        "description": "Een Narrator bewaart dialogen op een bord. Een dialoog kan keuzes bieden; een keuze kan afhangen van een verhaalvariabele. De Reader-weergave speelt hem van begin tot eind.",
+        "dialogues": [
+          {
+            "name": "Aan de kade",
+            "talks": [
+              {
+                "speaker": "Mira",
+                "text": "Je bent laat, Tobin."
+              },
+              {
+                "speaker": "Tobin",
+                "text": "De kaarten wilden me niet laten gaan."
+              }
+            ]
+          },
+          {
+            "name": "Aan dek",
+            "talks": [
+              {
+                "speaker": "Sela",
+                "text": "Als we vannacht uitvaren, stelt niemand vragen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "author",
+        "name": "Boek een",
+        "description": "Een Author-module is een boek: hoofdstukken links, de editor rechts. De Board-weergave is een prikbord met de samenvatting, status en het vertelperspectief van elk hoofdstuk.",
+        "chapters": [
+          {
+            "name": "De kade",
+            "status": "draft",
+            "synopsis": "Mira wacht op Tobin.",
+            "content": "Het tij was al gekeerd voordat [[Tobin]] de kade af kwam."
+          },
+          {
+            "name": "De kaarten",
+            "status": "idea",
+            "synopsis": "De kaarten tonen een kust die niemand kent."
+          }
+        ]
+      },
+      {
+        "kind": "scribe",
+        "name": "Sessienotities",
+        "description": "Een Scribe is een verzameling notities in chatvorm: korte regels met het tijdstip waarop ze geschreven zijn. Handig voor een spelsessie of de ideeën van een dag.",
+        "sessions": [
+          {
+            "name": "Eerste sessie",
+            "messages": [
+              "De spelers ontmoetten [[Sela]] op de vismarkt.",
+              "Ze spraken af 's nachts uit te varen."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "diviner",
+        "name": "Geruchten",
+        "description": "Een Diviner gooit op willekeurige tabellen. Een tabel kan dobbelstenen (1d6) of gewichten gebruiken, en een rij kan op een andere tabel gooien.",
+        "tables": [
+          {
+            "name": "Havengerucht",
+            "dice": "1d6",
+            "entries": [
+              {
+                "lo": 1,
+                "hi": 2,
+                "text": "Er kwam een schip binnen zonder bemanning."
+              },
+              {
+                "lo": 3,
+                "hi": 4,
+                "text": "De vuurtorenwachter heeft een gast."
+              },
+              {
+                "lo": 5,
+                "hi": 5,
+                "text": "Iemand koopt oude kaarten op."
+              },
+              {
+                "lo": 6,
+                "hi": 6,
+                "text": "De storm komt terug."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sketcher",
+        "name": "Havenschets",
+        "pages": [
+          "Pagina 1"
+        ],
+        "description": "Een Sketcher is een tekenbord voor de vrije hand. Een stripvak in een Designer kan een van zijn pagina’s tonen."
+      },
+      {
+        "kind": "designer",
+        "name": "Plotplan",
+        "description": "Een Designer is een vrij diagram. Voeg vormen toe, verbind ze en link een vorm aan wat je maar wilt.",
+        "nodes": [
+          {
+            "shape": "box",
+            "text": "Ontmoeting aan de kade",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "shape": "diamond",
+            "text": "Vannacht uitvaren?",
+            "x": 520,
+            "y": 300
+          },
+          {
+            "shape": "box",
+            "text": "De kaarten",
+            "x": 740,
+            "y": 300
+          }
+        ]
+      },
+      {
+        "kind": "inspector",
+        "name": "Over Mira",
+        "description": "Een Inspector is één pagina over één ding. Deze gaat over [[Mira]]: schrijf vrijuit, met [[links]] zoals overal."
+      }
+    ]
+  }
+}

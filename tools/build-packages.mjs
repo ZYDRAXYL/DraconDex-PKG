@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const CHECK = process.argv.includes('--check');
-const KINDS = new Set(['theme', 'lang', 'view', 'uistyle']);
+const KINDS = new Set(['theme', 'lang', 'view', 'uistyle', 'guide']);
 const TARGETS = new Set(['exe', 'apk']);
 
 // The 15 palette tokens a theme may set. Not a guess — this is every token that
@@ -54,6 +54,13 @@ const VIEW_SETTINGS = new Set(['size','fontScale','animationsEnabled','animation
 // optional subset here: all 7 are required, because ui-style.css itself sets
 // all 7 in every one of its preset blocks.
 const UISTYLE_TOKENS = ['--r','--rs','--rl','--shadow-pop','--shadow-float','--shadow-menu','--shadow-modal'];
+
+// v5 Part 7 (APP docs/V5.md §11.8): the module kinds a guide may build. A
+// guide is a bundle spec with content — one example module per kind — and
+// the app refuses a guide naming a kind it does not have, whole. Must match
+// GUIDE_KINDS in DraconDex-EXE's electron/src/db/guide.js.
+const GUIDE_KINDS = new Set(['manager', 'inspector', 'classifier', 'locator', 'chronicler', 'wanderer', 'narrator',
+  'author', 'scribe', 'drafter', 'exhibitor', 'sketcher', 'designer', 'diviner']);
 
 const problems = [];
 const bad = (id, msg) => problems.push(`${id}: ${msg}`);
@@ -112,6 +119,18 @@ for (const id of ids) {
     const keys = Object.keys(vars);
     for (const k of keys) if (!UISTYLE_TOKENS.includes(k)) bad(id, `unknown ui-style token "${k}"`);
     for (const req of UISTYLE_TOKENS) if (!vars[req]) bad(id, `uistyle is missing the required token ${req}`);
+  } else if (meta.kind === 'guide') {
+    // The same rules as validateGuide() in the app — here so a guide that
+    // would be refused at install time never reaches a release.
+    if (payload.format !== 'ddx-guide') bad(id, 'a guide payload needs "format": "ddx-guide"');
+    if (!/^[a-z]{2,8}$/.test(payload.locale || '')) bad(id, `guide locale "${payload.locale}" is not a locale code`);
+    const mods = payload.spec?.modules;
+    if (typeof payload.spec?.name !== 'string' || !payload.spec.name.trim()) bad(id, 'a guide spec has no name');
+    if (!Array.isArray(mods) || !mods.length || mods.length > 60) bad(id, 'a guide spec needs 1–60 modules');
+    else for (const m of mods) {
+      if (!GUIDE_KINDS.has(m?.kind)) bad(id, `guide module kind "${m?.kind}" does not exist in the app`);
+      if (typeof m?.name !== 'string' || !m.name.trim()) bad(id, 'a guide module has no name');
+    }
   }
 
   const body = JSON.stringify({ meta, payload }, null, 2) + '\n';

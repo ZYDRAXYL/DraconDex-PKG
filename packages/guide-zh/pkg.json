@@ -1,0 +1,15 @@
+{
+  "id": "guide-zh",
+  "kind": "guide",
+  "name": "zh",
+  "displayName": {
+    "en": "Guide · CN - 中文",
+    "th": "คู่มือ · CN - 中文"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "guide-tr",
+  "kind": "guide",
+  "name": "tr",
+  "displayName": {
+    "en": "Guide · TR - Türkçe",
+    "th": "คู่มือ · TR - Türkçe"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

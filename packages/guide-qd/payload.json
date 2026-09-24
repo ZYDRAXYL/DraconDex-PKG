@@ -1,0 +1,289 @@
+{
+  "format": "ddx-guide",
+  "version": 1,
+  "locale": "qd",
+  "spec": {
+    "name": "Gyde",
+    "icon": "info",
+    "manager": true,
+    "modules": [
+      {
+        "ref": "start",
+        "kind": "drafter",
+        "name": "Begynne here",
+        "description": "# Welcome to DraconDex\n\nThis foldere is a smalle worlde that worketh in sooth. All that is withinne is trewe matere: open it, chaunge it, and do it awey whan thou art done. The booke shal never chaunge it of its owne wille.\n\n**One Parte = one Werke.** Eche thynge in this foldere is a Parte of a dyvers kynde. Open eche in turne to see wherefore it serveth.\n\n- [[Personnes]] — a kynde with feeldes. Every rowe is a thynge thou mayst lynke unto.\n- [[Who knoweth whom]] — sheweth the personnes and how they be knytte.\n- [[Mappe of the Havene]] — a mappe with landes.\n- [[Chronycle]] — a rolle of dated happenynges.\n- [[Wanderynges]] — pynnes on the mappe tyed to happenynges.\n- [[The Metynge]] — a speche that brancheth.\n- [[The Fyrste Booke]] — chapiters, a wrytyng table, and a borde of corke.\n- [[Notes of the Sittynge]] — notes after the manere of speche.\n- [[Rumoures]] — a table of chaunce: presse Castyth.\n- [[Draught of the Havene]] — a leef for drawynge by hande.\n- [[Plotte of the Tale]] — a free figure of boxes and arwes.\n- [[Of Mira]] — one leef of one thynge.\n\n**Lynkes.** Wryte `[[` wheresoever to lynke unto any thynge by name — as the lynkes on this leef. The thynge so lynked sheweth this leef amonge its Bakklynks.\n\n**Fynde all thynges.** Presse Ctrl+P to fynde a Parte, a thynge, a lyne of wrytyng, or a commaundement.\n\n**Begynne thyne owne.** Use + in the Nest, or \"Forgyth a Werke fromme a Patterne\" for a hole werke at one strooke."
+      },
+      {
+        "ref": "chars",
+        "kind": "classifier",
+        "catType": "character",
+        "name": "Personnes",
+        "description": "A Classifier is a kynde: a rolle of thynges that sharen feeldes. Clicke a thynge to open it; adde a feelde with + under its feeldes. A feelde may be wrytyng, a nombre, a chesyng, a boxe to tycke, a lynke to anothir thynge, or a reckenynge.",
+        "fields": [
+          {
+            "name": "Office",
+            "type": "select",
+            "options": {
+              "choices": [
+                "Maister of Shippe",
+                "Clerke",
+                "Smugglere"
+              ]
+            }
+          },
+          {
+            "name": "Age",
+            "type": "number"
+          },
+          {
+            "name": "Myght",
+            "type": "number"
+          },
+          {
+            "name": "Powere",
+            "type": "formula",
+            "options": {
+              "expr": "{Myght} * 2 + {Age} / 10"
+            }
+          },
+          {
+            "name": "Frende",
+            "type": "relation",
+            "relTo": "chars"
+          }
+        ],
+        "objects": [
+          {
+            "ref": "mira",
+            "name": "Mira",
+            "note": "Maister of the *Gulle*. Oweth [[Tobin]] a favour she hath not spoken of.",
+            "values": {
+              "Office": "Maister of Shippe",
+              "Age": 34,
+              "Myght": 7
+            },
+            "links": {
+              "Frende": [
+                "tobin"
+              ]
+            }
+          },
+          {
+            "ref": "tobin",
+            "name": "Tobin",
+            "note": "A clerke that redeth olde chartes.",
+            "values": {
+              "Office": "Clerke",
+              "Age": 58,
+              "Myght": 3
+            },
+            "links": {
+              "Frende": [
+                "mira"
+              ]
+            }
+          },
+          {
+            "ref": "sela",
+            "name": "Sela",
+            "note": "Knoweth every bakke dore of the havene.",
+            "values": {
+              "Office": "Smugglere",
+              "Age": 27,
+              "Myght": 5
+            },
+            "links": {
+              "Frende": [
+                "mira"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "kind": "exhibitor",
+        "name": "Who knoweth whom",
+        "selects": [
+          "chars"
+        ],
+        "description": "An Exhibitor sheweth the matere of othir Partes — here, the Personnes. It owneth nothynge: to do it awey loseth but the ordynaunce. Assaye the Graph, Table and Board vyewes, and the ordre of lynage on the Frende feelde."
+      },
+      {
+        "kind": "locator",
+        "name": "Mappe of the Havene",
+        "description": "A Locator is a mappe. Adde landes and poyntes, and lynke them to any thynge in the Nexvs."
+      },
+      {
+        "kind": "chronicler",
+        "name": "Chronycle",
+        "description": "A Chronicler is a rolle of tyme. Every happenynge hath a daye; the kalender may be thyne owne worldes.",
+        "events": [
+          {
+            "name": "The havene is founded",
+            "date": [
+              1020,
+              3,
+              1
+            ],
+            "story": "Fysshers and theyr kynne dwelle by the baye."
+          },
+          {
+            "name": "The yere of the tempest",
+            "date": [
+              1044,
+              9,
+              12
+            ],
+            "story": "[[Mira]] bryngeth the *Gulle* home thurgh the tempest."
+          },
+          {
+            "name": "The olde chartes be founde",
+            "date": [
+              1051,
+              5,
+              2
+            ],
+            "story": "[[Tobin]] fyndeth chartes that none may rede."
+          }
+        ]
+      },
+      {
+        "kind": "wanderer",
+        "name": "Wanderynges",
+        "description": "A Wanderer setteth happenynges upon a mappe, that thou mayst see where thynges befelle and in what ordre."
+      },
+      {
+        "kind": "narrator",
+        "name": "The Metynge",
+        "description": "A Narrator holdeth speches upon a borde. A speche may offre chesynges; a chesyng may hange upon a token of the tale. The Reader vyewe pleyeth it thurgh.",
+        "dialogues": [
+          {
+            "name": "At the kaye",
+            "talks": [
+              {
+                "speaker": "Mira",
+                "text": "Thou art late, Tobin."
+              },
+              {
+                "speaker": "Tobin",
+                "text": "The chartes wolde not lete me goon."
+              }
+            ]
+          },
+          {
+            "name": "On the decke",
+            "talks": [
+              {
+                "speaker": "Sela",
+                "text": "If we sayle tonyght, none shal aske."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "author",
+        "name": "The Fyrste Booke",
+        "description": "An Author Parte is a booke: chapiters on the lefte, the wrytyng table on the ryght. The Board vyewe is a borde of corke with eche chapiters somme, estate and poynt of vyewe.",
+        "chapters": [
+          {
+            "name": "The kaye",
+            "status": "draft",
+            "synopsis": "Mira abydeth Tobin.",
+            "content": "The tyde had turned ere [[Tobin]] came downe the kaye."
+          },
+          {
+            "name": "The chartes",
+            "status": "idea",
+            "synopsis": "The chartes shewe a coste that none knoweth."
+          }
+        ]
+      },
+      {
+        "kind": "scribe",
+        "name": "Notes of the Sittynge",
+        "description": "A Scribe is notes after the manere of speche: shorte lynes with the houre they were wryten. Goode for a sittynge of pleye or a dayes thoughtes.",
+        "sessions": [
+          {
+            "name": "The fyrste sittynge",
+            "messages": [
+              "The pleyers mette [[Sela]] at the fysshe markette.",
+              "They acorded to sayle by nyght."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "diviner",
+        "name": "Rumoures",
+        "description": "A Diviner casteth upon tables of chaunce. A table may use dyse (1d6) or weightes, and a rowe may caste anothir table.",
+        "tables": [
+          {
+            "name": "Rumoure of the havene",
+            "dice": "1d6",
+            "entries": [
+              {
+                "lo": 1,
+                "hi": 2,
+                "text": "A shippe came in with no maryners."
+              },
+              {
+                "lo": 3,
+                "hi": 4,
+                "text": "The keper of the lyghthous hath a gest."
+              },
+              {
+                "lo": 5,
+                "hi": 5,
+                "text": "One byeth up olde chartes."
+              },
+              {
+                "lo": 6,
+                "hi": 6,
+                "text": "The tempest cometh agayne."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sketcher",
+        "name": "Draught of the Havene",
+        "pages": [
+          "Leef 1"
+        ],
+        "description": "A Sketcher is a borde for drawynge by hande. A panell of pictures in a Designer may shewe one of its leves."
+      },
+      {
+        "kind": "designer",
+        "name": "Plotte of the Tale",
+        "description": "A Designer is a free figure. Adde shapes, knytte them, and lynke a shape to any thynge.",
+        "nodes": [
+          {
+            "shape": "box",
+            "text": "Metynge at the kaye",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "shape": "diamond",
+            "text": "Sayle tonyght?",
+            "x": 520,
+            "y": 300
+          },
+          {
+            "shape": "box",
+            "text": "The chartes",
+            "x": 740,
+            "y": 300
+          }
+        ]
+      },
+      {
+        "kind": "inspector",
+        "name": "Of Mira",
+        "description": "An Inspector is one leef of one thynge. This one is of [[Mira]]: wryte freely, with [[lynkes]] as in any othir place."
+      }
+    ]
+  }
+}

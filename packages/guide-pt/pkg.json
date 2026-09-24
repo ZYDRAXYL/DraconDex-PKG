@@ -1,0 +1,15 @@
+{
+  "id": "guide-pt",
+  "kind": "guide",
+  "name": "pt",
+  "displayName": {
+    "en": "Guide · PT - Português (Brasil)",
+    "th": "คู่มือ · PT - Português (Brasil)"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

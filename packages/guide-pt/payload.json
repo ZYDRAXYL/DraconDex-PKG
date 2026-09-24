@@ -1,0 +1,289 @@
+{
+  "format": "ddx-guide",
+  "version": 1,
+  "locale": "pt",
+  "spec": {
+    "name": "Guia",
+    "icon": "info",
+    "manager": true,
+    "modules": [
+      {
+        "ref": "start",
+        "kind": "drafter",
+        "name": "Comece aqui",
+        "description": "# Bem-vindo ao DraconDex\n\nEsta pasta é um pequeno mundo que funciona de verdade. Tudo o que está aqui são dados reais: abra, altere e apague quando terminar. A aplicação nunca mexe nisto sozinha.\n\n**Um módulo = uma tarefa.** Cada item desta pasta é um módulo de um tipo diferente. Abra um de cada vez para ver para que serve.\n\n- [[Personagens]] — uma categoria com campos. Cada linha é um objeto a que pode ligar.\n- [[Quem conhece quem]] — mostra as personagens e como se relacionam.\n- [[Mapa do porto]] — um mapa com áreas.\n- [[História]] — uma linha do tempo de acontecimentos com data.\n- [[Viagens]] — marcadores no mapa ligados a acontecimentos da linha do tempo.\n- [[O encontro]] — uma conversa com ramificações.\n- [[Livro um]] — capítulos, um editor de escrita e um quadro de cortiça.\n- [[Notas da sessão]] — notas em estilo de conversa.\n- [[Rumores]] — uma tabela aleatória: carregue em Rolar.\n- [[Esboço do porto]] — uma página de desenho à mão livre.\n- [[Plano do enredo]] — um diagrama livre de caixas e setas.\n- [[Sobre a Mira]] — uma página sobre uma só coisa.\n\n**Ligações.** Escreva `[[` em qualquer lado para ligar a qualquer coisa pelo nome — como as ligações desta página. O que for ligado mostra esta página nas suas backlinks.\n\n**Encontre tudo.** Carregue em Ctrl+P para procurar um módulo, um objeto, uma linha de texto ou um comando.\n\n**Comece o seu.** Use + no Nest, ou \"Novo projeto a partir de modelo\" para um projeto inteiro num só clique."
+      },
+      {
+        "ref": "chars",
+        "kind": "classifier",
+        "catType": "character",
+        "name": "Personagens",
+        "description": "Um Classifier é uma categoria: uma lista de objetos que partilham campos. Clique num objeto para o abrir; adicione um campo com + por baixo dos campos. Um campo pode ser texto, um número, uma escolha, uma caixa de seleção, uma ligação a outro objeto ou uma fórmula.",
+        "fields": [
+          {
+            "name": "Papel",
+            "type": "select",
+            "options": {
+              "choices": [
+                "Capitã",
+                "Erudito",
+                "Contrabandista"
+              ]
+            }
+          },
+          {
+            "name": "Idade",
+            "type": "number"
+          },
+          {
+            "name": "Força",
+            "type": "number"
+          },
+          {
+            "name": "Poder",
+            "type": "formula",
+            "options": {
+              "expr": "{Força} * 2 + {Idade} / 10"
+            }
+          },
+          {
+            "name": "Amigo",
+            "type": "relation",
+            "relTo": "chars"
+          }
+        ],
+        "objects": [
+          {
+            "ref": "mira",
+            "name": "Mira",
+            "note": "Capitã da *Gaivota*. Deve a [[Tobin]] um favor de que nunca falou.",
+            "values": {
+              "Papel": "Capitã",
+              "Idade": 34,
+              "Força": 7
+            },
+            "links": {
+              "Amigo": [
+                "tobin"
+              ]
+            }
+          },
+          {
+            "ref": "tobin",
+            "name": "Tobin",
+            "note": "Um erudito que lê cartas náuticas antigas.",
+            "values": {
+              "Papel": "Erudito",
+              "Idade": 58,
+              "Força": 3
+            },
+            "links": {
+              "Amigo": [
+                "mira"
+              ]
+            }
+          },
+          {
+            "ref": "sela",
+            "name": "Sela",
+            "note": "Conhece todas as portas das traseiras do porto.",
+            "values": {
+              "Papel": "Contrabandista",
+              "Idade": 27,
+              "Força": 5
+            },
+            "links": {
+              "Amigo": [
+                "mira"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "kind": "exhibitor",
+        "name": "Quem conhece quem",
+        "selects": [
+          "chars"
+        ],
+        "description": "Um Exhibitor mostra o conteúdo de outros módulos — aqui, as Personagens. Não possui nada: apagá-lo só perde a disposição. Experimente as vistas Graph, Table e Board, e a disposição em árvore genealógica pelo campo Amigo."
+      },
+      {
+        "kind": "locator",
+        "name": "Mapa do porto",
+        "description": "Um Locator é um mapa. Adicione áreas e pontos e ligue-os a qualquer coisa do Nexus."
+      },
+      {
+        "kind": "chronicler",
+        "name": "História",
+        "description": "Um Chronicler é uma linha do tempo. Cada acontecimento tem uma data; o calendário pode ser o do seu próprio mundo.",
+        "events": [
+          {
+            "name": "O porto é fundado",
+            "date": [
+              1020,
+              3,
+              1
+            ],
+            "story": "Famílias de pescadores fixam-se na baía."
+          },
+          {
+            "name": "O ano da tempestade",
+            "date": [
+              1044,
+              9,
+              12
+            ],
+            "story": "[[Mira]] traz a *Gaivota* para casa através da tempestade."
+          },
+          {
+            "name": "As cartas antigas são encontradas",
+            "date": [
+              1051,
+              5,
+              2
+            ],
+            "story": "[[Tobin]] encontra cartas que ninguém consegue ler."
+          }
+        ]
+      },
+      {
+        "kind": "wanderer",
+        "name": "Viagens",
+        "description": "Um Wanderer põe os acontecimentos da linha do tempo num mapa, para ver onde as coisas aconteceram e por que ordem."
+      },
+      {
+        "kind": "narrator",
+        "name": "O encontro",
+        "description": "Um Narrator guarda diálogos num quadro. Um diálogo pode oferecer escolhas; uma escolha pode depender de uma variável da história. A vista Reader joga-o do princípio ao fim.",
+        "dialogues": [
+          {
+            "name": "No cais",
+            "talks": [
+              {
+                "speaker": "Mira",
+                "text": "Estás atrasado, Tobin."
+              },
+              {
+                "speaker": "Tobin",
+                "text": "As cartas não me deixavam ir."
+              }
+            ]
+          },
+          {
+            "name": "No convés",
+            "talks": [
+              {
+                "speaker": "Sela",
+                "text": "Se zarparmos esta noite, ninguém faz perguntas."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "author",
+        "name": "Livro um",
+        "description": "Um módulo Author é um livro: capítulos à esquerda, o editor à direita. A vista Board é um quadro de cortiça com a sinopse, o estado e o ponto de vista de cada capítulo.",
+        "chapters": [
+          {
+            "name": "O cais",
+            "status": "draft",
+            "synopsis": "A Mira espera pelo Tobin.",
+            "content": "A maré virou antes de [[Tobin]] descer o cais."
+          },
+          {
+            "name": "As cartas",
+            "status": "idea",
+            "synopsis": "As cartas mostram uma costa que ninguém conhece."
+          }
+        ]
+      },
+      {
+        "kind": "scribe",
+        "name": "Notas da sessão",
+        "description": "Um Scribe são notas em estilo de conversa: linhas rápidas com a hora a que foram escritas. Bom para uma sessão de jogo ou as ideias do dia.",
+        "sessions": [
+          {
+            "name": "Primeira sessão",
+            "messages": [
+              "Os jogadores conheceram [[Sela]] no mercado do peixe.",
+              "Combinaram zarpar de noite."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "diviner",
+        "name": "Rumores",
+        "description": "Um Diviner rola em tabelas aleatórias. Uma tabela pode usar dados (1d6) ou pesos, e uma linha pode rolar outra tabela.",
+        "tables": [
+          {
+            "name": "Rumor do porto",
+            "dice": "1d6",
+            "entries": [
+              {
+                "lo": 1,
+                "hi": 2,
+                "text": "Chegou um navio sem tripulação."
+              },
+              {
+                "lo": 3,
+                "hi": 4,
+                "text": "O faroleiro tem um hóspede."
+              },
+              {
+                "lo": 5,
+                "hi": 5,
+                "text": "Alguém anda a comprar cartas antigas."
+              },
+              {
+                "lo": 6,
+                "hi": 6,
+                "text": "A tempestade vai voltar."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sketcher",
+        "name": "Esboço do porto",
+        "pages": [
+          "Página 1"
+        ],
+        "description": "Um Sketcher é um quadro de desenho à mão livre. Uma vinheta de banda desenhada num Designer pode mostrar uma das suas páginas."
+      },
+      {
+        "kind": "designer",
+        "name": "Plano do enredo",
+        "description": "Um Designer é um diagrama livre. Adicione formas, ligue-as e ligue uma forma a qualquer coisa.",
+        "nodes": [
+          {
+            "shape": "box",
+            "text": "Encontro no cais",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "shape": "diamond",
+            "text": "Zarpar esta noite?",
+            "x": 520,
+            "y": 300
+          },
+          {
+            "shape": "box",
+            "text": "As cartas",
+            "x": 740,
+            "y": 300
+          }
+        ]
+      },
+      {
+        "kind": "inspector",
+        "name": "Sobre a Mira",
+        "description": "Um Inspector é uma página sobre uma só coisa. Esta é sobre [[Mira]]: escreva à vontade, com [[ligações]] como em qualquer outro lado."
+      }
+    ]
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "id": "guide-fr",
+    "kind": "guide",
+    "name": "fr",
+    "displayName": {
+      "en": "Guide · FR - Français",
+      "th": "คู่มือ · FR - Français"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "5.0.0",
+    "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+  },
+  "payload": {
+    "format": "ddx-guide",
+    "version": 1,
+    "locale": "fr",
+    "spec": {
+      "name": "Guide",
+      "icon": "info",
+      "manager": true,
+      "modules": [
+        {
+          "ref": "start",
+          "kind": "drafter",
+          "name": "Commencez ici",
+          "description": "# Bienvenue dans DraconDex\n\nCe dossier est un petit monde qui fonctionne vraiment. Tout ce qu’il contient est de la vraie donnée : ouvrez-le, modifiez-le, supprimez-le quand vous avez fini. L’application n’y touche jamais d’elle-même.\n\n**Un module = une tâche.** Chaque élément de ce dossier est un module d’un type différent. Ouvrez-les un par un pour voir à quoi ils servent.\n\n- [[Personnages]] — une catégorie avec des champs. Chaque ligne est un objet vers lequel créer un lien.\n- [[Qui connaît qui]] — montre les personnages et leurs relations.\n- [[Carte du port]] — une carte avec des zones.\n- [[Histoire]] — une frise d’événements datés.\n- [[Voyages]] — des épingles sur la carte liées aux événements de la frise.\n- [[La rencontre]] — une conversation à embranchements.\n- [[Tome un]] — des chapitres, un éditeur d’écriture et un tableau en liège.\n- [[Notes de séance]] — des notes façon messagerie.\n- [[Rumeurs]] — une table aléatoire : appuyez sur Lancer.\n- [[Croquis du port]] — une page de dessin à main levée.\n- [[Plan de l’intrigue]] — un diagramme libre de boîtes et de flèches.\n- [[À propos de Mira]] — une page sur une seule chose.\n\n**Liens.** Tapez `[[` n’importe où pour lier n’importe quoi par son nom — comme les liens de cette page. L’élément lié affiche cette page dans ses liens entrants.\n\n**Tout retrouver.** Appuyez sur Ctrl+P pour trouver un module, un objet, une ligne de texte ou une commande.\n\n**Lancez le vôtre.** Utilisez + dans le Nest, ou « Nouveau projet depuis un modèle » pour un projet complet en un clic."
+        },
+        {
+          "ref": "chars",
+          "kind": "classifier",
+          "catType": "character",
+          "name": "Personnages",
+          "description": "Un Classifier est une catégorie : une liste d’objets qui partagent des champs. Cliquez sur un objet pour l’ouvrir ; ajoutez un champ avec + sous ses champs. Un champ peut être du texte, un nombre, un choix, une case à cocher, un lien vers un autre objet ou une formule.",
+          "fields": [
+            {
+              "name": "Rôle",
+              "type": "select",
+              "options": {
+                "choices": [
+                  "Capitaine",
+                  "Érudit",
+                  "Contrebandière"
+                ]
+              }
+            },
+            {
+              "name": "Âge",
+              "type": "number"
+            },
+            {
+              "name": "Force",
+              "type": "number"
+            },
+            {
+              "name": "Puissance",
+              "type": "formula",
+              "options": {
+                "expr": "{Force} * 2 + {Âge} / 10"
+              }
+            },
+            {
+              "name": "Ami",
+              "type": "relation",
+              "relTo": "chars"
+            }
+          ],
+          "objects": [
+            {
+              "ref": "mira",
+              "name": "Mira",
+              "note": "Capitaine de la *Mouette*. Doit à [[Tobin]] un service dont elle n’a jamais parlé.",
+              "values": {
+                "Rôle": "Capitaine",
+                "Âge": 34,
+                "Force": 7
+              },
+              "links": {
+                "Ami": [
+                  "tobin"
+                ]
+              }
+            },
+            {
+              "ref": "tobin",
+              "name": "Tobin",
+              "note": "Un érudit qui sait lire les vieilles cartes marines.",
+              "values": {
+                "Rôle": "Érudit",
+                "Âge": 58,
+                "Force": 3
+              },
+              "links": {
+                "Ami": [
+                  "mira"
+                ]
+              }
+            },
+            {
+              "ref": "sela",
+              "name": "Sela",
+              "note": "Connaît toutes les portes dérobées du port.",
+              "values": {
+                "Rôle": "Contrebandière",
+                "Âge": 27,
+                "Force": 5
+              },
+              "links": {
+                "Ami": [
+                  "mira"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "exhibitor",
+          "name": "Qui connaît qui",
+          "selects": [
+            "chars"
+          ],
+          "description": "Un Exhibitor montre le contenu d’autres modules — ici, les Personnages. Il ne possède rien : le supprimer ne fait perdre que la mise en page. Essayez les vues Graph, Table et Board, et la disposition en arbre généalogique sur le champ Ami."
+        },
+        {
+          "kind": "locator",
+          "name": "Carte du port",
+          "description": "Un Locator est une carte. Ajoutez des zones et des points, et liez-les à n’importe quoi dans le Nexus."
+        },
+        {
+          "kind": "chronicler",
+          "name": "Histoire",
+          "description": "Un Chronicler est une frise chronologique. Chaque événement a une date ; le calendrier peut être celui de votre monde.",
+          "events": [
+            {
+              "name": "Fondation du port",
+              "date": [
+                1020,
+                3,
+                1
+              ],
+              "story": "Des familles de pêcheurs s’installent dans la baie."
+            },
+            {
+              "name": "L’année de la tempête",
+              "date": [
+                1044,
+                9,
+                12
+              ],
+              "story": "[[Mira]] ramène la *Mouette* à travers la tempête."
+            },
+            {
+              "name": "Découverte des vieilles cartes",
+              "date": [
+                1051,
+                5,
+                2
+              ],
+              "story": "[[Tobin]] trouve des cartes que personne ne sait lire."
+            }
+          ]
+        },
+        {
+          "kind": "wanderer",
+          "name": "Voyages",
+          "description": "Un Wanderer place les événements de la frise sur une carte, pour voir où les choses se sont passées et dans quel ordre."
+        },
+        {
+          "kind": "narrator",
+          "name": "La rencontre",
+          "description": "Un Narrator range des dialogues sur un tableau. Un dialogue peut proposer des choix ; un choix peut dépendre d’une variable de l’histoire. La vue Reader le joue du début à la fin.",
+          "dialogues": [
+            {
+              "name": "Sur le quai",
+              "talks": [
+                {
+                  "speaker": "Mira",
+                  "text": "Tu es en retard, Tobin."
+                },
+                {
+                  "speaker": "Tobin",
+                  "text": "Les cartes ne voulaient pas me lâcher."
+                }
+              ]
+            },
+            {
+              "name": "Sur le pont",
+              "talks": [
+                {
+                  "speaker": "Sela",
+                  "text": "Si on appareille ce soir, personne ne posera de questions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "author",
+          "name": "Tome un",
+          "description": "Un module Author est un livre : les chapitres à gauche, l’éditeur à droite. La vue Board est un tableau en liège avec le résumé, le statut et le point de vue de chaque chapitre.",
+          "chapters": [
+            {
+              "name": "Le quai",
+              "status": "draft",
+              "synopsis": "Mira attend Tobin.",
+              "content": "La marée avait tourné avant que [[Tobin]] ne descende le quai."
+            },
+            {
+              "name": "Les cartes",
+              "status": "idea",
+              "synopsis": "Les cartes montrent une côte que personne ne connaît."
+            }
+          ]
+        },
+        {
+          "kind": "scribe",
+          "name": "Notes de séance",
+          "description": "Un Scribe, ce sont des notes façon messagerie : des lignes rapides avec l’heure où elles ont été écrites. Pratique pour une séance de jeu ou les idées du jour.",
+          "sessions": [
+            {
+              "name": "Première séance",
+              "messages": [
+                "Les joueurs ont rencontré [[Sela]] au marché aux poissons.",
+                "Ils ont convenu de partir de nuit."
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "diviner",
+          "name": "Rumeurs",
+          "description": "Un Diviner fait des tirages dans des tables aléatoires. Une table peut utiliser des dés (1d6) ou des poids, et une ligne peut lancer une autre table.",
+          "tables": [
+            {
+              "name": "Rumeur du port",
+              "dice": "1d6",
+              "entries": [
+                {
+                  "lo": 1,
+                  "hi": 2,
+                  "text": "Un navire est arrivé sans équipage."
+                },
+                {
+                  "lo": 3,
+                  "hi": 4,
+                  "text": "Le gardien du phare a un invité."
+                },
+                {
+                  "lo": 5,
+                  "hi": 5,
+                  "text": "Quelqu’un achète de vieilles cartes."
+                },
+                {
+                  "lo": 6,
+                  "hi": 6,
+                  "text": "La tempête va revenir."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sketcher",
+          "name": "Croquis du port",
+          "pages": [
+            "Page 1"
+          ],
+          "description": "Un Sketcher est une planche de dessin à main levée. Une case de bande dessinée dans un Designer peut afficher l’une de ses pages."
+        },
+        {
+          "kind": "designer",
+          "name": "Plan de l’intrigue",
+          "description": "Un Designer est un diagramme libre. Ajoutez des formes, reliez-les, et liez une forme à n’importe quoi.",
+          "nodes": [
+            {
+              "shape": "box",
+              "text": "Rencontre sur le quai",
+              "x": 300,
+              "y": 300
+            },
+            {
+              "shape": "diamond",
+              "text": "Partir ce soir ?",
+              "x": 520,
+              "y": 300
+            },
+            {
+              "shape": "box",
+              "text": "Les cartes",
+              "x": 740,
+              "y": 300
+            }
+          ]
+        },
+        {
+          "kind": "inspector",
+          "name": "À propos de Mira",
+          "description": "Un Inspector est une page sur une seule chose. Celle-ci parle de [[Mira]] : écrivez librement, avec des [[liens]] comme partout ailleurs."
+        }
+      ]
+    }
+  }
+}

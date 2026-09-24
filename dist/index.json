@@ -4,6 +4,278 @@
   "release": "pkg-v1.1.0",
   "packages": [
     {
+      "id": "guide-de",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · DE - Deutsch",
+        "th": "คู่มือ · DE - Deutsch"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-de-1.0.0.json",
+      "sha256": "80a7703b6581460a4df485d9baec5d380a3f7924c42fcfc6fdb2acbeb22a6cc8",
+      "bytes": 11220
+    },
+    {
+      "id": "guide-es",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · ES - Español",
+        "th": "คู่มือ · ES - Español"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-es-1.0.0.json",
+      "sha256": "b7375095c7f145677cef7c70749c99c96220e18036b9c50185107579f30309b3",
+      "bytes": 11184
+    },
+    {
+      "id": "guide-fr",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · FR - Français",
+        "th": "คู่มือ · FR - Français"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-fr-1.0.0.json",
+      "sha256": "05ae42889f93cb66c22451d90b917e2a08b1fc3dd604dda680685df84ceea5de",
+      "bytes": 11455
+    },
+    {
+      "id": "guide-id",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · ID - Bahasa Indonesia",
+        "th": "คู่มือ · ID - Bahasa Indonesia"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-id-1.0.0.json",
+      "sha256": "647a8865e383d60dfda95afe89932579783c6d95cf666ca380455b5234bb771f",
+      "bytes": 10858
+    },
+    {
+      "id": "guide-it",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · IT - Italiano",
+        "th": "คู่มือ · IT - Italiano"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-it-1.0.0.json",
+      "sha256": "b942553e055afd1cbe2c646e00d2d84790f727be6b75aea2d1df323f7500c05b",
+      "bytes": 11115
+    },
+    {
+      "id": "guide-ja",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · JP - 日本語",
+        "th": "คู่มือ · JP - 日本語"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-ja-1.0.0.json",
+      "sha256": "4313d8ab5c57022bb049f58a895b2c76b6e534b6ebddc5496cc52f9d2652c290",
+      "bytes": 12072
+    },
+    {
+      "id": "guide-ko",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · KR - 한국어",
+        "th": "คู่มือ · KR - 한국어"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-ko-1.0.0.json",
+      "sha256": "3ddcd21948c5268b74c653665afd53497d93c0480362223cf5723f1d1c79655c",
+      "bytes": 11645
+    },
+    {
+      "id": "guide-nl",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · NL - Nederlands",
+        "th": "คู่มือ · NL - Nederlands"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-nl-1.0.0.json",
+      "sha256": "c59574ec0e4b9bb6277a67455fe508ad49e41e57e239b770d17f91b643aa68b8",
+      "bytes": 11019
+    },
+    {
+      "id": "guide-pl",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · PL - Polski",
+        "th": "คู่มือ · PL - Polski"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-pl-1.0.0.json",
+      "sha256": "64e8a170c3473eec3feeda367bdb102be0cd8cdd9095af8ad710fb318f0d4b9b",
+      "bytes": 10867
+    },
+    {
+      "id": "guide-pt",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · PT - Português (Brasil)",
+        "th": "คู่มือ · PT - Português (Brasil)"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-pt-1.0.0.json",
+      "sha256": "2670dbc9a6c26cd68f279de9481447081fbffb4e832159e8a5ba27a36871f124",
+      "bytes": 11126
+    },
+    {
+      "id": "guide-qd",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · 🐉 Draconic",
+        "th": "คู่มือ · 🐉 Draconic"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-qd-1.0.0.json",
+      "sha256": "95ebbb291411a68680b88a188f8aeb99dc836da71864dbc58358b9ecdde90bc4",
+      "bytes": 10925
+    },
+    {
+      "id": "guide-ru",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · RU - Русский",
+        "th": "คู่มือ · RU - Русский"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-ru-1.0.0.json",
+      "sha256": "dc3f3e61ee0b230ee7baee7beade33ce0c624dd58fdbbbbd4475471907d322bb",
+      "bytes": 13864
+    },
+    {
+      "id": "guide-tr",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · TR - Türkçe",
+        "th": "คู่มือ · TR - Türkçe"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-tr-1.0.0.json",
+      "sha256": "de04d7681eb32c2e524ff959a708396f99cdd0de0cbf89c1e2d8ce765cd802c9",
+      "bytes": 11113
+    },
+    {
+      "id": "guide-uk",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · UA - Українська",
+        "th": "คู่มือ · UA - Українська"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-uk-1.0.0.json",
+      "sha256": "6bee97da0223e3f50d5b265c9f5e1485a96a2262fe5880462dc59e0315408444",
+      "bytes": 13717
+    },
+    {
+      "id": "guide-vi",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · VI - Tiếng Việt",
+        "th": "คู่มือ · VI - Tiếng Việt"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-vi-1.0.0.json",
+      "sha256": "aee7771cb60d68ee5a08a7d1a2367fd59d73e7625dc292ebc5f7295d358607a8",
+      "bytes": 12128
+    },
+    {
+      "id": "guide-zh",
+      "kind": "guide",
+      "version": "1.0.0",
+      "displayName": {
+        "en": "Guide · CN - 中文",
+        "th": "คู่มือ · CN - 中文"
+      },
+      "description": null,
+      "targets": [
+        "exe"
+      ],
+      "minAppVersion": "5.0.0",
+      "asset": "guide-zh-1.0.0.json",
+      "sha256": "61973d7d613685c03ebeb5e4686c334bfc317cc0d636a07f078f7a7e58c2a7cf",
+      "bytes": 10566
+    },
+    {
       "id": "lang-de",
       "kind": "lang",
       "version": "1.0.0",

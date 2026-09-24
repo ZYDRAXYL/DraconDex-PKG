@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "id": "guide-vi",
+    "kind": "guide",
+    "name": "vi",
+    "displayName": {
+      "en": "Guide · VI - Tiếng Việt",
+      "th": "คู่มือ · VI - Tiếng Việt"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "5.0.0",
+    "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+  },
+  "payload": {
+    "format": "ddx-guide",
+    "version": 1,
+    "locale": "vi",
+    "spec": {
+      "name": "Hướng dẫn",
+      "icon": "info",
+      "manager": true,
+      "modules": [
+        {
+          "ref": "start",
+          "kind": "drafter",
+          "name": "Bắt đầu tại đây",
+          "description": "# Chào mừng đến với DraconDex\n\nThư mục này là một thế giới nhỏ đang hoạt động thật. Mọi thứ bên trong đều là dữ liệu thật: hãy mở, sửa, rồi xóa khi dùng xong. Ứng dụng không tự sửa gì ở đây.\n\n**Một mô-đun = một việc.** Mỗi mục trong thư mục này là một mô-đun thuộc loại khác nhau. Mở từng cái để xem nó dùng để làm gì.\n\n- [[Nhân vật]] — một danh mục có các trường. Mỗi hàng là một đối tượng có thể liên kết tới.\n- [[Ai quen ai]] — cho thấy các nhân vật và quan hệ giữa họ.\n- [[Bản đồ bến cảng]] — bản đồ có thể chia vùng.\n- [[Lịch sử]] — dòng thời gian của các sự kiện có ngày tháng.\n- [[Hành trình]] — ghim trên bản đồ gắn với sự kiện trên dòng thời gian.\n- [[Cuộc gặp]] — một cuộc hội thoại rẽ nhánh.\n- [[Tập một]] — các chương, trình soạn thảo và bảng ghim.\n- [[Ghi chú buổi chơi]] — ghi chú kiểu trò chuyện.\n- [[Tin đồn]] — bảng ngẫu nhiên: bấm Gieo.\n- [[Phác thảo bến cảng]] — trang vẽ tay.\n- [[Sơ đồ cốt truyện]] — sơ đồ tự do bằng hộp và mũi tên.\n- [[Về Mira]] — một trang về một điều.\n\n**Liên kết.** Gõ `[[` ở bất kỳ đâu để liên kết tới bất cứ thứ gì theo tên — như các liên kết trên trang này. Thứ được liên kết sẽ liệt kê trang này trong mục liên kết đến.\n\n**Tìm mọi thứ.** Nhấn Ctrl+P để tìm mô-đun, đối tượng, một dòng chữ hay một lệnh.\n\n**Bắt đầu thế giới của bạn.** Dùng + trong Nest, hoặc \"Dự án mới từ mẫu\" để tạo cả một dự án chỉ với một cú bấm."
+        },
+        {
+          "ref": "chars",
+          "kind": "classifier",
+          "catType": "character",
+          "name": "Nhân vật",
+          "description": "Classifier là một danh mục: danh sách các đối tượng có chung các trường. Bấm vào đối tượng để mở; thêm trường bằng + bên dưới các trường. Trường có thể là văn bản, số, lựa chọn, ô đánh dấu, liên kết tới đối tượng khác, hoặc công thức.",
+          "fields": [
+            {
+              "name": "Vai trò",
+              "type": "select",
+              "options": {
+                "choices": [
+                  "Thuyền trưởng",
+                  "Học giả",
+                  "Kẻ buôn lậu"
+                ]
+              }
+            },
+            {
+              "name": "Tuổi",
+              "type": "number"
+            },
+            {
+              "name": "Sức mạnh",
+              "type": "number"
+            },
+            {
+              "name": "Chiến lực",
+              "type": "formula",
+              "options": {
+                "expr": "{Sức mạnh} * 2 + {Tuổi} / 10"
+              }
+            },
+            {
+              "name": "Bạn",
+              "type": "relation",
+              "relTo": "chars"
+            }
+          ],
+          "objects": [
+            {
+              "ref": "mira",
+              "name": "Mira",
+              "note": "Thuyền trưởng tàu *Hải Âu*. Nợ [[Tobin]] một ân tình mà cô chưa từng nhắc tới.",
+              "values": {
+                "Vai trò": "Thuyền trưởng",
+                "Tuổi": 34,
+                "Sức mạnh": 7
+              },
+              "links": {
+                "Bạn": [
+                  "tobin"
+                ]
+              }
+            },
+            {
+              "ref": "tobin",
+              "name": "Tobin",
+              "note": "Một học giả biết đọc hải đồ cổ.",
+              "values": {
+                "Vai trò": "Học giả",
+                "Tuổi": 58,
+                "Sức mạnh": 3
+              },
+              "links": {
+                "Bạn": [
+                  "mira"
+                ]
+              }
+            },
+            {
+              "ref": "sela",
+              "name": "Sela",
+              "note": "Biết mọi cửa sau của bến cảng.",
+              "values": {
+                "Vai trò": "Kẻ buôn lậu",
+                "Tuổi": 27,
+                "Sức mạnh": 5
+              },
+              "links": {
+                "Bạn": [
+                  "mira"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "exhibitor",
+          "name": "Ai quen ai",
+          "selects": [
+            "chars"
+          ],
+          "description": "Exhibitor hiển thị nội dung của các mô-đun khác — ở đây là Nhân vật. Nó không sở hữu gì: xóa nó chỉ mất bố cục. Hãy thử các chế độ xem Graph, Table và Board, cùng bố cục cây gia phả theo trường Bạn."
+        },
+        {
+          "kind": "locator",
+          "name": "Bản đồ bến cảng",
+          "description": "Locator là bản đồ. Thêm vùng và điểm, rồi liên kết chúng tới bất cứ thứ gì trong Nexus."
+        },
+        {
+          "kind": "chronicler",
+          "name": "Lịch sử",
+          "description": "Chronicler là dòng thời gian. Mỗi sự kiện có một ngày; lịch có thể là lịch riêng của thế giới bạn.",
+          "events": [
+            {
+              "name": "Bến cảng được lập nên",
+              "date": [
+                1020,
+                3,
+                1
+              ],
+              "story": "Các gia đình đánh cá định cư ở vịnh."
+            },
+            {
+              "name": "Năm bão tố",
+              "date": [
+                1044,
+                9,
+                12
+              ],
+              "story": "[[Mira]] đưa tàu *Hải Âu* vượt bão về cảng."
+            },
+            {
+              "name": "Tìm thấy hải đồ cổ",
+              "date": [
+                1051,
+                5,
+                2
+              ],
+              "story": "[[Tobin]] tìm thấy những tấm hải đồ không ai đọc được."
+            }
+          ]
+        },
+        {
+          "kind": "wanderer",
+          "name": "Hành trình",
+          "description": "Wanderer đặt các sự kiện của dòng thời gian lên bản đồ, để bạn thấy chuyện xảy ra ở đâu và theo thứ tự nào."
+        },
+        {
+          "kind": "narrator",
+          "name": "Cuộc gặp",
+          "description": "Narrator đặt các đoạn hội thoại trên một bảng. Hội thoại có thể đưa ra lựa chọn; lựa chọn có thể phụ thuộc vào một biến của câu chuyện. Chế độ xem Reader cho bạn chơi thử từ đầu đến cuối.",
+          "dialogues": [
+            {
+              "name": "Ở bến tàu",
+              "talks": [
+                {
+                  "speaker": "Mira",
+                  "text": "Anh đến muộn đấy, Tobin."
+                },
+                {
+                  "speaker": "Tobin",
+                  "text": "Mấy tấm hải đồ không chịu buông tôi ra."
+                }
+              ]
+            },
+            {
+              "name": "Trên boong",
+              "talks": [
+                {
+                  "speaker": "Sela",
+                  "text": "Nếu ra khơi đêm nay thì chẳng ai hỏi han gì."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "author",
+          "name": "Tập một",
+          "description": "Mô-đun Author là một cuốn sách: các chương ở bên trái, trình soạn thảo ở bên phải. Chế độ xem Board là bảng ghim với tóm tắt, trạng thái và điểm nhìn của từng chương.",
+          "chapters": [
+            {
+              "name": "Bến tàu",
+              "status": "draft",
+              "synopsis": "Mira đợi Tobin.",
+              "content": "Thủy triều đã đổi chiều trước khi [[Tobin]] xuống tới bến."
+            },
+            {
+              "name": "Hải đồ",
+              "status": "idea",
+              "synopsis": "Hải đồ vẽ một bờ biển không ai biết."
+            }
+          ]
+        },
+        {
+          "kind": "scribe",
+          "name": "Ghi chú buổi chơi",
+          "description": "Scribe là ghi chú kiểu trò chuyện: những dòng ngắn kèm thời điểm viết. Hợp để ghi một buổi chơi hay ý tưởng trong ngày.",
+          "sessions": [
+            {
+              "name": "Buổi đầu tiên",
+              "messages": [
+                "Người chơi gặp [[Sela]] ở chợ cá.",
+                "Họ thống nhất ra khơi vào ban đêm."
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "diviner",
+          "name": "Tin đồn",
+          "description": "Diviner gieo trên các bảng ngẫu nhiên. Bảng có thể dùng xúc xắc (1d6) hoặc trọng số, và một hàng có thể gieo sang bảng khác.",
+          "tables": [
+            {
+              "name": "Tin đồn bến cảng",
+              "dice": "1d6",
+              "entries": [
+                {
+                  "lo": 1,
+                  "hi": 2,
+                  "text": "Một con tàu cập bến mà không có thủy thủ."
+                },
+                {
+                  "lo": 3,
+                  "hi": 4,
+                  "text": "Người gác hải đăng đang có khách."
+                },
+                {
+                  "lo": 5,
+                  "hi": 5,
+                  "text": "Có người đang mua gom hải đồ cổ."
+                },
+                {
+                  "lo": 6,
+                  "hi": 6,
+                  "text": "Cơn bão sắp quay lại."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sketcher",
+          "name": "Phác thảo bến cảng",
+          "pages": [
+            "Trang 1"
+          ],
+          "description": "Sketcher là bảng vẽ tay. Một ô truyện tranh trong Designer có thể hiển thị một trang của nó."
+        },
+        {
+          "kind": "designer",
+          "name": "Sơ đồ cốt truyện",
+          "description": "Designer là sơ đồ tự do. Thêm hình, nối chúng lại, và liên kết một hình tới bất cứ thứ gì.",
+          "nodes": [
+            {
+              "shape": "box",
+              "text": "Gặp nhau ở bến tàu",
+              "x": 300,
+              "y": 300
+            },
+            {
+              "shape": "diamond",
+              "text": "Ra khơi đêm nay?",
+              "x": 520,
+              "y": 300
+            },
+            {
+              "shape": "box",
+              "text": "Hải đồ",
+              "x": 740,
+              "y": 300
+            }
+          ]
+        },
+        {
+          "kind": "inspector",
+          "name": "Về Mira",
+          "description": "Inspector là một trang về một điều. Trang này viết về [[Mira]]: cứ viết thoải mái, dùng [[liên kết]] như ở bất cứ đâu."
+        }
+      ]
+    }
+  }
+}

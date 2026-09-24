@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "id": "guide-pl",
+    "kind": "guide",
+    "name": "pl",
+    "displayName": {
+      "en": "Guide · PL - Polski",
+      "th": "คู่มือ · PL - Polski"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "5.0.0",
+    "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+  },
+  "payload": {
+    "format": "ddx-guide",
+    "version": 1,
+    "locale": "pl",
+    "spec": {
+      "name": "Przewodnik",
+      "icon": "info",
+      "manager": true,
+      "modules": [
+        {
+          "ref": "start",
+          "kind": "drafter",
+          "name": "Zacznij tutaj",
+          "description": "# Witaj w DraconDex\n\nTen folder to mały, naprawdę działający świat. Wszystko w nim to prawdziwe dane: otwieraj, zmieniaj i usuń, gdy skończysz. Aplikacja nigdy sama niczego tu nie zmienia.\n\n**Jeden moduł = jedno zadanie.** Każdy element tego folderu to moduł innego rodzaju. Otwieraj je po kolei, żeby zobaczyć, do czego służą.\n\n- [[Postacie]] — kategoria z polami. Każdy wiersz to obiekt, do którego można linkować.\n- [[Kto zna kogo]] — pokazuje postacie i łączące je relacje.\n- [[Mapa portu]] — mapa z obszarami.\n- [[Historia]] — oś czasu wydarzeń z datami.\n- [[Podróże]] — pinezki na mapie powiązane z wydarzeniami z osi czasu.\n- [[Spotkanie]] — rozgałęziona rozmowa.\n- [[Tom pierwszy]] — rozdziały, edytor tekstu i tablica korkowa.\n- [[Notatki z sesji]] — notatki w formie czatu.\n- [[Plotki]] — tabela losowa: naciśnij Rzuć.\n- [[Szkic portu]] — strona do rysowania odręcznego.\n- [[Plan fabuły]] — swobodny diagram z bloków i strzałek.\n- [[O Mirze]] — jedna strona o jednej rzeczy.\n\n**Linki.** Wpisz `[[` gdziekolwiek, by podlinkować cokolwiek po nazwie — jak linki na tej stronie. Podlinkowany element pokaże tę stronę wśród linków zwrotnych.\n\n**Znajdź wszystko.** Naciśnij Ctrl+P, by znaleźć moduł, obiekt, wiersz tekstu albo polecenie.\n\n**Zacznij własny.** Użyj + w Nest albo \"Nowy projekt z szablonu\", by jednym kliknięciem utworzyć cały projekt."
+        },
+        {
+          "ref": "chars",
+          "kind": "classifier",
+          "catType": "character",
+          "name": "Postacie",
+          "description": "Classifier to kategoria: lista obiektów o wspólnych polach. Kliknij obiekt, by go otworzyć; dodaj pole przyciskiem + pod polami. Pole może być tekstem, liczbą, wyborem, polem wyboru, linkiem do innego obiektu albo formułą.",
+          "fields": [
+            {
+              "name": "Rola",
+              "type": "select",
+              "options": {
+                "choices": [
+                  "Kapitan",
+                  "Uczony",
+                  "Przemytniczka"
+                ]
+              }
+            },
+            {
+              "name": "Wiek",
+              "type": "number"
+            },
+            {
+              "name": "Siła",
+              "type": "number"
+            },
+            {
+              "name": "Moc",
+              "type": "formula",
+              "options": {
+                "expr": "{Siła} * 2 + {Wiek} / 10"
+              }
+            },
+            {
+              "name": "Przyjaciel",
+              "type": "relation",
+              "relTo": "chars"
+            }
+          ],
+          "objects": [
+            {
+              "ref": "mira",
+              "name": "Mira",
+              "note": "Kapitan statku *Mewa*. Ma dług wdzięczności, o którym milczy — wierzyciel: [[Tobin]].",
+              "values": {
+                "Rola": "Kapitan",
+                "Wiek": 34,
+                "Siła": 7
+              },
+              "links": {
+                "Przyjaciel": [
+                  "tobin"
+                ]
+              }
+            },
+            {
+              "ref": "tobin",
+              "name": "Tobin",
+              "note": "Uczony, który umie czytać stare mapy morskie.",
+              "values": {
+                "Rola": "Uczony",
+                "Wiek": 58,
+                "Siła": 3
+              },
+              "links": {
+                "Przyjaciel": [
+                  "mira"
+                ]
+              }
+            },
+            {
+              "ref": "sela",
+              "name": "Sela",
+              "note": "Zna każde tylne wejście w porcie.",
+              "values": {
+                "Rola": "Przemytniczka",
+                "Wiek": 27,
+                "Siła": 5
+              },
+              "links": {
+                "Przyjaciel": [
+                  "mira"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "exhibitor",
+          "name": "Kto zna kogo",
+          "selects": [
+            "chars"
+          ],
+          "description": "Exhibitor pokazuje zawartość innych modułów — tutaj: Postacie. Sam niczego nie posiada: usunięcie go kasuje tylko układ. Wypróbuj widoki Graph, Table i Board oraz układ drzewa genealogicznego według pola „Przyjaciel”."
+        },
+        {
+          "kind": "locator",
+          "name": "Mapa portu",
+          "description": "Locator to mapa. Dodawaj obszary i punkty i łącz je z czymkolwiek w Nexusie."
+        },
+        {
+          "kind": "chronicler",
+          "name": "Historia",
+          "description": "Chronicler to oś czasu. Każde wydarzenie ma datę; kalendarz może być kalendarzem twojego świata.",
+          "events": [
+            {
+              "name": "Założenie portu",
+              "date": [
+                1020,
+                3,
+                1
+              ],
+              "story": "Rodziny rybaków osiedlają się nad zatoką."
+            },
+            {
+              "name": "Rok burzy",
+              "date": [
+                1044,
+                9,
+                12
+              ],
+              "story": "[[Mira]] przeprowadza statek *Mewa* przez burzę do domu."
+            },
+            {
+              "name": "Odnalezienie starych map",
+              "date": [
+                1051,
+                5,
+                2
+              ],
+              "story": "[[Tobin]] znajduje mapy, których nikt nie potrafi odczytać."
+            }
+          ]
+        },
+        {
+          "kind": "wanderer",
+          "name": "Podróże",
+          "description": "Wanderer umieszcza wydarzenia z osi czasu na mapie, żebyś widział, gdzie i w jakiej kolejności coś się działo."
+        },
+        {
+          "kind": "narrator",
+          "name": "Spotkanie",
+          "description": "Narrator trzyma dialogi na tablicy. Dialog może oferować wybory; wybór może zależeć od zmiennej fabularnej. Widok Reader odgrywa go od początku do końca.",
+          "dialogues": [
+            {
+              "name": "Na nabrzeżu",
+              "talks": [
+                {
+                  "speaker": "Mira",
+                  "text": "Spóźniłeś się, Tobin."
+                },
+                {
+                  "speaker": "Tobin",
+                  "text": "Mapy nie chciały mnie puścić."
+                }
+              ]
+            },
+            {
+              "name": "Na pokładzie",
+              "talks": [
+                {
+                  "speaker": "Sela",
+                  "text": "Jeśli wypłyniemy dziś w nocy, nikt nie będzie zadawał pytań."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "author",
+          "name": "Tom pierwszy",
+          "description": "Moduł Author to książka: rozdziały po lewej, edytor po prawej. Widok Board to tablica korkowa ze streszczeniem, statusem i punktem widzenia każdego rozdziału.",
+          "chapters": [
+            {
+              "name": "Nabrzeże",
+              "status": "draft",
+              "synopsis": "Mira czeka na Tobina.",
+              "content": "Przypływ już się odwrócił, zanim [[Tobin]] zszedł na nabrzeże."
+            },
+            {
+              "name": "Mapy",
+              "status": "idea",
+              "synopsis": "Mapy pokazują wybrzeże, którego nikt nie zna."
+            }
+          ]
+        },
+        {
+          "kind": "scribe",
+          "name": "Notatki z sesji",
+          "description": "Scribe to notatki w formie czatu: krótkie wiersze z godziną zapisu. Dobre na sesję gry albo pomysły z całego dnia.",
+          "sessions": [
+            {
+              "name": "Pierwsza sesja",
+              "messages": [
+                "Na targu rybnym do graczy podeszła [[Sela]].",
+                "Umówili się, że wypłyną nocą."
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "diviner",
+          "name": "Plotki",
+          "description": "Diviner losuje z tabel losowych. Tabela może używać kości (1d6) albo wag, a wiersz może losować z innej tabeli.",
+          "tables": [
+            {
+              "name": "Plotka z portu",
+              "dice": "1d6",
+              "entries": [
+                {
+                  "lo": 1,
+                  "hi": 2,
+                  "text": "Przypłynął statek bez załogi."
+                },
+                {
+                  "lo": 3,
+                  "hi": 4,
+                  "text": "Latarnik ma gościa."
+                },
+                {
+                  "lo": 5,
+                  "hi": 5,
+                  "text": "Ktoś skupuje stare mapy."
+                },
+                {
+                  "lo": 6,
+                  "hi": 6,
+                  "text": "Burza wraca."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sketcher",
+          "name": "Szkic portu",
+          "pages": [
+            "Strona 1"
+          ],
+          "description": "Sketcher to tablica do rysowania odręcznego. Kadr komiksu w Designerze może pokazać jedną z jej stron."
+        },
+        {
+          "kind": "designer",
+          "name": "Plan fabuły",
+          "description": "Designer to swobodny diagram. Dodawaj kształty, łącz je i linkuj kształt do czegokolwiek.",
+          "nodes": [
+            {
+              "shape": "box",
+              "text": "Spotkanie na nabrzeżu",
+              "x": 300,
+              "y": 300
+            },
+            {
+              "shape": "diamond",
+              "text": "Wypłynąć dziś w nocy?",
+              "x": 520,
+              "y": 300
+            },
+            {
+              "shape": "box",
+              "text": "Mapy",
+              "x": 740,
+              "y": 300
+            }
+          ]
+        },
+        {
+          "kind": "inspector",
+          "name": "O Mirze",
+          "description": "Inspector to jedna strona o jednej rzeczy. Bohaterka tej strony to [[Mira]]: pisz swobodnie, z [[linkami]] jak wszędzie indziej."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "guide-id",
+  "kind": "guide",
+  "name": "id",
+  "displayName": {
+    "en": "Guide · ID - Bahasa Indonesia",
+    "th": "คู่มือ · ID - Bahasa Indonesia"
+  },
+  "version": "1.0.0",
+  "targets": [
+    "exe"
+  ],
+  "minAppVersion": "5.0.0",
+  "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+}

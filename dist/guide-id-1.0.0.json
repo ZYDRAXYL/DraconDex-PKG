@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "id": "guide-id",
+    "kind": "guide",
+    "name": "id",
+    "displayName": {
+      "en": "Guide · ID - Bahasa Indonesia",
+      "th": "คู่มือ · ID - Bahasa Indonesia"
+    },
+    "version": "1.0.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "5.0.0",
+    "source": "machine-translated from DraconDex-SDB templates/guide/en.json — corrections welcome"
+  },
+  "payload": {
+    "format": "ddx-guide",
+    "version": 1,
+    "locale": "id",
+    "spec": {
+      "name": "Panduan",
+      "icon": "info",
+      "manager": true,
+      "modules": [
+        {
+          "ref": "start",
+          "kind": "drafter",
+          "name": "Mulai di sini",
+          "description": "# Selamat datang di DraconDex\n\nFolder ini adalah dunia kecil yang benar-benar berjalan. Semua isinya data sungguhan: buka, ubah, lalu hapus jika sudah selesai. Aplikasi tidak pernah mengubah isinya sendiri.\n\n**Satu modul = satu tugas.** Setiap item di folder ini adalah modul dengan jenis berbeda. Buka satu per satu untuk melihat kegunaannya.\n\n- [[Tokoh]] — kategori dengan kolom. Setiap baris adalah objek yang bisa ditautkan.\n- [[Siapa kenal siapa]] — menampilkan para tokoh dan hubungan mereka.\n- [[Peta pelabuhan]] — peta dengan area.\n- [[Sejarah]] — lini masa peristiwa bertanggal.\n- [[Perjalanan]] — penanda peta yang terkait dengan peristiwa di lini masa.\n- [[Pertemuan]] — percakapan bercabang.\n- [[Buku satu]] — bab, editor tulisan, dan papan gabus.\n- [[Catatan sesi]] — catatan gaya obrolan.\n- [[Desas-desus]] — tabel acak: tekan Lempar.\n- [[Sketsa pelabuhan]] — halaman gambar tangan.\n- [[Rencana alur]] — diagram bebas dari kotak dan panah.\n- [[Tentang Mira]] — satu halaman tentang satu hal.\n\n**Tautan.** Ketik `[[` di mana saja untuk menautkan apa pun berdasarkan nama — seperti tautan di halaman ini. Yang ditautkan akan mencantumkan halaman ini di tautan baliknya.\n\n**Cari apa saja.** Tekan Ctrl+P untuk mencari modul, objek, sebaris teks, atau perintah.\n\n**Mulai milikmu sendiri.** Pakai + di Nest, atau \"Proyek baru dari templat\" untuk satu proyek utuh dalam satu klik."
+        },
+        {
+          "ref": "chars",
+          "kind": "classifier",
+          "catType": "character",
+          "name": "Tokoh",
+          "description": "Classifier adalah kategori: daftar objek yang berbagi kolom yang sama. Klik objek untuk membukanya; tambahkan kolom dengan + di bawah kolomnya. Kolom bisa berupa teks, angka, pilihan, kotak centang, tautan ke objek lain, atau rumus.",
+          "fields": [
+            {
+              "name": "Peran",
+              "type": "select",
+              "options": {
+                "choices": [
+                  "Kapten",
+                  "Cendekiawan",
+                  "Penyelundup"
+                ]
+              }
+            },
+            {
+              "name": "Usia",
+              "type": "number"
+            },
+            {
+              "name": "Kekuatan",
+              "type": "number"
+            },
+            {
+              "name": "Daya",
+              "type": "formula",
+              "options": {
+                "expr": "{Kekuatan} * 2 + {Usia} / 10"
+              }
+            },
+            {
+              "name": "Teman",
+              "type": "relation",
+              "relTo": "chars"
+            }
+          ],
+          "objects": [
+            {
+              "ref": "mira",
+              "name": "Mira",
+              "note": "Kapten kapal *Camar*. Berutang budi pada [[Tobin]] tapi tak pernah menyebutnya.",
+              "values": {
+                "Peran": "Kapten",
+                "Usia": 34,
+                "Kekuatan": 7
+              },
+              "links": {
+                "Teman": [
+                  "tobin"
+                ]
+              }
+            },
+            {
+              "ref": "tobin",
+              "name": "Tobin",
+              "note": "Cendekiawan yang bisa membaca peta laut kuno.",
+              "values": {
+                "Peran": "Cendekiawan",
+                "Usia": 58,
+                "Kekuatan": 3
+              },
+              "links": {
+                "Teman": [
+                  "mira"
+                ]
+              }
+            },
+            {
+              "ref": "sela",
+              "name": "Sela",
+              "note": "Tahu setiap pintu belakang di pelabuhan.",
+              "values": {
+                "Peran": "Penyelundup",
+                "Usia": 27,
+                "Kekuatan": 5
+              },
+              "links": {
+                "Teman": [
+                  "mira"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "exhibitor",
+          "name": "Siapa kenal siapa",
+          "selects": [
+            "chars"
+          ],
+          "description": "Exhibitor menampilkan isi modul lain — di sini, Tokoh. Ia tidak memiliki apa pun: menghapusnya hanya menghilangkan tata letaknya. Coba tampilan Graph, Table, dan Board, serta tata letak silsilah pada kolom Teman."
+        },
+        {
+          "kind": "locator",
+          "name": "Peta pelabuhan",
+          "description": "Locator adalah peta. Tambahkan area dan titik, lalu tautkan ke apa pun di Nexus."
+        },
+        {
+          "kind": "chronicler",
+          "name": "Sejarah",
+          "description": "Chronicler adalah lini masa. Setiap peristiwa punya tanggal; kalendernya bisa milik duniamu sendiri.",
+          "events": [
+            {
+              "name": "Pelabuhan didirikan",
+              "date": [
+                1020,
+                3,
+                1
+              ],
+              "story": "Keluarga nelayan menetap di teluk."
+            },
+            {
+              "name": "Tahun badai",
+              "date": [
+                1044,
+                9,
+                12
+              ],
+              "story": "[[Mira]] membawa kapal *Camar* pulang menembus badai."
+            },
+            {
+              "name": "Peta laut kuno ditemukan",
+              "date": [
+                1051,
+                5,
+                2
+              ],
+              "story": "[[Tobin]] menemukan peta laut yang tak bisa dibaca siapa pun."
+            }
+          ]
+        },
+        {
+          "kind": "wanderer",
+          "name": "Perjalanan",
+          "description": "Wanderer menaruh peristiwa lini masa di peta, jadi kamu bisa melihat di mana dan dalam urutan apa semuanya terjadi."
+        },
+        {
+          "kind": "narrator",
+          "name": "Pertemuan",
+          "description": "Narrator menyimpan dialog di sebuah papan. Dialog bisa menawarkan pilihan; pilihan bisa bergantung pada variabel cerita. Tampilan Reader memainkannya dari awal sampai akhir.",
+          "dialogues": [
+            {
+              "name": "Di dermaga",
+              "talks": [
+                {
+                  "speaker": "Mira",
+                  "text": "Kau terlambat, Tobin."
+                },
+                {
+                  "speaker": "Tobin",
+                  "text": "Peta-peta itu tak mau melepaskanku."
+                }
+              ]
+            },
+            {
+              "name": "Di geladak",
+              "talks": [
+                {
+                  "speaker": "Sela",
+                  "text": "Kalau kita berlayar malam ini, tak ada yang bertanya."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "author",
+          "name": "Buku satu",
+          "description": "Modul Author adalah sebuah buku: bab di kiri, editor di kanan. Tampilan Board adalah papan gabus berisi ringkasan, status, dan sudut pandang tiap bab.",
+          "chapters": [
+            {
+              "name": "Dermaga",
+              "status": "draft",
+              "synopsis": "Mira menunggu Tobin.",
+              "content": "Air pasang sudah berbalik sebelum [[Tobin]] turun ke dermaga."
+            },
+            {
+              "name": "Peta laut",
+              "status": "idea",
+              "synopsis": "Peta itu menunjukkan pantai yang tak dikenal siapa pun."
+            }
+          ]
+        },
+        {
+          "kind": "scribe",
+          "name": "Catatan sesi",
+          "description": "Scribe adalah catatan gaya obrolan: baris-baris singkat beserta waktu penulisannya. Cocok untuk sesi permainan atau ide sehari.",
+          "sessions": [
+            {
+              "name": "Sesi pertama",
+              "messages": [
+                "Para pemain bertemu [[Sela]] di pasar ikan.",
+                "Mereka sepakat berlayar malam hari."
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "diviner",
+          "name": "Desas-desus",
+          "description": "Diviner melempar pada tabel acak. Tabel bisa memakai dadu (1d6) atau bobot, dan satu baris bisa melempar tabel lain.",
+          "tables": [
+            {
+              "name": "Desas-desus pelabuhan",
+              "dice": "1d6",
+              "entries": [
+                {
+                  "lo": 1,
+                  "hi": 2,
+                  "text": "Sebuah kapal datang tanpa awak."
+                },
+                {
+                  "lo": 3,
+                  "hi": 4,
+                  "text": "Penjaga mercusuar sedang kedatangan tamu."
+                },
+                {
+                  "lo": 5,
+                  "hi": 5,
+                  "text": "Ada yang memborong peta laut kuno."
+                },
+                {
+                  "lo": 6,
+                  "hi": 6,
+                  "text": "Badai akan kembali."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sketcher",
+          "name": "Sketsa pelabuhan",
+          "pages": [
+            "Halaman 1"
+          ],
+          "description": "Sketcher adalah papan gambar tangan. Panel komik di Designer bisa menampilkan salah satu halamannya."
+        },
+        {
+          "kind": "designer",
+          "name": "Rencana alur",
+          "description": "Designer adalah diagram bebas. Tambahkan bentuk, hubungkan, dan tautkan bentuk ke apa pun.",
+          "nodes": [
+            {
+              "shape": "box",
+              "text": "Bertemu di dermaga",
+              "x": 300,
+              "y": 300
+            },
+            {
+              "shape": "diamond",
+              "text": "Berlayar malam ini?",
+              "x": 520,
+              "y": 300
+            },
+            {
+              "shape": "box",
+              "text": "Peta laut",
+              "x": 740,
+              "y": 300
+            }
+          ]
+        },
+        {
+          "kind": "inspector",
+          "name": "Tentang Mira",
+          "description": "Inspector adalah satu halaman tentang satu hal. Yang ini tentang [[Mira]]: tulis bebas, dengan [[tautan]] seperti di tempat lain."
+        }
+      ]
+    }
+  }
+}

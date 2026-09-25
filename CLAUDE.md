@@ -28,7 +28,7 @@ npm run check   # validate only — what CI runs
 
 - **`dist/` is committed and must match `packages/`.** CI fails otherwise.
   Always `npm run build` and commit both.
-- **A theme may only set the 15 palette tokens that exist**, and must set the 12
+- **A theme may only set the 16 palette tokens that exist (incl. `--t3-aa`, taken from DraconDex-SDB `design/tokens.json`)**, and must set the 12
   every built-in theme carries. A theme missing one leaves whatever the previous
   theme put on `<body>` — a half-applied theme, which is harder to diagnose than
   a broken one.

@@ -8,6 +8,7 @@
     "--t1": "#edf4ff",
     "--t2": "#a6b3c7",
     "--t3": "#66758c",
+    "--t3-aa": "#8c99ac",
     "--accent": "#7c9cff",
     "--accentH": "#9bb5ff",
     "--danger": "#f87171",

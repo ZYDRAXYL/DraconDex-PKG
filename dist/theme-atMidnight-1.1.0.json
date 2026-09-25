@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "theme-atMidnight",
+    "kind": "theme",
+    "name": "atMidnight",
+    "displayName": {
+      "en": "atMidnight",
+      "th": "atMidnight"
+    },
+    "version": "1.1.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#050608",
+      "--surface": "#0c0e14",
+      "--raised": "#12151e",
+      "--hover": "#191d29",
+      "--border": "#232838",
+      "--t1": "#e6ebf5",
+      "--t2": "#8b93a8",
+      "--t3": "#525a70",
+      "--t3-aa": "#788093",
+      "--accent": "#4f7cc4",
+      "--accentH": "#6f9ce4",
+      "--danger": "#ef4444",
+      "--success": "#22c55e"
+    }
+  }
+}

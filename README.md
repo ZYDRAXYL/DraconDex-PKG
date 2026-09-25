@@ -26,7 +26,7 @@ Three kinds:
 
 | kind | is | applied as |
 |---|---|---|
-| `theme` | a palette — up to 15 CSS custom properties | inline CSS variables on `<body>` |
+| `theme` | a palette — up to 16 CSS custom properties | inline CSS variables on `<body>` |
 | `lang` | a full locale key set (~944 keys) | merged into the app's `L` table at boot |
 | `view` | a preset over UI settings the app already has | written to the app's settings |
 

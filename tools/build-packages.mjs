@@ -37,8 +37,10 @@ const TARGETS = new Set(['exe', 'apk']);
 // applies these as inline CSS variables on <body>, so an unrecognised token
 // would either do nothing or collide with a layout variable a theme has no
 // business touching.
+// --t3-aa: muted text lifted to 4.5:1, from DraconDex-SDB design/tokens.json
+// (APP docs/REDESIGN.md C4). Optional — the app falls back to --t2 without it.
 const THEME_TOKENS = new Set(['--bg','--surface','--raised','--hover','--border',
-  '--t1','--t2','--t3','--accent','--accentH','--danger','--success',
+  '--t1','--t2','--t3','--t3-aa','--accent','--accentH','--danger','--success',
   '--button','--on-accent','--on-button']);
 
 // The settings a view package may preset — every one already validated by the

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "theme-rainbow",
+    "kind": "theme",
+    "name": "rainbow",
+    "displayName": {
+      "en": "rainbow",
+      "th": "rainbow"
+    },
+    "version": "1.1.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#fdf3fb",
+      "--surface": "#ffffff",
+      "--raised": "#fbecf7",
+      "--hover": "#f6e0f2",
+      "--border": "#ecd2e9",
+      "--t1": "#3a2b46",
+      "--t2": "#6d5b7c",
+      "--t3": "#a493b3",
+      "--t3-aa": "#776785",
+      "--accent": "#d6249f",
+      "--accentH": "#7c3aed",
+      "--danger": "#fb7185",
+      "--success": "#22c55e"
+    }
+  }
+}

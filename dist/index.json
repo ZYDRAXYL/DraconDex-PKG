@@ -594,6 +594,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#f0dbe8",
+          "--surface": "#ebe3ea",
+          "--raised": "#c6ebd5",
+          "--hover": "#f0d6b4",
+          "--border": "#c4b6ec",
+          "--t1": "#463a5c",
+          "--t2": "#7a6c96",
+          "--t3": "#aa9ec6",
+          "--accent": "#4fb4f5",
+          "--accentH": "#ef8fe0",
+          "--danger": "#fb7185",
+          "--success": "#4fd699",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-afterRain-1.0.0.json",
       "sha256": "7183f877c95c5486c04ca26d49fb328ed4d1ed33c0e6e1b37bdec602b517ccfc",
       "bytes": 785
@@ -611,6 +629,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#eef4f8",
+          "--surface": "#ffffff",
+          "--raised": "#e4edf3",
+          "--hover": "#d5e3ec",
+          "--border": "#bcd0dd",
+          "--t1": "#1f3038",
+          "--t2": "#4c5f6b",
+          "--t3": "#83969f",
+          "--accent": "#2f7095",
+          "--accentH": "#4a8bb0",
+          "--danger": "#dc2626",
+          "--success": "#059669"
+        }
+      },
       "asset": "theme-afterSnow-1.0.0.json",
       "sha256": "76683117c5e55aa60175f6c0700b7aaeaee125ca274760651043308cbd6d20c4",
       "bytes": 705
@@ -628,6 +662,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0e1418",
+          "--surface": "#161e24",
+          "--raised": "#1f2a31",
+          "--hover": "#28353e",
+          "--border": "#33434d",
+          "--t1": "#e7eef2",
+          "--t2": "#9fb0bb",
+          "--t3": "#647581",
+          "--accent": "#38bdf8",
+          "--accentH": "#7dd3fc",
+          "--button": "#0284c7",
+          "--danger": "#f87171",
+          "--success": "#34d399",
+          "--on-accent": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-afterStorm-1.0.0.json",
       "sha256": "78d034aba4e5c6a62b921e83f7e5036a0d166afc8af28fabb34e21d80d349d9d",
       "bytes": 778
@@ -645,6 +697,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#121110",
+          "--surface": "#1c1a18",
+          "--raised": "#272422",
+          "--hover": "#332f2c",
+          "--border": "#403a35",
+          "--t1": "#f7f0e9",
+          "--t2": "#c2b2a3",
+          "--t3": "#82766a",
+          "--accent": "#f97316",
+          "--accentH": "#fbbf24",
+          "--danger": "#ef4444",
+          "--success": "#22c55e",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-afterSunset-1.0.0.json",
       "sha256": "5bf3c9b5830176b5599d67f709825686d27bdf41486a498e3ab0fabe1ba5e08e",
       "bytes": 793
@@ -662,6 +732,25 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#fdeee8",
+          "--surface": "#ffffff",
+          "--raised": "#ffe4e1",
+          "--hover": "#ffd6cc",
+          "--border": "#ffc2b8",
+          "--t1": "#5c2a3a",
+          "--t2": "#8a5468",
+          "--t3": "#c191a0",
+          "--accent": "#ff69b4",
+          "--accentH": "#ff6f3c",
+          "--button": "#ffb627",
+          "--danger": "#dc2626",
+          "--success": "#16a34a",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atDawn-1.0.0.json",
       "sha256": "4ff203a02baf77295e549519eed145f2c1b3813131f4d522276990f33e84989b",
       "bytes": 802
@@ -679,6 +768,25 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#fffaf0",
+          "--surface": "#ffffff",
+          "--raised": "#fff3d6",
+          "--hover": "#ffe9b3",
+          "--border": "#ffd97d",
+          "--t1": "#4a3a12",
+          "--t2": "#7a6230",
+          "--t3": "#b39a63",
+          "--accent": "#e8a93c",
+          "--accentH": "#ffcba4",
+          "--button": "#d4a017",
+          "--danger": "#dc2626",
+          "--success": "#16a34a",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atDay-1.0.0.json",
       "sha256": "b0ee7a3b70e64b2da2142a89ac6d9e6afbd12b323f038db3d2cb6bd38f711a61",
       "bytes": 798
@@ -696,6 +804,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#eef7fb",
+          "--surface": "#ffffff",
+          "--raised": "#e0f0f7",
+          "--hover": "#cfe7f1",
+          "--border": "#b3d5e4",
+          "--t1": "#123040",
+          "--t2": "#3f5f70",
+          "--t3": "#7a97a6",
+          "--accent": "#0891b2",
+          "--accentH": "#06b6d4",
+          "--danger": "#dc2626",
+          "--success": "#059669"
+        }
+      },
       "asset": "theme-atDaybreak-1.0.0.json",
       "sha256": "6f40bd4ea1096ed57f49141d30d1b234df0c243e404665604cd68ee660978904",
       "bytes": 709
@@ -713,6 +837,23 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#1a0f2e",
+          "--surface": "#241640",
+          "--raised": "#2f1d52",
+          "--hover": "#3a2563",
+          "--border": "#46296e",
+          "--t1": "#f3e8ff",
+          "--t2": "#c4a8dd",
+          "--t3": "#8870a8",
+          "--accent": "#b24bf3",
+          "--accentH": "#c9748a",
+          "--button": "#d6473c",
+          "--danger": "#fb7185",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-atDusk-1.0.0.json",
       "sha256": "64ea3f7829593a45031efd1c72e95f2cee39e8ce036c756398e0a66197a71bf7",
       "bytes": 722
@@ -730,6 +871,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#1c1524",
+          "--surface": "#271b32",
+          "--raised": "#332442",
+          "--hover": "#402d52",
+          "--border": "#4d3763",
+          "--t1": "#f6ecff",
+          "--t2": "#c7abd0",
+          "--t3": "#8b7195",
+          "--accent": "#f97316",
+          "--accentH": "#a855f7",
+          "--danger": "#fb7185",
+          "--success": "#22c55e",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atEvening-1.0.0.json",
       "sha256": "80aada71e0e9ba0331e705f5ccbf6b9188f6790141ced2b2e6dda8b0915b942f",
       "bytes": 785
@@ -747,6 +906,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#050608",
+          "--surface": "#0c0e14",
+          "--raised": "#12151e",
+          "--hover": "#191d29",
+          "--border": "#232838",
+          "--t1": "#e6ebf5",
+          "--t2": "#8b93a8",
+          "--t3": "#525a70",
+          "--accent": "#4f7cc4",
+          "--accentH": "#6f9ce4",
+          "--danger": "#ef4444",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-atMidnight-1.0.0.json",
       "sha256": "a5745b426c90808fb7fd9f8bde6885de8746499e856c63920de91ea523569a27",
       "bytes": 709
@@ -764,6 +939,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#fff5ee",
+          "--surface": "#ffffff",
+          "--raised": "#ffe8db",
+          "--hover": "#ffd9c4",
+          "--border": "#f6c3a8",
+          "--t1": "#5c3524",
+          "--t2": "#8f5e45",
+          "--t3": "#c0977f",
+          "--accent": "#f97316",
+          "--accentH": "#fb923c",
+          "--button": "#ea580c",
+          "--danger": "#dc2626",
+          "--success": "#16a34a",
+          "--on-accent": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atMorning-1.0.0.json",
       "sha256": "e520e75d096ce578b4672deb461b4c060272c49e490beff765752c6d50650fff",
       "bytes": 774
@@ -781,6 +974,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#04141c",
+          "--surface": "#08202b",
+          "--raised": "#0c2c3a",
+          "--hover": "#113a4b",
+          "--border": "#17495d",
+          "--t1": "#e0f7ff",
+          "--t2": "#8bbccb",
+          "--t3": "#527481",
+          "--accent": "#0ea5e9",
+          "--accentH": "#22d3ee",
+          "--danger": "#f87171",
+          "--success": "#2dd4bf",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atNight-1.0.0.json",
       "sha256": "b73a1a798e726978631cfde011939cc683a20fcb68ee0045744b0896809bfb57",
       "bytes": 777
@@ -798,6 +1009,23 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#faf3e6",
+          "--surface": "#fffdf8",
+          "--raised": "#f3e6cf",
+          "--hover": "#ecd9b8",
+          "--border": "#dcc59a",
+          "--t1": "#4a3520",
+          "--t2": "#7c6242",
+          "--t3": "#ab9068",
+          "--accent": "#c2703d",
+          "--accentH": "#e0913f",
+          "--button": "#b45309",
+          "--danger": "#dc2626",
+          "--success": "#15803d"
+        }
+      },
       "asset": "theme-atNoon-1.0.0.json",
       "sha256": "85fb27b19072edd843b71fb25ecbaf2a68475ff01ae082251a6308c274530688",
       "bytes": 722
@@ -815,6 +1043,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#fdf0f4",
+          "--surface": "#ffffff",
+          "--raised": "#ffe4ec",
+          "--hover": "#ffd3e0",
+          "--border": "#f6bccf",
+          "--t1": "#5a2740",
+          "--t2": "#8f5570",
+          "--t3": "#c091a5",
+          "--accent": "#ec4899",
+          "--accentH": "#f9a8d4",
+          "--button": "#fb7185",
+          "--danger": "#dc2626",
+          "--success": "#16a34a",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atSunrise-1.0.0.json",
       "sha256": "35f977cac1825d92a1aa55610db2f1643228024adf301d9c29ba8e916b394f4b",
       "bytes": 774
@@ -832,6 +1078,25 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#1f1013",
+          "--surface": "#2c161b",
+          "--raised": "#3a1e24",
+          "--hover": "#48262e",
+          "--border": "#5a2f38",
+          "--t1": "#ffe9e3",
+          "--t2": "#d5a396",
+          "--t3": "#996a60",
+          "--accent": "#fb7185",
+          "--accentH": "#f59e0b",
+          "--button": "#f97316",
+          "--danger": "#ef4444",
+          "--success": "#22c55e",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-atSunset-1.0.0.json",
       "sha256": "9086599e91a1981ea97a38281cb9b2d512dbcea18e59ca0a75d9b514a5640481",
       "bytes": 810
@@ -849,6 +1114,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#13111f",
+          "--surface": "#1c1930",
+          "--raised": "#272040",
+          "--hover": "#332a52",
+          "--border": "#3d3363",
+          "--t1": "#ece8ff",
+          "--t2": "#a9a0cc",
+          "--t3": "#6b6390",
+          "--accent": "#8b5cf6",
+          "--accentH": "#a78bfa",
+          "--danger": "#f87171",
+          "--success": "#34d399"
+        }
+      },
       "asset": "theme-atTwilight-1.0.0.json",
       "sha256": "4a94b470c64891f284051f0e6297424a52aabc87fd304bb0a1d779661805e65e",
       "bytes": 709
@@ -866,6 +1147,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#05050f",
+          "--surface": "#0b0b1f",
+          "--raised": "#10102c",
+          "--hover": "#161638",
+          "--border": "#1c1c44",
+          "--t1": "#e8e8f5",
+          "--t2": "#9797b8",
+          "--t3": "#55557a",
+          "--accent": "#191970",
+          "--accentH": "#000080",
+          "--button": "#c9ccd4",
+          "--danger": "#ef4444",
+          "--success": "#22c55e",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-blueEclipse-1.0.0.json",
       "sha256": "17c1fed8840087ba7368ea9d9b66dac62d9d249fcb19eb516f74430a5119771e",
       "bytes": 782
@@ -883,6 +1182,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#071a17",
+          "--surface": "#0c2621",
+          "--raised": "#123430",
+          "--hover": "#18423c",
+          "--border": "#1f524a",
+          "--t1": "#e6fff6",
+          "--t2": "#8fc7ba",
+          "--t3": "#557a72",
+          "--accent": "#2dd4bf",
+          "--accentH": "#e879f9",
+          "--danger": "#f87171",
+          "--success": "#4ade80",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-clearAurora-1.0.0.json",
       "sha256": "dcc70a70d9293f84fdb303f16e390593d56b777862be71cb865639fe88176e35",
       "bytes": 793
@@ -900,6 +1217,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#08130d",
+          "--surface": "#0e2016",
+          "--raised": "#152d1f",
+          "--hover": "#1d3b28",
+          "--border": "#264a33",
+          "--t1": "#e6f9ec",
+          "--t2": "#98c4a6",
+          "--t3": "#5c7d67",
+          "--accent": "#10b981",
+          "--accentH": "#34d399",
+          "--danger": "#f87171",
+          "--success": "#22c55e",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-clearComet-1.0.0.json",
       "sha256": "91bb2d274516205d656d8469db29370a3307584968ffb387572648b908f071f0",
       "bytes": 789
@@ -917,6 +1252,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#f5f0fc",
+          "--surface": "#ffffff",
+          "--raised": "#ede4fb",
+          "--hover": "#e0d2f6",
+          "--border": "#cdb8ec",
+          "--t1": "#3a2c52",
+          "--t2": "#6b5a86",
+          "--t3": "#9d8cb8",
+          "--accent": "#8b5cf6",
+          "--accentH": "#a78bfa",
+          "--danger": "#dc2626",
+          "--success": "#16a34a"
+        }
+      },
       "asset": "theme-clearDusk-1.0.0.json",
       "sha256": "6717ad3ab188f0426f274a8cab54d0366ca6542f83cf201c340b3b05face1d84",
       "bytes": 705
@@ -934,6 +1285,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0d0a1f",
+          "--surface": "#161233",
+          "--raised": "#1f1a45",
+          "--hover": "#292158",
+          "--border": "#342a6b",
+          "--t1": "#f0ebff",
+          "--t2": "#b3a8d9",
+          "--t3": "#726699",
+          "--accent": "#9d5cf6",
+          "--accentH": "#f472b6",
+          "--danger": "#f87171",
+          "--success": "#34d399"
+        }
+      },
       "asset": "theme-clearGalaxy-1.0.0.json",
       "sha256": "fb964e04f0f52ca1375ce901d7adba76109775b335a84e4c59c318a62a6cbd4b",
       "bytes": 713
@@ -951,6 +1318,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0a0e1a",
+          "--surface": "#111726",
+          "--raised": "#182032",
+          "--hover": "#212b40",
+          "--border": "#2c374f",
+          "--t1": "#eef2fb",
+          "--t2": "#9aa6be",
+          "--t3": "#5f6b83",
+          "--accent": "#fbbf24",
+          "--accentH": "#fde68a",
+          "--button": "#d97706",
+          "--danger": "#f87171",
+          "--success": "#34d399",
+          "--on-accent": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-clearMeteor-1.0.0.json",
       "sha256": "3eb8a52b3108723d02e9d4019d78be57302c387a8f9f12ce6e50e8e0028a4694",
       "bytes": 782
@@ -968,6 +1353,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#141821",
+          "--surface": "#1d222e",
+          "--raised": "#262d3b",
+          "--hover": "#313947",
+          "--border": "#3c4556",
+          "--t1": "#eef1f7",
+          "--t2": "#aeb6c6",
+          "--t3": "#6f7789",
+          "--accent": "#5b6b94",
+          "--accentH": "#8996c0",
+          "--danger": "#f87171",
+          "--success": "#34d399"
+        }
+      },
       "asset": "theme-clearMoon-1.0.0.json",
       "sha256": "eeee180c59c45d2c5820916d4ace2673293fc02ba9c1b20f68e45a9e9e586169",
       "bytes": 705
@@ -985,6 +1386,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#12081a",
+          "--surface": "#1e0f2c",
+          "--raised": "#2a163d",
+          "--hover": "#361e4e",
+          "--border": "#452763",
+          "--t1": "#fbeaff",
+          "--t2": "#cba3d9",
+          "--t3": "#8a6699",
+          "--accent": "#c026d3",
+          "--accentH": "#22d3ee",
+          "--danger": "#fb7185",
+          "--success": "#2dd4bf"
+        }
+      },
       "asset": "theme-clearNebula-1.0.0.json",
       "sha256": "20ceb9a002dc525455c26ef9588ef30a7091f3f535187b630138a9b6c7c629d6",
       "bytes": 713
@@ -1002,6 +1419,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#e8f3ff",
+          "--surface": "#ffffff",
+          "--raised": "#d8ebff",
+          "--hover": "#c4ddfb",
+          "--border": "#aacbee",
+          "--t1": "#22306e",
+          "--t2": "#4f61a3",
+          "--t3": "#8497c4",
+          "--accent": "#00bfff",
+          "--accentH": "#4169e1",
+          "--button": "#0080ff",
+          "--danger": "#dc2626",
+          "--success": "#16a34a",
+          "--on-accent": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-clearSky-1.0.0.json",
       "sha256": "58d8adf9d3b3e0bbea8ce68101f8369f5963fa511089de5ccb1dcb43ae106ec5",
       "bytes": 770
@@ -1019,6 +1454,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0a1128",
+          "--surface": "#101d42",
+          "--raised": "#16254f",
+          "--hover": "#1d2f61",
+          "--border": "#34285e",
+          "--t1": "#f5f3ff",
+          "--t2": "#b9b6d9",
+          "--t3": "#6f6a94",
+          "--accent": "#7c3aed",
+          "--accentH": "#c4b5fd",
+          "--danger": "#ef4444",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-clearStar-1.0.0.json",
       "sha256": "bd049f27bd41d60f80e72371c519e1504bc1afcab3b3a496ede38932a55fd0f2",
       "bytes": 705
@@ -1036,6 +1487,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#eaf6ff",
+          "--surface": "#ffffff",
+          "--raised": "#d8eeff",
+          "--hover": "#c2e3ff",
+          "--border": "#a5d0f0",
+          "--t1": "#173a52",
+          "--t2": "#436078",
+          "--t3": "#8098ab",
+          "--accent": "#f5a623",
+          "--accentH": "#ffc244",
+          "--button": "#d97706",
+          "--danger": "#dc2626",
+          "--success": "#059669",
+          "--on-accent": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-clearSun-1.0.0.json",
       "sha256": "261dbe3222374052ea012005156e11fac06240de38e9e098d4f9b45c7e2b1618",
       "bytes": 770
@@ -1053,6 +1522,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#f4f6fb",
+          "--surface": "#ffffff",
+          "--raised": "#eef1f7",
+          "--hover": "#e2e7f0",
+          "--border": "#ccd3df",
+          "--t1": "#172033",
+          "--t2": "#596274",
+          "--t3": "#8a94a6",
+          "--accent": "#2563eb",
+          "--accentH": "#3b82f6",
+          "--danger": "#dc2626",
+          "--success": "#16a34a"
+        }
+      },
       "asset": "theme-daylight-1.0.0.json",
       "sha256": "a724e59cfd9e4d85215f5b49912f3dcc3a4d8e16e5829c5f5be750de51849f91",
       "bytes": 701
@@ -1070,6 +1555,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0f0f13",
+          "--surface": "#18181f",
+          "--raised": "#22222d",
+          "--hover": "#2a2a38",
+          "--border": "#2e2e3f",
+          "--t1": "#e8e8f0",
+          "--t2": "#9090a8",
+          "--t3": "#5a5a72",
+          "--accent": "#6366f1",
+          "--accentH": "#818cf8",
+          "--danger": "#ef4444",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-midnight-1.0.0.json",
       "sha256": "c335c90d3456d02272d7431ff2a2568af754aef333a37303969742a33ccb8350",
       "bytes": 701
@@ -1087,6 +1588,24 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#101620",
+          "--surface": "#182231",
+          "--raised": "#223044",
+          "--hover": "#2d3b52",
+          "--border": "#334258",
+          "--t1": "#edf4ff",
+          "--t2": "#a6b3c7",
+          "--t3": "#66758c",
+          "--accent": "#7c9cff",
+          "--accentH": "#9bb5ff",
+          "--danger": "#f87171",
+          "--success": "#34d399",
+          "--on-accent": "var(--ink-dark)",
+          "--on-button": "var(--ink-dark)"
+        }
+      },
       "asset": "theme-moonlight-1.0.0.json",
       "sha256": "526c94a6564faadd5eca6d02f80ba2ec583f1a19205f7410a4a79d6302ed3f56",
       "bytes": 785
@@ -1104,6 +1623,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#fdf3fb",
+          "--surface": "#ffffff",
+          "--raised": "#fbecf7",
+          "--hover": "#f6e0f2",
+          "--border": "#ecd2e9",
+          "--t1": "#3a2b46",
+          "--t2": "#6d5b7c",
+          "--t3": "#a493b3",
+          "--accent": "#d6249f",
+          "--accentH": "#7c3aed",
+          "--danger": "#fb7185",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-rainbow-1.0.0.json",
       "sha256": "8499fae63f419fd40049f8f3628f95b340f5c924d145a7c0bae936f83ef05fa9",
       "bytes": 697
@@ -1121,6 +1656,22 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--bg": "#0a0808",
+          "--surface": "#150f0f",
+          "--raised": "#201616",
+          "--hover": "#2b1e1e",
+          "--border": "#3a2624",
+          "--t1": "#f6ece4",
+          "--t2": "#bb9a8a",
+          "--t3": "#7c5f52",
+          "--accent": "#b8703c",
+          "--accentH": "#dc2626",
+          "--danger": "#f97316",
+          "--success": "#22c55e"
+        }
+      },
       "asset": "theme-redEclipse-1.0.0.json",
       "sha256": "44769f7b15c6d8851350b36d242c23b471433d925667f095ee27073081ab442a",
       "bytes": 709
@@ -1138,6 +1689,17 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--r": "4px",
+          "--rs": "2px",
+          "--rl": "6px",
+          "--shadow-pop": "0 1px 2px rgba(0,0,0,.12)",
+          "--shadow-float": "0 1px 3px rgba(0,0,0,.14)",
+          "--shadow-menu": "0 2px 6px rgba(0,0,0,.16)",
+          "--shadow-modal": "0 2px 10px rgba(0,0,0,.18)"
+        }
+      },
       "asset": "uistyle-cleanMinimal-1.0.0.json",
       "sha256": "558169728cda93e45eeb2db7fcb96b4eb45dedd2c7831631a4e988d99360edea",
       "bytes": 663
@@ -1155,6 +1717,17 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--r": "10px",
+          "--rs": "6px",
+          "--rl": "16px",
+          "--shadow-pop": "0 8px 32px rgba(0,0,0,.22)",
+          "--shadow-float": "0 10px 40px rgba(0,0,0,.26)",
+          "--shadow-menu": "0 16px 56px rgba(0,0,0,.3)",
+          "--shadow-modal": "0 24px 80px rgba(0,0,0,.38)"
+        }
+      },
       "asset": "uistyle-fluent-1.0.0.json",
       "sha256": "dbc7d1e96543315ffb01fc924c134b611ff068492be171da6c45d5df02de8d83",
       "bytes": 656
@@ -1172,6 +1745,17 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--r": "0px",
+          "--rs": "0px",
+          "--rl": "0px",
+          "--shadow-pop": "2px 2px 0 rgba(0,0,0,.35)",
+          "--shadow-float": "3px 3px 0 rgba(0,0,0,.4)",
+          "--shadow-menu": "4px 4px 0 rgba(0,0,0,.42)",
+          "--shadow-modal": "6px 6px 0 rgba(0,0,0,.5)"
+        }
+      },
       "asset": "uistyle-hardBlock-1.0.0.json",
       "sha256": "950e3e8bffd6b86d358449bbaabbc8e51cc8899577fe44c8303c38353ec6f4e3",
       "bytes": 648
@@ -1189,6 +1773,17 @@
         "exe"
       ],
       "minAppVersion": "4.16.0",
+      "preview": {
+        "vars": {
+          "--r": "14px",
+          "--rs": "10px",
+          "--rl": "20px",
+          "--shadow-pop": "0 4px 16px rgba(0,0,0,.18)",
+          "--shadow-float": "0 6px 20px rgba(0,0,0,.22)",
+          "--shadow-menu": "0 10px 30px rgba(0,0,0,.24)",
+          "--shadow-modal": "0 16px 48px rgba(0,0,0,.3)"
+        }
+      },
       "asset": "uistyle-roundedMinimal-1.0.0.json",
       "sha256": "97c746b81790569a61a31e7242473603fd150b59c5b6b859ebbae2d385603435",
       "bytes": 678

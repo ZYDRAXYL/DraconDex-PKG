@@ -138,6 +138,12 @@ for (const id of ids) {
     id, kind: meta.kind, version: meta.version,
     displayName: meta.displayName, description: meta.description || null,
     targets: meta.targets, minAppVersion: meta.minAppVersion || null,
+    // Procress 10 part 2: the app draws a not-yet-downloaded theme / UI style
+    // from this, so the user sees what they are about to download. A straight
+    // copy of the payload's own vars — never hand-written, so it cannot
+    // disagree with what installs. Display only: the app re-validates it
+    // with the payload rules and never applies it.
+    ...((meta.kind === 'theme' || meta.kind === 'uistyle') ? { preview: { vars: payload.vars } } : {}),
     asset: `${id}-${meta.version}.json`,
     sha256: createHash('sha256').update(body, 'utf8').digest('hex'),
     bytes: Buffer.byteLength(body, 'utf8'),

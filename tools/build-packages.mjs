@@ -37,8 +37,10 @@ const TARGETS = new Set(['exe', 'apk']);
 // applies these as inline CSS variables on <body>, so an unrecognised token
 // would either do nothing or collide with a layout variable a theme has no
 // business touching.
+// --t3-aa: muted text lifted to 4.5:1, from DraconDex-SDB design/tokens.json
+// (APP docs/REDESIGN.md C4). Optional — the app falls back to --t2 without it.
 const THEME_TOKENS = new Set(['--bg','--surface','--raised','--hover','--border',
-  '--t1','--t2','--t3','--accent','--accentH','--danger','--success',
+  '--t1','--t2','--t3','--t3-aa','--accent','--accentH','--danger','--success',
   '--button','--on-accent','--on-button']);
 
 // The settings a view package may preset — every one already validated by the
@@ -138,6 +140,12 @@ for (const id of ids) {
     id, kind: meta.kind, version: meta.version,
     displayName: meta.displayName, description: meta.description || null,
     targets: meta.targets, minAppVersion: meta.minAppVersion || null,
+    // Procress 10 part 2: the app draws a not-yet-downloaded theme / UI style
+    // from this, so the user sees what they are about to download. A straight
+    // copy of the payload's own vars — never hand-written, so it cannot
+    // disagree with what installs. Display only: the app re-validates it
+    // with the payload rules and never applies it.
+    ...((meta.kind === 'theme' || meta.kind === 'uistyle') ? { preview: { vars: payload.vars } } : {}),
     asset: `${id}-${meta.version}.json`,
     sha256: createHash('sha256').update(body, 'utf8').digest('hex'),
     bytes: Buffer.byteLength(body, 'utf8'),

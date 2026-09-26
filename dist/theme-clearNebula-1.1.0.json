@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "theme-clearNebula",
+    "kind": "theme",
+    "name": "clearNebula",
+    "displayName": {
+      "en": "clearNebula",
+      "th": "clearNebula"
+    },
+    "version": "1.1.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#12081a",
+      "--surface": "#1e0f2c",
+      "--raised": "#2a163d",
+      "--hover": "#361e4e",
+      "--border": "#452763",
+      "--t1": "#fbeaff",
+      "--t2": "#cba3d9",
+      "--t3": "#8a6699",
+      "--t3-aa": "#9c7ba9",
+      "--accent": "#c026d3",
+      "--accentH": "#22d3ee",
+      "--danger": "#fb7185",
+      "--success": "#2dd4bf"
+    }
+  }
+}

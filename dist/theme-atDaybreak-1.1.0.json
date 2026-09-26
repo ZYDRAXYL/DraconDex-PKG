@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "theme-atDaybreak",
+    "kind": "theme",
+    "name": "atDaybreak",
+    "displayName": {
+      "en": "atDaybreak",
+      "th": "atDaybreak"
+    },
+    "version": "1.1.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#eef7fb",
+      "--surface": "#ffffff",
+      "--raised": "#e0f0f7",
+      "--hover": "#cfe7f1",
+      "--border": "#b3d5e4",
+      "--t1": "#123040",
+      "--t2": "#3f5f70",
+      "--t3": "#7a97a6",
+      "--t3-aa": "#52707f",
+      "--accent": "#0891b2",
+      "--accentH": "#06b6d4",
+      "--danger": "#dc2626",
+      "--success": "#059669"
+    }
+  }
+}

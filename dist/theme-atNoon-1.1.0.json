@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "theme-atNoon",
+    "kind": "theme",
+    "name": "atNoon",
+    "displayName": {
+      "en": "atNoon",
+      "th": "atNoon"
+    },
+    "version": "1.1.0",
+    "targets": [
+      "exe"
+    ],
+    "minAppVersion": "4.16.0",
+    "source": "extracted from DraconDex-EXE electron/css/themes.css"
+  },
+  "payload": {
+    "vars": {
+      "--bg": "#faf3e6",
+      "--surface": "#fffdf8",
+      "--raised": "#f3e6cf",
+      "--hover": "#ecd9b8",
+      "--border": "#dcc59a",
+      "--t1": "#4a3520",
+      "--t2": "#7c6242",
+      "--t3": "#ab9068",
+      "--t3-aa": "#7c6445",
+      "--accent": "#c2703d",
+      "--accentH": "#e0913f",
+      "--button": "#b45309",
+      "--danger": "#dc2626",
+      "--success": "#15803d"
+    }
+  }
+}

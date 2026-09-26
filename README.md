@@ -10,8 +10,9 @@
 
 ## What this is
 
-DraconDex ships 32 themes and 18 locales built in. This repo is how it gets
-**more of them without shipping a new build**: each package is a small JSON
+DraconDex ships 4 themes, 2 UI styles and 18 locales built in; the other 28
+themes and 3 UI styles live only here (see `PACKAGES.md`). This repo is how
+the app gets **more of them without shipping a new build**: each package is a small JSON
 payload published as a release asset, and the app fetches and installs it.
 
 ```
@@ -25,7 +26,7 @@ Three kinds:
 
 | kind | is | applied as |
 |---|---|---|
-| `theme` | a palette — up to 15 CSS custom properties | inline CSS variables on `<body>` |
+| `theme` | a palette — up to 16 CSS custom properties | inline CSS variables on `<body>` |
 | `lang` | a full locale key set (~944 keys) | merged into the app's `L` table at boot |
 | `view` | a preset over UI settings the app already has | written to the app's settings |
 

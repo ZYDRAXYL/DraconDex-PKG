@@ -75,4 +75,4 @@ Releases are tagged `pkg-vX.Y.Z` — a fourth namespace alongside `v*`
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Created by LDKTC.

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Downloadable theme, language and view packages for DraconDex",
   "license": "MIT",
+  "author": "LDKTC",
   "type": "module",
   "repository": { "type": "git", "url": "https://github.com/ZYDRAXYL/DraconDex-PKG.git" },
   "scripts": {

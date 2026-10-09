@@ -17,7 +17,7 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
 | `theme` | `{ vars: { "--bg": "#…", … } }` | ใส่เป็น inline CSS variable บน `<body>` |
 | `lang` | `{ locale, label, keys: { … } }` | merge เข้า `L` ของ `i18n.js` ตอน boot |
 | `view` | `{ settings: { … } }` | preset ทับค่าใน `S.settings` |
-| `uistyle` | `{ vars: { "--r": "…", "--shadow-pop": "…", … } }` | ใส่เป็น inline CSS variable บน `<body>` เหมือน `theme` แต่คนละชุด token — ดู 7 ตัวด้านล่าง |
+| `uistyle` | `{ vars: { "--r": "…", "--shadow-pop": "…", … } }` | ใส่เป็น inline CSS variable บน `<body>` เหมือน `theme` แต่คนละชุด token — ดู 7 ตัวบังคับ + กลุ่ม glass (ไม่บังคับ) ด้านล่าง |
 | `guide` | `{ format: "ddx-guide", version, locale, spec: { name, modules: [ … ] } }` | คู่มือในแอปอีกภาษาหนึ่ง — สร้างเป็นโฟลเดอร์ตัวอย่างเมื่อผู้ใช้กดสร้างคู่มือ ไม่ได้ใส่ลง UI |
 
 `uistyle` ใช้กลไกเดียวกับ `theme` เป๊ะ (inline CSS var บน `<body>`) เพียงแต่
@@ -26,6 +26,28 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
 ต้องตั้งครบทั้ง 7 ไม่มีชุด optional เหมือน theme ที่แยก 12/15 เพราะ
 `ui-style.css` เองก็ตั้งครบทั้ง 7 ในทุก preset block ของมัน — ไม่มี `oldPlain`
 เป็นแพ็กเกจ เพราะมันคือค่า default ของ `tokens.css` เอง ไม่มี CSS block ให้ดึง
+
+### กลุ่ม glass (ไม่บังคับ — แก้สัญญา 2026-10-09, APP `Plan.md` Procress 23)
+
+`uistyle` ตั้ง token กระจกเพิ่มได้อีก 4 ตัว **ตั้งครบทั้ง 4 หรือไม่ตั้งเลย** — ตั้งครึ่งเดียว
+จะทิ้งค่า blur/tint ของ style ก่อนหน้าค้างบน `<body>` แบบเดียวกับธีมที่ขาด token
+
+| token | รูปค่า | ความหมาย |
+|---|---|---|
+| `--glass-blur` | `Npx` ระหว่าง 0–40 | รัศมีเบลอของชั้นกระจก (เกิน 40 แพงเกินไปบนเครื่องทั่วไป) |
+| `--glass-tint` | `N%` ระหว่าง 50–100 | สัดส่วนของ `--surface` ที่แผงคงไว้ — ขั้นต่ำ 50 % กันตัวหนังสืออ่านไม่ออก (แอปยังเพิ่ม tint เองต่อธีมถ้า contrast ไม่ถึง 4.5:1) |
+| `--glass-stroke` | ค่าสี CSS | เส้นขอบบาง ๆ ของแผง |
+| `--glass-shadow` | ค่า `box-shadow` | เงาใต้แผง |
+
+ค่าทุกตัวต้องผ่านรูปค่าเดียวกับที่ตัวติดตั้งของแอปยอมรับ (`CSS_VALUE` ใน
+DraconDex-EXE `electron/src/db/pkg.js` — ตัวอักษร/ตัวเลข/`#(),.%/-` และช่องว่าง ≤ 80 ตัว)
+
+**ยังเผยแพร่ไม่ได้** : ตัวติดตั้งใน EXE ทุกเวอร์ชันที่มีตอนนี้ปฏิเสธ token ที่ไม่รู้จัก
+และยังไม่ตรวจ `minAppVersion` — แพ็กเกจ glass ที่ออกไปตอนนี้จะติดตั้งไม่ได้บนทุกเครื่อง
+ตัว build จึงล็อกไว้ด้วย `GLASS_MIN_APP = null` ใน `tools/build-packages.mjs` : แพ็กเกจที่มี
+token glass ล้มทุกครั้ง จนกว่า EXE จะปล่อยเวอร์ชันที่ (1) รับ 4 token นี้ และ (2) ซ่อน/ล็อก
+แพ็กเกจที่ `minAppVersion` สูงกว่าตัวเอง — แล้วจึงตั้ง `GLASS_MIN_APP` เป็นเวอร์ชันนั้น
+และแพ็กเกจ glass ทุกตัวต้องมี `minAppVersion` ≥ ค่านั้น
 
 `guide` (v5 Part 7, APP `docs/V5.md` §11.8) คือ bundle spec ตัวเดียวกับที่
 แม่แบบใน DraconDex-EXE ใช้ (`electron/src/db/bundle.js` อธิบายรูปของ `spec`)
@@ -90,8 +112,10 @@ packages/<id>/payload.json   ของจริงที่แอปจะเอ
   extract มาไม่ครบ (key ที่หายจะ render เป็นชื่อ key ตรงๆ ไม่ error)
 - **view** ตั้ง setting ที่แอปไม่รู้จัก — ทุก key ต้องเป็นตัวที่ `setUiSetting()`
   validate อยู่แล้ว แพ็กเกจจึงไม่มีทางสร้าง setting ใหม่ที่แอปไม่เข้าใจ
-- **uistyle** ตั้ง token นอก 7 ตัวที่มีจริง หรือขาดตัวใดตัวหนึ่งใน 7 — ไม่มี
-  ชุด optional เหมือน theme, ครบทั้ง 7 เท่านั้น
+- **uistyle** ตั้ง token นอก 7 ตัวที่มีจริง + 4 ตัวของกลุ่ม glass, หรือขาดตัวใดตัวหนึ่งใน 7
+  (7 ตัวนี้บังคับเสมอ) · ตั้ง glass ไม่ครบ 4 · `--glass-blur` นอก 0–40px · `--glass-tint`
+  นอก 50–100% · ค่าใดไม่ผ่านรูปค่าของตัวติดตั้งในแอป · มี glass แต่ `GLASS_MIN_APP`
+  ยังไม่ตั้ง หรือ `minAppVersion` ต่ำกว่านั้น
 - **guide** ไม่มี `format: "ddx-guide"` หรือ `locale`, `spec` ไม่มีชื่อ, มี module
   0 หรือเกิน 60 ตัว หรืออ้าง kind ที่แอปไม่มี — แอปจะปฏิเสธทั้งแพ็กเกจตอนติดตั้ง
   เพราะคู่มือที่สร้าง module ผิดชนิดคือโฟลเดอร์ที่พังทั้งโฟลเดอร์

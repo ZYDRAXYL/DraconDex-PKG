@@ -57,6 +57,32 @@ const VIEW_SETTINGS = new Set(['size','fontScale','animationsEnabled','animation
 // all 7 in every one of its preset blocks.
 const UISTYLE_TOKENS = ['--r','--rs','--rl','--shadow-pop','--shadow-float','--shadow-menu','--shadow-modal'];
 
+// Glass (APP Plan.md Procress 23): an optional group on top of the 7. A
+// uistyle sets either none of these or all four — a half-set glass group
+// would leave the previous style's blur or tint on <body>, the same
+// half-applied failure theme's required set exists to prevent.
+//   --glass-blur    Npx, 0–40 (blur cost grows with radius; 40 is the cap)
+//   --glass-tint    N%, 50–100 — how much of --surface the pane keeps; the
+//                   floor keeps text readable on any theme before the app's
+//                   own per-theme contrast floor even applies
+//   --glass-stroke  the hairline edge colour
+//   --glass-shadow  box-shadow under the pane
+const GLASS_TOKENS = ['--glass-blur','--glass-tint','--glass-stroke','--glass-shadow'];
+// The first DraconDex-EXE version whose installer (electron/src/db/pkg.js)
+// accepts the glass tokens AND enforces minAppVersion. Until that release
+// exists this stays null and every package that sets a glass token fails
+// the build: today's installer refuses an unknown ui-style token outright,
+// so a published glass package would fail to install on every EXE out there.
+const GLASS_MIN_APP = null;
+// The same value whitelist the EXE installer applies (pkg.js CSS_VALUE) — a
+// value it would refuse must not build here either.
+const CSS_VALUE = /^[#a-zA-Z0-9\s(),.%/-]{1,80}$/;
+const verGte = (a, b) => {
+  const [x, y] = [a, b].map((v) => String(v).split('.').map(Number));
+  for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+  return true;
+};
+
 // v5 Part 7 (APP docs/V5.md §11.8): the module kinds a guide may build. A
 // guide is a bundle spec with content — one example module per kind — and
 // the app refuses a guide naming a kind it does not have, whole. Must match
@@ -119,8 +145,19 @@ for (const id of ids) {
   } else if (meta.kind === 'uistyle') {
     const vars = payload.vars || {};
     const keys = Object.keys(vars);
-    for (const k of keys) if (!UISTYLE_TOKENS.includes(k)) bad(id, `unknown ui-style token "${k}"`);
+    for (const k of keys) if (!UISTYLE_TOKENS.includes(k) && !GLASS_TOKENS.includes(k)) bad(id, `unknown ui-style token "${k}"`);
     for (const req of UISTYLE_TOKENS) if (!vars[req]) bad(id, `uistyle is missing the required token ${req}`);
+    for (const k of keys) if (typeof vars[k] !== 'string' || !CSS_VALUE.test(vars[k])) bad(id, `value of ${k} is not a plain CSS value the app accepts`);
+    const glass = GLASS_TOKENS.filter((k) => k in vars);
+    if (glass.length) {
+      for (const req of GLASS_TOKENS) if (!vars[req]) bad(id, `glass tokens are all-or-nothing — missing ${req}`);
+      const blur = /^(\d+(?:\.\d+)?)px$/.exec(vars['--glass-blur'] || '');
+      if (vars['--glass-blur'] && (!blur || +blur[1] > 40)) bad(id, `--glass-blur "${vars['--glass-blur']}" must be 0–40px`);
+      const tint = /^(\d+(?:\.\d+)?)%$/.exec(vars['--glass-tint'] || '');
+      if (vars['--glass-tint'] && (!tint || +tint[1] < 50 || +tint[1] > 100)) bad(id, `--glass-tint "${vars['--glass-tint']}" must be 50–100%`);
+      if (!GLASS_MIN_APP) bad(id, 'glass tokens are not publishable yet — no DraconDex-EXE release accepts them (GLASS_MIN_APP is unset)');
+      else if (!semver.test(meta.minAppVersion || '') || !verGte(meta.minAppVersion, GLASS_MIN_APP)) bad(id, `a glass uistyle needs minAppVersion >= ${GLASS_MIN_APP}`);
+    }
   } else if (meta.kind === 'guide') {
     // The same rules as validateGuide() in the app — here so a guide that
     // would be refused at install time never reaches a release.

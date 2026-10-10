@@ -7,7 +7,8 @@
 //
 // This exists because the data ALREADY IS data — themes.css says so in its own
 // header ("adding a theme = one block here + one entry in UI_THEME_OPTIONS"),
-// and i18n.js's `L` is 18 flat key:'value' blocks. Nothing here is invented;
+// and each language's i18n/<code>.js (i18n.js before EXE Procress 19 F8) is
+// one flat key:'value' table. Nothing here is invented;
 // it is transcription with a parser instead of by hand.
 //
 // It is a development tool, not part of the build. Packages, once extracted,
@@ -85,22 +86,38 @@ if (langs.length) {
   const labels = /const LANGUAGE_LABELS\s*=\s*(\{[^\n]*\})/.exec(js);
   const labelMap = labels ? eval(`(${labels[1]})`) : {};
   for (const code of langs) {
-    // Locale blocks are `  <code>: { ... }` inside `const L = {`, each one flat
-    // key:'value'. Scan braces rather than regex the whole block: the values
-    // contain braces and quotes of their own.
-    const start = js.indexOf(`\n  ${code}: {`);
-    if (start < 0) { console.error(`::error::no "${code}:" block in i18n.js's const L`); process.exit(1); }
-    let i = js.indexOf('{', start), depth = 0, end = -1;
-    for (let j = i; j < js.length; j++) {
-      if (js[j] === '{') depth++;
-      else if (js[j] === '}') { depth--; if (!depth) { end = j; break; } }
+    // Since EXE Procress 19 F8 each language is its own file,
+    // electron/src/renderer/i18n/<code>.js, holding one call:
+    // i18nAdd('<code>', {t() keys}, {COMMON_UI_TEXT column}). Run it against a
+    // stub that captures the keys — the file is plain data, the same thing the
+    // app's own module-style check does with it. Older checkouts (one i18n.js
+    // with a `  <code>: {` block per language) still read the old way.
+    let keys;
+    const per = join(ROOT, EXE, `electron/src/renderer/i18n/${code}.js`);
+    if (existsSync(per)) {
+      new Function('i18nAdd', readFileSync(per, 'utf8'))((lang, k) => {
+        if (lang !== code) { console.error(`::error::i18n/${code}.js registers "${lang}"`); process.exit(1); }
+        keys = k;
+      });
+      if (!keys) { console.error(`::error::i18n/${code}.js never calls i18nAdd`); process.exit(1); }
+    } else {
+      // Locale blocks are `  <code>: { ... }` inside `const L = {`, each one flat
+      // key:'value'. Scan braces rather than regex the whole block: the values
+      // contain braces and quotes of their own.
+      const start = js.indexOf(`\n  ${code}: {`);
+      if (start < 0) { console.error(`::error::no i18n/${code}.js and no "${code}:" block in i18n.js's const L`); process.exit(1); }
+      let i = js.indexOf('{', start), depth = 0, end = -1;
+      for (let j = i; j < js.length; j++) {
+        if (js[j] === '{') depth++;
+        else if (js[j] === '}') { depth--; if (!depth) { end = j; break; } }
+      }
+      keys = eval(`(${js.slice(i, end + 1)})`);
     }
-    const keys = eval(`(${js.slice(i, end + 1)})`);
     writePackage(`lang-${code}`, {
       id: `lang-${code}`, kind: 'lang', name: code,
       displayName: { en: labelMap[code] || code, th: labelMap[code] || code },
       version: '1.0.0', targets: ['exe'], minAppVersion: '4.16.0',
-      source: 'extracted from DraconDex-EXE electron/src/renderer/i18n.js',
+      source: `extracted from DraconDex-EXE electron/src/renderer/${existsSync(per) ? `i18n/${code}.js` : 'i18n.js'}`,
     }, { locale: code, label: labelMap[code] || code, keys });
     console.log(`    ${code}: ${Object.keys(keys).length} keys`);
   }

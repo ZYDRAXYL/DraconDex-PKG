@@ -7,7 +7,7 @@
       "en": "atDusk",
       "th": "atDusk"
     },
-    "version": "1.1.0",
+    "version": "1.1.1",
     "targets": [
       "exe"
     ],
@@ -27,6 +27,7 @@
       "--t3-aa": "#9b86b8",
       "--accent": "#b24bf3",
       "--accentH": "#c9748a",
+      "--on-accent": "#000000",
       "--button": "#d6473c",
       "--danger": "#fb7185",
       "--success": "#22c55e"

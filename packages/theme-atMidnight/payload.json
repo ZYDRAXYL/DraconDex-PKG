@@ -11,6 +11,7 @@
     "--t3-aa": "#788093",
     "--accent": "#4f7cc4",
     "--accentH": "#6f9ce4",
+    "--on-accent": "#000000",
     "--danger": "#ef4444",
     "--success": "#22c55e"
   }

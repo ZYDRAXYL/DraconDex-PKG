@@ -1,7 +1,7 @@
 {
   "catalogVersion": 1,
   "repo": "ZYDRAXYL/DraconDex-PKG",
-  "release": "pkg-v1.1.0",
+  "release": "pkg-v1.1.1",
   "packages": [
     {
       "id": "guide-de",
@@ -800,7 +800,7 @@
     {
       "id": "theme-atDaybreak",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atDaybreak",
         "th": "atDaybreak"
@@ -823,18 +823,19 @@
           "--t3-aa": "#52707f",
           "--accent": "#0891b2",
           "--accentH": "#06b6d4",
+          "--on-accent": "#1a1a26",
           "--danger": "#dc2626",
           "--success": "#059669"
         }
       },
-      "asset": "theme-atDaybreak-1.1.0.json",
-      "sha256": "7eaeacca33a0f8f30f77fe4a130be541a87737ce4463c3db074586db4ef52632",
-      "bytes": 737
+      "asset": "theme-atDaybreak-1.1.1.json",
+      "sha256": "21aad4f6b84d530598a3dbd1da11f0037fd36078cef27c2f755ac4921d5fe262",
+      "bytes": 769
     },
     {
       "id": "theme-atDusk",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atDusk",
         "th": "atDusk"
@@ -857,14 +858,15 @@
           "--t3-aa": "#9b86b8",
           "--accent": "#b24bf3",
           "--accentH": "#c9748a",
+          "--on-accent": "#000000",
           "--button": "#d6473c",
           "--danger": "#fb7185",
           "--success": "#22c55e"
         }
       },
-      "asset": "theme-atDusk-1.1.0.json",
-      "sha256": "735c243581b031531b6bf107475e60c0b2688f1c9583b66f2cafc73ee048f66f",
-      "bytes": 750
+      "asset": "theme-atDusk-1.1.1.json",
+      "sha256": "33b3420b2d2e56932291a203e1aaa8abb633a66bb49091dfcf3dc75721b96a08",
+      "bytes": 782
     },
     {
       "id": "theme-atEvening",
@@ -905,7 +907,7 @@
     {
       "id": "theme-atMidnight",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atMidnight",
         "th": "atMidnight"
@@ -928,13 +930,14 @@
           "--t3-aa": "#788093",
           "--accent": "#4f7cc4",
           "--accentH": "#6f9ce4",
+          "--on-accent": "#000000",
           "--danger": "#ef4444",
           "--success": "#22c55e"
         }
       },
-      "asset": "theme-atMidnight-1.1.0.json",
-      "sha256": "f16b95eafd70627dc6cc26c40ba6c3937cd0ed2cdd430b72aff5a57e4c4d0728",
-      "bytes": 737
+      "asset": "theme-atMidnight-1.1.1.json",
+      "sha256": "286f1a88b3bd7a6f8ed89a9efdb6d40446bdabbf5f6f245915728817599d1c41",
+      "bytes": 769
     },
     {
       "id": "theme-atMorning",
@@ -1011,7 +1014,7 @@
     {
       "id": "theme-atNoon",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atNoon",
         "th": "atNoon"
@@ -1034,19 +1037,20 @@
           "--t3-aa": "#7c6445",
           "--accent": "#c2703d",
           "--accentH": "#e0913f",
+          "--on-accent": "#1a1a26",
           "--button": "#b45309",
           "--danger": "#dc2626",
           "--success": "#15803d"
         }
       },
-      "asset": "theme-atNoon-1.1.0.json",
-      "sha256": "dde7b9c1873701014f63fb644fbfd48e6cb1f416246fb8f405c76887bad567b2",
-      "bytes": 750
+      "asset": "theme-atNoon-1.1.1.json",
+      "sha256": "97216695d9d7589b477de582085096db1915805d4f320d496ebab2f1ee194a96",
+      "bytes": 782
     },
     {
       "id": "theme-atSunrise",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atSunrise",
         "th": "atSunrise"
@@ -1069,15 +1073,16 @@
           "--t3-aa": "#8c5b71",
           "--accent": "#ec4899",
           "--accentH": "#f9a8d4",
+          "--on-accent": "#1a1a26",
           "--button": "#fb7185",
           "--danger": "#dc2626",
           "--success": "#16a34a",
           "--on-button": "var(--ink-dark)"
         }
       },
-      "asset": "theme-atSunrise-1.1.0.json",
-      "sha256": "038f26563870c7788a545cea93692deca98df30077f4f8da8d97493fa9f2394c",
-      "bytes": 802
+      "asset": "theme-atSunrise-1.1.1.json",
+      "sha256": "2ca24e3aa03dd8377079f883efdfd68f7ae2d5d2fe9e932b02532ff658a97e29",
+      "bytes": 834
     },
     {
       "id": "theme-atSunset",
@@ -1119,7 +1124,7 @@
     {
       "id": "theme-atTwilight",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "atTwilight",
         "th": "atTwilight"
@@ -1142,13 +1147,14 @@
           "--t3-aa": "#8e87ae",
           "--accent": "#8b5cf6",
           "--accentH": "#a78bfa",
+          "--on-accent": "#000000",
           "--danger": "#f87171",
           "--success": "#34d399"
         }
       },
-      "asset": "theme-atTwilight-1.1.0.json",
-      "sha256": "63559db7829f9f2d66a3f2a9f92fd77c3df6f5df3ee7ae537ecf3a84230f4d82",
-      "bytes": 737
+      "asset": "theme-atTwilight-1.1.1.json",
+      "sha256": "08e0e11ed328d8794afff9337097a4af4b80fb6caf1260d1cacebb6f5827dc07",
+      "bytes": 769
     },
     {
       "id": "theme-blueEclipse",
@@ -1261,7 +1267,7 @@
     {
       "id": "theme-clearDusk",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "clearDusk",
         "th": "clearDusk"
@@ -1284,18 +1290,19 @@
           "--t3-aa": "#70618a",
           "--accent": "#8b5cf6",
           "--accentH": "#a78bfa",
+          "--on-accent": "#000000",
           "--danger": "#dc2626",
           "--success": "#16a34a"
         }
       },
-      "asset": "theme-clearDusk-1.1.0.json",
-      "sha256": "75822a8adbb2919bda6eb4aef8f6c600ee01b1d2c70b347f8e39a829859df839",
-      "bytes": 733
+      "asset": "theme-clearDusk-1.1.1.json",
+      "sha256": "d437db761b0135d3c8873f7931e8a8c8ef311130ab50d8eca9537f0947db61b8",
+      "bytes": 765
     },
     {
       "id": "theme-clearGalaxy",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "clearGalaxy",
         "th": "clearGalaxy"
@@ -1318,13 +1325,14 @@
           "--t3-aa": "#8b81ad",
           "--accent": "#9d5cf6",
           "--accentH": "#f472b6",
+          "--on-accent": "#000000",
           "--danger": "#f87171",
           "--success": "#34d399"
         }
       },
-      "asset": "theme-clearGalaxy-1.1.0.json",
-      "sha256": "7e4bc4851d4e6abc07e9d875417ba56b1280b62b814f8f41b6af0b2ac1998ba6",
-      "bytes": 741
+      "asset": "theme-clearGalaxy-1.1.1.json",
+      "sha256": "81731d06bbb4399b03eb62d3b80383f207f2468bde86db72cd86319cd3380972",
+      "bytes": 773
     },
     {
       "id": "theme-clearMeteor",
@@ -1677,7 +1685,7 @@
     {
       "id": "theme-redEclipse",
       "kind": "theme",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "displayName": {
         "en": "redEclipse",
         "th": "redEclipse"
@@ -1700,13 +1708,14 @@
           "--t3-aa": "#967d71",
           "--accent": "#b8703c",
           "--accentH": "#dc2626",
+          "--on-accent": "#000000",
           "--danger": "#f97316",
           "--success": "#22c55e"
         }
       },
-      "asset": "theme-redEclipse-1.1.0.json",
-      "sha256": "e6be96fed9b52ddd0926ee4ba6717a4bc6a80fadfffead914b5d28bd8f02cc0e",
-      "bytes": 737
+      "asset": "theme-redEclipse-1.1.1.json",
+      "sha256": "bfc7ea1c519addad25257296463856e9c51d0bd8eaae22aeb6e362967badd349",
+      "bytes": 769
     },
     {
       "id": "uistyle-cleanMinimal",
